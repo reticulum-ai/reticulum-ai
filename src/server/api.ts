@@ -1382,7 +1382,11 @@ export function createApiServer(
 
             tx.sign(keyPair.privateKey, keyPair.publicKey);
 
-            const poolRes = blockchain.mempool.addTransaction(tx);
+            const poolRes = blockchain.mempool.addTransaction(
+                tx,
+                (addr) => blockchain.getBalance(addr),
+                (addr) => blockchain.getConfirmedNonce(addr)
+            );
             if (!poolRes.success) {
                 return res.status(400).json({ error: poolRes.error });
             }

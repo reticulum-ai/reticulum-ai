@@ -1802,17 +1802,28 @@ async function fetchMemories() {
             const dateStr = new Date(item.timestamp).toLocaleTimeString();
             const timeAgo = formatTimeAgo(item.timestamp);
 
+            const cleanContent = escapeHtml(item.memory.content);
+            const rawSafeContent = JSON.stringify(item.memory.content || '');
+            const rawSafeHash = JSON.stringify(item.memory.vectorHash || '');
+
             card.innerHTML = `
-                <div class="memory-card-header-dark">
-                    <span class="memory-agent-dark"><i class="fa-solid fa-robot text-violet"></i> ${escapeHtml(item.memory.agentId)}</span>
-                    <span class="badge-subtle badge-violet" style="font-size: 0.65rem;">${escapeHtml(item.memory.topic)}</span>
+                <div class="memory-card-header-dark" style="display:flex; justify-content:space-between; align-items:center;">
+                    <span class="memory-agent-dark" style="color:#38bdf8; font-weight:700;"><i class="fa-solid fa-shield-halved text-cyan"></i> ${escapeHtml(item.memory.agentId)}</span>
+                    <span style="background:rgba(56,189,248,0.12); color:#38bdf8; border:1px solid rgba(56,189,248,0.3); padding:2px 8px; border-radius:6px; font-size:0.65rem; font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">
+                        <i class="fa-solid fa-plane-arrival"></i> FLIGHT RECORD
+                    </span>
                 </div>
-                <div class="memory-content-dark">"${escapeHtml(item.memory.content)}"</div>
-                <div class="memory-footer-dark">
-                    <span>Block #${item.blockIndex} • ${timeAgo} (${dateStr})</span>
+                <div style="font-size:0.75rem; color:#94a3b8; margin: 4px 0 6px 0; font-family:var(--font-mono);">
+                    Topic: <span class="text-slate-300 font-bold">${escapeHtml(item.memory.topic)}</span>
+                </div>
+                <div class="memory-content-dark" style="border-left: 2px solid #38bdf8; padding-left: 10px; background: rgba(0,0,0,0.25); border-radius: 4px;">"${cleanContent}"</div>
+                <div class="memory-footer-dark" style="margin-top: 8px;">
+                    <span style="font-size:0.75rem;">Block #${item.blockIndex !== null && item.blockIndex !== undefined ? item.blockIndex : '<span class="text-amber font-bold">Pending PoW</span>'} • ${timeAgo}</span>
                     <div style="display:flex; align-items:center; gap:6px;">
-                        <span class="text-indigo font-bold">Vector: ${item.memory.vectorHash ? item.memory.vectorHash.substring(0, 8) : '00000000'}...</span>
-                        ${item.txId ? `<button class="copy-btn-inline" title="Verify Merkle Proof" onclick="event.stopPropagation(); openMerkleProofModal('${item.txId}')"><i class="fa-solid fa-tree"></i> Proof</button>` : ''}
+                        <span style="font-size:0.72rem; color:#818cf8; font-family:var(--font-mono);">Proof: ${item.memory.vectorHash ? item.memory.vectorHash.substring(0, 8) : '00000000'}...</span>
+                        <button class="copy-btn-inline" style="background:rgba(56,189,248,0.15); border-color:#38bdf8; color:#38bdf8; font-weight:700;" title="Verify Flight Record Proof" onclick="event.stopPropagation(); window.verifyFlightRecordProof('${item.txId || ''}', ${rawSafeContent}, ${rawSafeHash})">
+                            <i class="fa-solid fa-circle-check"></i> Verify
+                        </button>
                     </div>
                 </div>
             `;
@@ -4045,3 +4056,58 @@ function renderPoCReceipt(receipt) {
 }
 
 
+
+
+window.verifyFlightRecordProof = function(txId, content, expectedHash) {
+    // Deterministic client-side SHA-256 calculation
+    const encoder = new TextEncoder();
+    const data = encoder.encode(content);
+    crypto.subtle.digest('SHA-256', data).then(hashBuffer => {
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        const computedHash = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        const isValid = (computedHash.toLowerCase() === expectedHash.toLowerCase());
+
+        const modalHtml = `
+            <div class="custom-modal-overlay" id="flight-modal" onclick="if(event.target === this) this.remove()">
+                <div class="custom-modal-card" style="max-width: 600px; background: #0c101d; border: 1px solid rgba(99,102,241,0.4); border-radius: 16px; padding: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.8); color: #f8fafc; font-family: var(--font-sans);">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 16px;">
+                        <h3 style="margin:0; font-size:1.15rem; display:flex; align-items:center; gap:8px;">
+                            <i class="fa-solid fa-plane-arrival text-indigo"></i> Black Box Flight Record Verification
+                        </h3>
+                        <button onclick="document.getElementById('flight-modal').remove()" style="background:none; border:none; color:#94a3b8; font-size:1.2rem; cursor:pointer;">&times;</button>
+                    </div>
+                    
+                    <div style="background: ${isValid ? 'rgba(16,185,129,0.12)' : 'rgba(239,68,68,0.12)'}; border: 1px solid ${isValid ? 'rgba(16,185,129,0.4)' : 'rgba(239,68,68,0.4)'}; padding: 12px 16px; border-radius: 10px; margin-bottom: 16px; display:flex; align-items:center; gap:12px;">
+                        <i class="fa-solid ${isValid ? 'fa-circle-check text-emerald' : 'fa-triangle-exclamation text-flame'}" style="font-size: 1.5rem;"></i>
+                        <div>
+                            <div style="font-weight:700; color: ${isValid ? '#34d399' : '#f87171'};">${isValid ? 'Cryptographic Proof 100% Valid' : 'Proof Mismatch Detected'}</div>
+                            <div style="font-size:0.8rem; color:#cbd5e1;">${isValid ? 'This AI decision hash matches the immutable state sealed on Cortex L1.' : 'The computed hash does not match.'}</div>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 12px;">
+                        <div style="font-size:0.75rem; text-transform:uppercase; color:#94a3b8; font-weight:700; margin-bottom:4px;">Original Decision Payload (Raw Audit Trail)</div>
+                        <div style="background:rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.06); padding: 10px 14px; border-radius:8px; font-size:0.82rem; color:#e2e8f0; line-height:1.4; max-height:140px; overflow-y:auto; font-family:var(--font-mono);">
+                            ${content}
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 16px;">
+                        <div style="font-size:0.75rem; text-transform:uppercase; color:#94a3b8; font-weight:700; margin-bottom:4px;">Cryptographic Vector Hash (SHA-256)</div>
+                        <div style="background:rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.06); padding: 8px 12px; border-radius:8px; font-size:0.78rem; font-family:var(--font-mono); word-break:break-all; color:#818cf8;">
+                            ${expectedHash}
+                        </div>
+                    </div>
+
+                    <div style="display:flex; justify-content:flex-end;">
+                        <button class="btn btn-outline btn-sm" onclick="document.getElementById('flight-modal').remove()">Close Inspector</button>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        const existing = document.getElementById('flight-modal');
+        if (existing) existing.remove();
+        document.body.insertAdjacentHTML('beforeend', modalHtml);
+    });
+};

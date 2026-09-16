@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import { Blockchain } from './core/blockchain';
 import { P2PNetwork } from './network/p2p';
 import { CortexMiner } from './mining/miner';

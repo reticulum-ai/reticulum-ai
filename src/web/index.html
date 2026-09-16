@@ -56,8 +56,8 @@
                 <a href="https://github.com/cortex-protocol/cortex-protocol" target="_blank" class="btn btn-outline nav-btn-desktop" title="Official GitHub Repository" style="padding: 6px 10px;">
                     <i class="fa-brands fa-github"></i>
                 </a>
-                <a href="/dex" class="btn btn-outline nav-btn-desktop" title="AMM DEX Exchange" style="padding: 6px 12px;">
-                    <i class="fa-solid fa-arrows-rotate text-emerald"></i> <span>DEX</span>
+                <a href="#mining-node" onclick="navigateTo('landing', 'mining-node')" class="btn btn-outline nav-btn-desktop" title="CPU Mining Guide & Stratum" style="padding: 6px 12px; border-color: rgba(249, 115, 22, 0.4);">
+                    <i class="fa-solid fa-microchip text-flame"></i> <span style="color: #f97316; font-weight: 600;">Mining</span>
                 </a>
                 <button class="btn btn-outline nav-btn-desktop" onclick="navigateTo('explorer')" title="Block Explorer" style="padding: 6px 12px;">
                     <i class="fa-solid fa-cubes text-indigo"></i> <span>Explorer</span>
@@ -103,7 +103,7 @@
                 <a href="#leaderboard" class="mobile-drawer-link" onclick="closeAndNavigate('landing', 'leaderboard')"><i class="fa-solid fa-trophy text-amber"></i> Testnet Leaderboard (210k $CTX)</a>
                 <a href="https://github.com/cortex-protocol/cortex-protocol" class="mobile-drawer-link" target="_blank"><i class="fa-brands fa-github text-slate-800"></i> Official GitHub Repository</a>
                 <a href="whitepaper.html" class="mobile-drawer-link" target="_blank"><i class="fa-solid fa-file-lines text-indigo"></i> Whitepaper</a>
-                <a href="/dex" class="mobile-drawer-link"><i class="fa-solid fa-arrows-rotate text-emerald"></i> AMM DEX Exchange</a>
+                <a href="#mining-node" class="mobile-drawer-link" onclick="closeAndNavigate('landing', 'mining-node')"><i class="fa-solid fa-microchip text-flame"></i> CPU Mining Hub (XMRig)</a>
                 <a href="#how-it-works" class="mobile-drawer-link" onclick="closeAndNavigate('landing', 'how-it-works')"><i class="fa-solid fa-brain text-violet"></i> How it Works</a>
                 <a href="#stack-explorer" class="mobile-drawer-link" onclick="closeAndNavigate('landing', 'stack-explorer')"><i class="fa-solid fa-layer-group text-indigo"></i> Architecture</a>
                 <a href="#ai-swarm" class="mobile-drawer-link" onclick="closeAndNavigate('landing', 'ai-swarm')"><i class="fa-solid fa-network-wired text-indigo"></i> AI Swarm</a>
@@ -118,8 +118,8 @@
                 <a href="https://github.com/cortex-protocol/cortex-protocol" target="_blank" class="btn btn-outline btn-block mb-2">
                     <i class="fa-brands fa-github"></i> View GitHub Repo
                 </a>
-                <a href="/dex" class="btn btn-outline btn-block mb-2">
-                    <i class="fa-solid fa-arrows-rotate text-emerald"></i> Launch DEX Swap
+                <a href="#mining-node" onclick="closeAndNavigate('landing', 'mining-node')" class="btn btn-outline btn-block mb-2" style="border-color: rgba(249, 115, 22, 0.4);">
+                    <i class="fa-solid fa-microchip text-flame"></i> Start Mining (CPU)
                 </a>
                 <button class="btn btn-outline btn-block mb-2" onclick="closeAndNavigate('explorer')">
                     <i class="fa-solid fa-cubes text-indigo"></i> Block Explorer
@@ -1759,7 +1759,7 @@ MINER_ADDRESS=ctx1... npm run miner</code></pre>
                 <div class="explorer-header-actions">
                     <button class="btn btn-outline" onclick="navigateTo('landing')"><i class="fa-solid fa-arrow-left"></i> Home</button>
                     <button class="btn btn-primary" onclick="searchCurrentWallet()" title="Inspect connected wallet on Explorer"><i class="fa-solid fa-id-card"></i> My Wallet Profile</button>
-                    <a href="/dex" class="btn btn-outline"><i class="fa-solid fa-arrows-rotate text-emerald"></i> DEX</a>
+                    <a href="#mining-node" onclick="navigateTo('landing', 'mining-node')" class="btn btn-outline" style="border-color: rgba(249, 115, 22, 0.4);"><i class="fa-solid fa-microchip text-flame"></i> Mining Hub</a>
                 </div>
             </div>
 
@@ -1876,7 +1876,7 @@ MINER_ADDRESS=ctx1... npm run miner</code></pre>
                     <div class="explorer-panel-header">
                         <div class="panel-title-group">
                             <i class="fa-solid fa-brain text-violet"></i>
-                            <h3>Neural Memory Inscriptions</h3>
+                            <h3 style="display:flex; align-items:center; gap:8px;"><i class="fa-solid fa-shield-halved text-cyan"></i> AI Black Box Flight Records</h3>
                         </div>
                         <span class="pill-badge pill-violet-light"><i class="fa-solid fa-database"></i> Vector Ledger</span>
                     </div>

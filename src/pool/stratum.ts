@@ -539,9 +539,16 @@ export class CortexStratumServer {
 
     private checkAndBroadcastNewJob() {
         const latestBlock = this.pool.getBlockchain().getLatestBlock();
-        if (!this.latestJob || this.latestJob.templateIndex !== latestBlock.index + 1 || this.latestJob.previousHash !== latestBlock.hash) {
+        const now = Date.now();
+        const isHeightChanged = !this.latestJob || this.latestJob.templateIndex !== latestBlock.index + 1 || this.latestJob.previousHash !== latestBlock.hash;
+        // Refresh job every 15 seconds even if height didn't change, to include fresh mempool txs and drop purged ones!
+        const isJobStale = this.latestJob && (now - this.latestJob.createdAt > 15000);
+
+        if (isHeightChanged || isJobStale) {
             this.generateNewJob();
-            this.broadcastCurrentJob();
+            if (isHeightChanged) {
+                this.broadcastCurrentJob();
+            }
         }
     }
 

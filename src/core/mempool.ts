@@ -156,15 +156,17 @@ export class Mempool {
 
     /**
      * Get candidate transactions to include in the next block (up to maxTxLimit).
-     * Strictly filters out stale nonces (<= on-chain confirmed nonce) and orders
-     * transactions from each sender in ascending nonce order (nonce ASC) to
-     * prevent block rejection and network-wide mining freezes.
+     * Strictly filters out stale nonces (<= on-chain confirmed nonce), enforces
+     * balance checks per sender, and orders transactions from each sender in ascending
+     * nonce order (nonce ASC) to prevent block rejection and network-wide mining freezes.
      */
     public getCandidateTransactions(
         maxLimit = 500,
-        nonceProvider?: (address: string) => number
+        nonceProvider?: (address: string) => number,
+        balanceProvider?: (address: string) => number
     ): Transaction[] {
         const nonProv = nonceProvider || this.nonceProvider;
+        const balProv = balanceProvider || this.balanceProvider;
 
         // 1. Purge stale transactions if nonceProvider is available
         if (nonProv) {
@@ -181,8 +183,11 @@ export class Mempool {
             bySender.get(sender)!.push(tx);
         }
 
-        // 3. For each sender, deduplicate and sort by nonce ASC
+        // 3. For each sender, deduplicate and sort by nonce ASC,
+        // and validate sender has sufficient balance to cover cumulative debits
         const senderQueues = new Map<string, Transaction[]>();
+        const staleTxIds: string[] = [];
+
         for (const [sender, txs] of bySender.entries()) {
             const nonceMap = new Map<number, Transaction>();
             for (const tx of txs) {
@@ -192,9 +197,35 @@ export class Mempool {
                 }
             }
             const sorted = Array.from(nonceMap.values()).sort((a, b) => a.nonce - b.nonce);
-            if (sorted.length > 0) {
-                senderQueues.set(sender, sorted);
+
+            let remainingBal = (balProv && sender !== 'UNKNOWN') ? balProv(sender) : Infinity;
+            const validSenderTxs: Transaction[] = [];
+
+            for (const tx of sorted) {
+                const totalReq = tx.amount + tx.fee + (tx.burnAmount || 0);
+                if (tx.type !== 'COINBASE' && balProv && remainingBal < totalReq) {
+                    // Sender does not have enough balance for this transaction in the candidate block!
+                    staleTxIds.push(tx.id);
+                    continue;
+                }
+                if (balProv && remainingBal !== Infinity) {
+                    remainingBal -= totalReq;
+                }
+                validSenderTxs.push(tx);
             }
+
+            if (validSenderTxs.length > 0) {
+                senderQueues.set(sender, validSenderTxs);
+            }
+        }
+
+        // Auto-purge stale or unpayable transactions from mempool
+        if (staleTxIds.length > 0) {
+            const staleTxs = staleTxIds
+                .map(id => this.transactions.get(id))
+                .filter(Boolean) as Transaction[];
+            this.removeTransactions(staleTxs);
+            console.log(`[Mempool] Auto-purged ${staleTxs.length} transactions with insufficient balance.`);
         }
 
         // 4. Multi-queue greedy selection: pick highest-fee available transaction head across senders

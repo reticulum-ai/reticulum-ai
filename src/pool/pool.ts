@@ -193,6 +193,10 @@ export class CortexMiningPool {
                 }
             } else {
                 console.warn(`[MINING POOL] Block #${block.index} rejected by blockchain:`, addRes.error);
+                if (block.transactions && block.transactions.length > 1) {
+                    const nonCoinbase = block.transactions.slice(1);
+                    this.blockchain.mempool.removeTransactions(nonCoinbase);
+                }
             }
         }
 
