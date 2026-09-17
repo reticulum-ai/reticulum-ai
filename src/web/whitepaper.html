@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reticulum AI ($RAI) | Technical Research Whitepaper v2.0</title>
+    <title>Reticulum AI ($RAIX) | Technical Research Whitepaper v2.0</title>
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png?v=5">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png?v=5">
     <link rel="shortcut icon" href="assets/favicon.ico?v=5">
     <link rel="apple-touch-icon" sizes="128x128" href="assets/favicon-128x128.png?v=5">
-    <link rel="stylesheet" href="style.css?v=9.4">
+    <link rel="stylesheet" href="style.css?v=9.8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -661,7 +661,7 @@
             <div class="wp-header-badge">
                 <i class="fa-solid fa-certificate"></i> PEER-REVIEWED PROTOCOL SPECIFICATION v2.0
             </div>
-            <h1 class="wp-doc-title">RETICULUM AI ($RAI)</h1>
+            <h1 class="wp-doc-title">RETICULUM AI ($RAIX)</h1>
             <div class="wp-doc-subtitle">
                 A Sovereign Settlement & Cryptographic State Layer for Autonomous Artificial Intelligence Agents
             </div>
@@ -707,7 +707,7 @@
                     "Reticulum AI resolves the trilemma of AI memory through a mathematically enforced Separation of Concerns: high-dimensional vector embeddings, HNSW index construction, and semantic retrieval execute 100% locally and privately at the edge. The Layer-1 blockchain operates exclusively as an immutable, ASIC-resistant cryptographic notary and economic settlement ledger."
                 </div>
                 <p>
-                    Secured by pure Nakamoto consensus utilizing a customized <strong>RandomX Proof-of-Work algorithm</strong>, Reticulum AI guarantees censorship-resistant ordering, micro-transaction finality, and a mathematically bounded finite supply of <strong>21,000,000 $RAI</strong>.
+                    Secured by pure Nakamoto consensus utilizing a customized <strong>RandomX Proof-of-Work algorithm</strong>, Reticulum AI guarantees censorship-resistant ordering, micro-transaction finality, and a mathematically bounded finite supply of <strong>21,000,000 $RAIX</strong>.
                 </p>
             </section>
 
@@ -795,7 +795,7 @@
                     Unlike classical blockchains that record a single transaction root ($T_{\text{root}}$), each block header in Reticulum AI simultaneously commits to two independent Merkle structures:
                 </p>
                 <ul>
-                    <li><strong>$T_{\text{root}}$ (Financial Transactions Root):</strong> Secures transfers of $RAI tokens, coinbase block rewards, and pool miner distributions.</li>
+                    <li><strong>$T_{\text{root}}$ (Financial Transactions Root):</strong> Secures transfers of $RAIX tokens, coinbase block rewards, and pool miner distributions.</li>
                     <li><strong>$M_{\text{root}}$ (Neural State Root):</strong> Secures the cryptographic vector proofs of autonomous AI swarm memory commitments.</li>
                 </ul>
 
@@ -880,12 +880,12 @@
                         <tbody>
                             <tr>
                                 <td><strong>Asset Ticker</strong></td>
-                                <td><strong>$RAI</strong></td>
+                                <td><strong>$RAIX</strong></td>
                                 <td>Native gas, state commitment fee & settlement asset</td>
                             </tr>
                             <tr>
                                 <td><strong>Maximum Hard Cap</strong></td>
-                                <td><strong>21,000,000.00 RAI</strong></td>
+                                <td><strong>21,000,000.00 RAIX</strong></td>
                                 <td>Absolute mathematical supply ceiling enforced by consensus</td>
                             </tr>
                             <tr>
@@ -895,7 +895,7 @@
                             </tr>
                             <tr>
                                 <td><strong>Initial Block Subsidy</strong></td>
-                                <td><strong>50.00 RAI / Block</strong></td>
+                                <td><strong>50.00 RAIX / Block</strong></td>
                                 <td>Minted freshly to PoW block miners</td>
                             </tr>
                             <tr>
@@ -910,7 +910,7 @@
                             </tr>
                             <tr>
                                 <td><strong>Testnet Incentive Pool</strong></td>
-                                <td><strong>1.0% (210,000 RAI)</strong></td>
+                                <td><strong>1.0% (210,000 RAIX)</strong></td>
                                 <td>Bootstrap allocation for testnet miners and active participants</td>
                             </tr>
                         </tbody>
@@ -923,7 +923,7 @@
                         $$S_{\text{circulating}}(h) = \sum_{i=0}^{h} R(i) - \sum_{j \in \mathcal{T}_{\text{AI}}} \left( 0.30 \times \text{Fee}(j) \right)$$
                     </div>
                     <div class="wp-formula-caption">
-                        Where $R(i) = 50 \times 2^{-\lfloor i / 210000 \rfloor}$ represents the block subsidy at height $i$. As the autonomous agent economy scales, the 30% burn accelerates, turning $RAI into an ultrasound deflationary commodity.
+                        Where $R(i) = 50 \times 2^{-\lfloor i / 210000 \rfloor}$ represents the block subsidy at height $i$. As the autonomous agent economy scales, the 30% burn accelerates, turning $RAIX into an ultrasound deflationary commodity.
                     </div>
                 </div>
             </section>
@@ -942,7 +942,7 @@
                         $$\text{MainnetAllocation}(\text{User}) = \min\left( \frac{\text{TestnetBalance}_{\text{confirmed}}}{1000}, \quad 0.03 \times 210,000 \text{ RAI} \right)$$
                     </div>
                     <div class="wp-formula-caption">
-                        Every 1,000 Testnet $RAI confirmed on the testnet ledger entitles the holder to exactly 1.0 Real Mainnet $RAI. An absolute anti-whale ceiling of 3% (6,300 RAI) per entity applies.
+                        Every 1,000 Testnet $RAIX confirmed on the testnet ledger entitles the holder to exactly 1.0 Real Mainnet $RAIX. An absolute anti-whale ceiling of 3% (6,300 RAIX) per entity applies.
                     </div>
                 </div>
 
@@ -970,7 +970,7 @@
                     Reticulum AI enables autonomous AI agents to buy, sell, and verify contextual state in peer-to-peer markets without human intervention:
                 </p>
                 <ul>
-                    <li><strong>Autonomous Memory Swapping:</strong> Agent $A$ (e.g. market trend analyzer) can commit an encrypted observation to Block #5,000. Agent $B$ (automated execution bot) can purchase the decryption key for $0.50 RAI, validating the unblinded proof against $M_{\text{root}}$.</li>
+                    <li><strong>Autonomous Memory Swapping:</strong> Agent $A$ (e.g. market trend analyzer) can commit an encrypted observation to Block #5,000. Agent $B$ (automated execution bot) can purchase the decryption key for $0.50 RAIX, validating the unblinded proof against $M_{\text{root}}$.</li>
                     <li><strong>Reputation & Knowledge Lineage:</strong> Because state commitments are permanently timestamped and signed by the agent's secp256k1 public key, an agent's predictive track record becomes an unfalsifiable on-chain reputation score.</li>
                 </ul>
             </section>
@@ -1083,7 +1083,7 @@ console.log(`Merkle state verification: ${isValid ? 'VERIFIED ON-CHAIN' : 'REJEC
                 </div>
 
                 <p style="margin-top: 40px; font-size: 1.05rem; text-align: center; color: #94a3b8;">
-                    <em>"Autonomous artificial intelligence requires an incorruptible, decentralized foundation. Reticulum AI ($RAI) is that foundation."</em>
+                    <em>"Autonomous artificial intelligence requires an incorruptible, decentralized foundation. Reticulum AI ($RAIX) is that foundation."</em>
                 </p>
             </section>
 

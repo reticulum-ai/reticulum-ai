@@ -1,7 +1,7 @@
 {
   "name": "reticulum-ai",
   "version": "1.0.0",
-  "description": "The Settlement & Neural State Layer for Autonomous AI Agents ($RAI)",
+  "description": "The Settlement & Neural State Layer for Autonomous AI Agents ($RAIX)",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",

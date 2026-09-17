@@ -1,4 +1,4 @@
-# Reticulum AI ($RAI)
+# Reticulum AI ($RAIX)
 ### The Settlement & State Layer for Autonomous AI Agents
 
 [![Discord Community](https://img.shields.io/badge/Discord-Join%20Community-5865F2?logo=discord&logoColor=white)](https://discord.gg/WK7tYSse2)
@@ -23,11 +23,11 @@
 
 ## 🌟 Overview
 
-**Reticulum AI ($RAI)** is a purpose-built Layer-1 blockchain engineered to cryptographically anchor and verify autonomous AI states. 
+**Reticulum AI ($RAIX)** is a purpose-built Layer-1 blockchain engineered to cryptographically anchor and verify autonomous AI states. 
 
 Rejecting the flawed paradigm of on-chain vector bloat, Reticulum AI enforces a strict **Separation of Concerns**:
 * **Edge RAG (Off-Chain):** Autonomous AI agents run their high-dimensional vector search (HNSW / Cosine) and embeddings locally in-RAM with sub-millisecond retrieval.
-* **L1 State Settlement (On-Chain):** The Reticulum blockchain handles machine-to-machine trust, `secp256k1` identities, 32-byte Merkle state root notarization, and friction-free $RAI$ micro-payments.
+* **L1 State Settlement (On-Chain):** The Reticulum blockchain handles machine-to-machine trust, `secp256k1` identities, 32-byte Merkle state root notarization, and friction-free $RAIX$ micro-payments.
 
 Consensus is secured via **Nakamoto CPU Proof-of-Work powered by RandomX**, ensuring total ASIC-resistance, egalitarian participation for consumer CPUs, and true decentralization.
 
@@ -49,7 +49,7 @@ Consensus is secured via **Nakamoto CPU Proof-of-Work powered by RandomX**, ensu
 │  - Nakamoto Consensus (RandomX CPU Proof-of-Work)            │
 │  - secp256k1 Cryptographic Signer Verification               │
 │  - 32-Byte State Merkle Roots Inscribed into Block Headers    │
-│  - Native $RAI Peer-to-Peer Economic Settlement              │
+│  - Native $RAIX Peer-to-Peer Economic Settlement              │
 │  - 30% Gas Combustion (Deflationary Flywheel)                │
 └──────────────────────────────────────────────────────────────┘
 ```
@@ -68,18 +68,18 @@ Light clients verify any historical state transition via **60-byte Merkle proofs
 
 | Parameter | Specification |
 | :--- | :--- |
-| **Token Ticker** | **$RAI** |
-| **Total Hard Cap** | **21,000,000 RAI** (Strict Mathematical Scarcity) |
+| **Token Ticker** | **$RAIX** |
+| **Total Hard Cap** | **21,000,000 RAIX** (Strict Mathematical Scarcity) |
 | **Team / VC Pre-mine** | **0% (100% Community Fair Launch)** |
-| **Initial Block Subsidy** | **50.00 RAI per block** (Halving every 210,000 blocks / ~3.65 months) |
+| **Initial Block Subsidy** | **50.00 RAIX per block** (Halving every 210,000 blocks / ~3.65 months) |
 | **Deflationary Fee Burn** | **30% of every transaction fee permanently burned** |
-| **Miner Fee Share** | **70% of Gas Fees + 50 RAI Block Subsidy** |
-| **Incentivized Testnet Allocation** | **1.0% (210,000 RAI)** at Mainnet Genesis Block #0 |
+| **Miner Fee Share** | **70% of Gas Fees + 50 RAIX Block Subsidy** |
+| **Incentivized Testnet Allocation** | **1.0% (210,000 RAIX)** at Mainnet Genesis Block #0 |
 
 ### 🎁 Incentivized Testnet Bootstrap (70/30 Split)
-* **70% (147,000 RAI) — Active Hardware Miners:** Distributed pro-rata based on validated RandomX blocks and accepted pool shares.
-* **30% (63,000 RAI) — Community Testers:** Distributed equally across active addresses participating in DEX swaps, Web3 Wallet signatures & state commits.
-* **Anti-Whale Hard Cap:** Maximum 3.0% (6,300 RAI) per individual address (excess is redistributed).
+* **70% (147,000 RAIX) — Active Hardware Miners:** Distributed pro-rata based on validated RandomX blocks and accepted pool shares.
+* **30% (63,000 RAIX) — Community Testers:** Distributed equally across active addresses participating in DEX swaps, Web3 Wallet signatures & state commits.
+* **Anti-Whale Hard Cap:** Maximum 3.0% (6,300 RAIX) per individual address (excess is redistributed).
 * **3-Month Linear Vesting:** 20% liquid at Genesis Block #0, 80% streamed block-by-block over 90 days (~518,400 blocks).
 
 ---
@@ -134,12 +134,12 @@ Miners on Windows can download the pre-packaged standalone zip directly:
 
 ## 🤖 AI Agent Framework Integrations
 
-Reticulum AI ($RAI) serves as the sovereign, decentralized memory and state settlement layer for autonomous AI agents across major frameworks:
+Reticulum AI ($RAIX) serves as the sovereign, decentralized memory and state settlement layer for autonomous AI agents across major frameworks:
 
 ### 1. 🟣 ElizaOS Plugin (`@cortex-protocol/plugin-eliza`)
 Complete official plugin located in [`packages/plugin-cortex/`](packages/plugin-cortex/):
 - **Cognitive Memory Provider**: Seals episodic and semantic memories into PoW blocks with 3ms Edge RAG recall.
-- **Sovereign Wallet Provider**: Injects real-time $RAI balance and wallet state into agent prompts.
+- **Sovereign Wallet Provider**: Injects real-time $RAIX balance and wallet state into agent prompts.
 - **On-Chain Actions**: `INSCRIBE_MEMORY`, `TRANSFER_CTX`, `CLAIM_FAUCET`.
 - **Evaluator**: `autoAnchor` automatically detects high-value decisions and persists them on-chain.
 

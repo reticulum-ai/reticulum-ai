@@ -8,7 +8,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png?v=5">
     <link rel="shortcut icon" href="assets/favicon.ico?v=5">
     <link rel="apple-touch-icon" sizes="128x128" href="assets/favicon-128x128.png?v=5">
-    <link rel="stylesheet" href="style.css?v=9.4">
+    <link rel="stylesheet" href="style.css?v=9.8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -624,7 +624,7 @@
             <div class="dex-stat-tile">
                 <div class="dex-stat-label">TOTAL POOL LIQUIDITY</div>
                 <div class="dex-stat-value text-indigo" id="dex-tvl-val">$1,580,950 USD</div>
-                <div class="dex-stat-sub" id="dex-reserves-sub">394.0K RAI + 790.5K tUSDC</div>
+                <div class="dex-stat-sub" id="dex-reserves-sub">394.0K RAIX + 790.5K tUSDC</div>
             </div>
             <div class="dex-stat-tile">
                 <div class="dex-stat-label">24H TRADING VOLUME</div>
@@ -660,7 +660,7 @@
                     <div class="dex-token-box-top">
                         <span style="font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;">You Pay</span>
                         <div>
-                            <span>Bal: <strong class="mono text-slate-100" id="dex-pay-bal">0.00 RAI</strong></span>
+                            <span>Bal: <strong class="mono text-slate-100" id="dex-pay-bal">0.00 RAIX</strong></span>
                             <button class="max-pill-btn" onclick="setDexMaxPay()">MAX</button>
                         </div>
                     </div>
@@ -699,11 +699,11 @@
                 <div class="dex-meta-box">
                     <div class="dex-meta-row">
                         <span>Exchange Rate</span>
-                        <span class="dex-meta-value" id="dex-rate-text">1 RAI ≈ 2.0061 tUSDC</span>
+                        <span class="dex-meta-value" id="dex-rate-text">1 RAIX ≈ 2.0061 tUSDC</span>
                     </div>
                     <div class="dex-meta-row">
                         <span>LP Fee Tier (0.3%)</span>
-                        <span class="dex-meta-value" id="dex-fee-text">0.00 RAI</span>
+                        <span class="dex-meta-value" id="dex-fee-text">0.00 RAIX</span>
                     </div>
                     <div class="dex-meta-row">
                         <span>Price Impact</span>
@@ -754,14 +754,14 @@
                         </span>
                     </div>
                     <p style="font-size:0.82rem; color:#94a3b8; line-height:1.5; margin-bottom:12px;">
-                        Deposit proportional RAI and tUSDC into the autonomous AMM pool. Earn continuous 0.3% protocol fee rewards on all network swaps.
+                        Deposit proportional RAIX and tUSDC into the autonomous AMM pool. Earn continuous 0.3% protocol fee rewards on all network swaps.
                     </p>
 
                     <!-- LIVE POOL GLOBAL STATS PILLARS -->
                     <div style="display:grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 14px;">
                         <div class="p-2 rounded-8" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);">
                             <div class="text-slate-400" style="font-size:0.7rem;">Pool Reserves</div>
-                            <div class="mono text-white text-xs font-bold" id="pool-reserves-stat">-- RAI / -- tUSDC</div>
+                            <div class="mono text-white text-xs font-bold" id="pool-reserves-stat">-- RAIX / -- tUSDC</div>
                         </div>
                         <div class="p-2 rounded-8" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);">
                             <div class="text-slate-400" style="font-size:0.7rem;">Total Pool TVL</div>
@@ -777,7 +777,7 @@
                         </div>
                         <div class="flex items-center justify-between text-xs text-slate-300 mt-2 mb-1">
                             <span>Pooled Assets:</span>
-                            <span class="mono font-bold text-slate-100" id="lp-my-assets-val">0.00 RAI + 0.00 tUSDC</span>
+                            <span class="mono font-bold text-slate-100" id="lp-my-assets-val">0.00 RAIX + 0.00 tUSDC</span>
                         </div>
                         <div class="flex items-center justify-between text-xs text-slate-400 mb-2">
                             <span>Underlying Value:</span>
@@ -829,11 +829,11 @@
                 Provide liquidity in a 50/50 value ratio according to the current spot price curve.
             </p>
 
-            <!-- RAI Deposit Box -->
+            <!-- RAIX Deposit Box -->
             <div class="dex-token-box mb-3">
                 <div class="dex-token-box-top">
-                    <span>Input RAI</span>
-                    <span>Bal: <strong class="mono text-slate-100" id="modal-ctx-bal">0.00 RAI</strong></span>
+                    <span>Input RAIX</span>
+                    <span>Bal: <strong class="mono text-slate-100" id="modal-ctx-bal">0.00 RAIX</strong></span>
                 </div>
                 <div class="dex-token-input-row">
                     <input type="number" id="modal-input-ctx" class="dex-amount-input" placeholder="0.0" oninput="calcLiquidityPair()">
@@ -867,7 +867,7 @@
             <div class="dex-meta-table mb-3">
                 <div class="dex-meta-row">
                     <span>Pool Spot Rate</span>
-                    <span class="dex-meta-value mono text-slate-200" id="modal-rate-val">1 RAI ≈ 2.0061 tUSDC</span>
+                    <span class="dex-meta-value mono text-slate-200" id="modal-rate-val">1 RAIX ≈ 2.0061 tUSDC</span>
                 </div>
                 <div class="dex-meta-row">
                     <span>Est. LP Share Minted</span>
@@ -879,7 +879,7 @@
                 </div>
                 <div class="dex-meta-row">
                     <span>Network Fee</span>
-                    <span class="dex-meta-value text-slate-400">0.01 RAI</span>
+                    <span class="dex-meta-value text-slate-400">0.01 RAIX</span>
                 </div>
             </div>
 
@@ -899,7 +899,7 @@
                 <span>Withdraw Liquidity</span>
             </div>
             <p style="font-size:0.8rem; color:#94a3b8; margin-bottom:16px;">
-                Redeem your LP shares to withdraw your proportional RAI and tUSDC tokens back to your wallet. Any pending yield will be automatically collected!
+                Redeem your LP shares to withdraw your proportional RAIX and tUSDC tokens back to your wallet. Any pending yield will be automatically collected!
             </p>
 
             <div class="dex-token-box mb-3">
@@ -917,8 +917,8 @@
 
             <div class="dex-meta-table mb-3">
                 <div class="dex-meta-row">
-                    <span>You Receive RAI</span>
-                    <strong class="mono text-emerald" id="modal-remove-receive-ctx">0.0000 RAI</strong>
+                    <span>You Receive RAIX</span>
+                    <strong class="mono text-emerald" id="modal-remove-receive-ctx">0.0000 RAIX</strong>
                 </div>
                 <div class="dex-meta-row">
                     <span>You Receive tUSDC</span>
@@ -1012,10 +1012,10 @@
                 document.getElementById('dex-tvl-val').textContent = `$${Math.round(dexState.tvl).toLocaleString()} USD`;
                 const ctxK = (dexState.poolCtx / 1000).toFixed(1);
                 const usdcK = (dexState.poolUsdc / 1000).toFixed(1);
-                document.getElementById('dex-reserves-sub').textContent = `${ctxK}K RAI + ${usdcK}K tUSDC`;
+                document.getElementById('dex-reserves-sub').textContent = `${ctxK}K RAIX + ${usdcK}K tUSDC`;
 
                 const poolReservesStat = document.getElementById('pool-reserves-stat');
-                if (poolReservesStat) poolReservesStat.textContent = `${Math.round(dexState.poolCtx).toLocaleString()} RAI / ${Math.round(dexState.poolUsdc).toLocaleString()} tUSDC`;
+                if (poolReservesStat) poolReservesStat.textContent = `${Math.round(dexState.poolCtx).toLocaleString()} RAIX / ${Math.round(dexState.poolUsdc).toLocaleString()} tUSDC`;
                 const poolTvlStat = document.getElementById('pool-tvl-stat');
                 if (poolTvlStat) poolTvlStat.textContent = `$${Math.round(dexState.tvl).toLocaleString()} USD`;
 
@@ -1114,7 +1114,7 @@
                     if (lpData.userShares > 0) {
                         lpBox.style.display = 'block';
                         document.getElementById('lp-my-share-val').textContent = `${lpData.poolSharePercent}% pool (${lpData.userShares.toFixed(2)} LP)`;
-                        document.getElementById('lp-my-assets-val').textContent = `${lpData.ctxValue.toFixed(2)} RAI + ${lpData.usdcValue.toFixed(2)} tUSDC`;
+                        document.getElementById('lp-my-assets-val').textContent = `${lpData.ctxValue.toFixed(2)} RAIX + ${lpData.usdcValue.toFixed(2)} tUSDC`;
                         document.getElementById('lp-my-usd-val').textContent = `≈ $${lpData.totalValueUsd.toLocaleString()} USD`;
                         document.getElementById('lp-my-pending-yield').textContent = `+$${(lpData.claimableYieldUsdc || 0).toFixed(4)} tUSDC`;
                         document.getElementById('lp-my-total-claimed').textContent = `${(lpData.totalClaimedYieldUsdc || 0).toFixed(4)} tUSDC`;
@@ -1142,7 +1142,7 @@
                     <div class="connected-wallet-pill" onclick="connectDexWallet()" title="Connected Wallet: ${addr}">
                         <span class="pulse-dot-green"></span>
                         <span class="mono" style="font-size:0.8rem; font-weight:700; color:#f8fafc;">${shortAddr}</span>
-                        <span style="background:rgba(16, 185, 129, 0.2); color:#34d399; font-size:0.75rem; font-weight:800; padding:2px 8px; border-radius:9999px;" class="mono">${dexState.userCtx.toFixed(2)} RAI</span>
+                        <span style="background:rgba(16, 185, 129, 0.2); color:#34d399; font-size:0.75rem; font-weight:800; padding:2px 8px; border-radius:9999px;" class="mono">${dexState.userCtx.toFixed(2)} RAIX</span>
                     </div>
                 `;
             }
@@ -1154,11 +1154,11 @@
             const recBalEl = document.getElementById('dex-receive-bal');
 
             if (dexState.fromSymbol === 'RAI') {
-                payBalEl.textContent = `${dexState.userCtx.toFixed(2)} RAI`;
+                payBalEl.textContent = `${dexState.userCtx.toFixed(2)} RAIX`;
                 recBalEl.textContent = `${dexState.userUsdc.toFixed(2)} tUSDC`;
             } else {
                 payBalEl.textContent = `${dexState.userUsdc.toFixed(2)} tUSDC`;
-                recBalEl.textContent = `${dexState.userCtx.toFixed(2)} RAI`;
+                recBalEl.textContent = `${dexState.userCtx.toFixed(2)} RAIX`;
             }
             calcSwapOutput();
         }
@@ -1203,8 +1203,8 @@
                 feeText.textContent = `0.00 ${dexState.fromSymbol}`;
                 impactText.textContent = '< 0.01%';
                 rateText.textContent = dexState.fromSymbol === 'RAI' 
-                    ? `1 RAI ≈ ${dexState.spotPrice.toFixed(4)} tUSDC` 
-                    : `1 tUSDC ≈ ${(1 / dexState.spotPrice).toFixed(4)} RAI`;
+                    ? `1 RAIX ≈ ${dexState.spotPrice.toFixed(4)} tUSDC` 
+                    : `1 tUSDC ≈ ${(1 / dexState.spotPrice).toFixed(4)} RAIX`;
                 return;
             }
 
@@ -1217,12 +1217,12 @@
                 outAmount = (dexState.poolUsdc * effectiveIn) / (dexState.poolCtx + effectiveIn);
                 const impact = ((inAmount / dexState.poolCtx) * 100).toFixed(2);
                 impactText.textContent = `${impact}%`;
-                rateText.textContent = `1 RAI ≈ ${(dexState.poolUsdc / dexState.poolCtx).toFixed(4)} tUSDC`;
+                rateText.textContent = `1 RAIX ≈ ${(dexState.poolUsdc / dexState.poolCtx).toFixed(4)} tUSDC`;
             } else {
                 outAmount = (dexState.poolCtx * effectiveIn) / (dexState.poolUsdc + effectiveIn);
                 const impact = ((inAmount / dexState.poolUsdc) * 100).toFixed(2);
                 impactText.textContent = `${impact}%`;
-                rateText.textContent = `1 tUSDC ≈ ${(dexState.poolCtx / dexState.poolUsdc).toFixed(4)} RAI`;
+                rateText.textContent = `1 tUSDC ≈ ${(dexState.poolCtx / dexState.poolUsdc).toFixed(4)} RAIX`;
             }
 
             outEl.value = outAmount.toFixed(4);
@@ -1338,11 +1338,11 @@
         // --- ADD LIQUIDITY MODAL & LOGIC ---
         function openAddLiquidityModal() {
             const ctxBalEl = document.getElementById('modal-ctx-bal');
-            if (ctxBalEl) ctxBalEl.textContent = `${(dexState.userCtx || 0).toFixed(2)} RAI`;
+            if (ctxBalEl) ctxBalEl.textContent = `${(dexState.userCtx || 0).toFixed(2)} RAIX`;
             const usdcBalEl = document.getElementById('modal-usdc-bal');
             if (usdcBalEl) usdcBalEl.textContent = `${(dexState.userUsdc || 1000).toFixed(2)} tUSDC`;
             const rateEl = document.getElementById('modal-rate-val');
-            if (rateEl) rateEl.textContent = `1 RAI ≈ ${(dexState.spotPrice || 2.0061).toFixed(4)} tUSDC`;
+            if (rateEl) rateEl.textContent = `1 RAIX ≈ ${(dexState.spotPrice || 2.0061).toFixed(4)} tUSDC`;
 
             const inputCtx = document.getElementById('modal-input-ctx');
             if (inputCtx) inputCtx.value = '';
@@ -1385,7 +1385,7 @@
 
         async function executeAddLiquidity() {
             const inCtx = parseFloat(document.getElementById('modal-input-ctx').value || '0');
-            if (isNaN(inCtx) || inCtx <= 0) return showToast('Enter a valid RAI amount to deposit', true);
+            if (isNaN(inCtx) || inCtx <= 0) return showToast('Enter a valid RAIX amount to deposit', true);
 
             const btn = document.getElementById('btn-confirm-deposit-lp');
             const statusBox = document.getElementById('modal-liq-status');
@@ -1419,7 +1419,7 @@
                     return showToast(data.error, true);
                 }
 
-                showToast(`💧 Deposited ${data.amountCtx} RAI + ${data.amountUsdc} tUSDC!`);
+                showToast(`💧 Deposited ${data.amountCtx} RAIX + ${data.amountUsdc} tUSDC!`);
                 closeAddLiquidityModal();
                 await syncUserBalances();
                 await initStandaloneDex();
@@ -1519,7 +1519,7 @@
             const yieldAmt = +(currentLpData.claimableYieldUsdc || 0).toFixed(4);
 
             const ctxEl = document.getElementById('modal-remove-receive-ctx');
-            if (ctxEl) ctxEl.textContent = `${returnCtx.toFixed(4)} RAI`;
+            if (ctxEl) ctxEl.textContent = `${returnCtx.toFixed(4)} RAIX`;
             const usdcEl = document.getElementById('modal-remove-receive-usdc');
             if (usdcEl) usdcEl.textContent = `${returnUsdc.toFixed(4)} tUSDC`;
             const yieldEl = document.getElementById('modal-remove-receive-yield');
@@ -1551,7 +1551,7 @@
                 const data = await res.json();
                 if (data.error) throw new Error(data.error);
 
-                showToast(`✅ Withdrawn: +${data.returnedCtx} RAI & +${data.returnedUsdc} tUSDC!`);
+                showToast(`✅ Withdrawn: +${data.returnedCtx} RAIX & +${data.returnedUsdc} tUSDC!`);
                 closeRemoveLiquidityModal();
                 await syncUserBalances();
                 await initStandaloneDex();

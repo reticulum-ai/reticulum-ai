@@ -124,7 +124,7 @@ function createApiServer(blockchain, p2p, miner, port = 3000) {
             const keyPair = crypto_1.ReticulumCrypto.fromPrivateKey(agentPrivateKey);
             const balance = blockchain.getBalance(keyPair.address);
             if (balance < fee) {
-                return res.status(400).json({ error: `Insufficient RAI balance. Required: ${fee} RAI, Available: ${balance} RAI` });
+                return res.status(400).json({ error: `Insufficient RAIX balance. Required: ${fee} RAI, Available: ${balance} RAIX` });
             }
             const vectorHash = crypto_1.ReticulumCrypto.sha256(content);
             const payload = {
@@ -193,7 +193,7 @@ function createApiServer(blockchain, p2p, miner, port = 3000) {
             p2p.broadcastTransaction(tx);
             res.json({
                 success: true,
-                message: `5.00 Testnet $RAI sent successfully to ${address}!`,
+                message: `5.00 Testnet $RAIX sent successfully to ${address}!`,
                 txId: tx.id,
                 amount: FAUCET_AMOUNT
             });
@@ -242,7 +242,7 @@ function createApiServer(blockchain, p2p, miner, port = 3000) {
             const totalRequired = Number(amount) + Number(fee);
             if (balance < totalRequired) {
                 return res.status(400).json({
-                    error: `Insufficient balance. Required: ${totalRequired} RAI, Available: ${balance} RAI`
+                    error: `Insufficient balance. Required: ${totalRequired} RAI, Available: ${balance} RAIX`
                 });
             }
             const nonce = blockchain.getNextNonce(keyPair.address);

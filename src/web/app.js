@@ -1,4 +1,4 @@
-// RETICULUM AI ($RAI) - INSTITUTIONAL TIER-0 CONTROLLER
+// RETICULUM AI ($RAIX) - INSTITUTIONAL TIER-0 CONTROLLER
 
 let currentWallet = null;
 let pollingTimer = null;
@@ -22,7 +22,7 @@ const STACK_LAYERS_DATA = {
                 <ul style="list-style:none; display:flex; flex-direction:column; gap:8px; font-size:0.85rem; color:#94a3b8;">
                     <li>✓ <strong>ASIC-Resistant CPU Mining:</strong> 256KB scratchpad and random instruction execution prevents specialized ASIC monopolies.</li>
                     <li>✓ <strong>Dynamic Retargeting:</strong> Difficulty auto-adjusts every 5 blocks to maintain a 15-second block interval.</li>
-                    <li>✓ <strong>Fair Emission Reward:</strong> 50 RAI / block subsidy + 70% of state anchoring transaction gas fees.</li>
+                    <li>✓ <strong>Fair Emission Reward:</strong> 50 RAIX / block subsidy + 70% of state anchoring transaction gas fees.</li>
                     <li>✓ <strong>Nakamoto Longest Chain Rule:</strong> Instant reorg resolution with cumulative PoW work weight.</li>
                 </ul>
             </div>
@@ -56,11 +56,11 @@ const STACK_LAYERS_DATA = {
                 <p>Every autonomous AI agent is assigned a cryptographic identity via elliptic curve <code>secp256k1</code> keypairs, identical to Bitcoin and Ethereum. When agents write memory, a deflationary economic loop triggers automatically.</p>
                 <div style="background:#1e293b; padding:14px; border-radius:10px; margin:14px 0; border:1px solid #334155;">
                     <div style="color:#f97316; font-family:var(--font-mono); font-size:0.8rem; margin-bottom:4px;">Deflationary Gas Combustion:</div>
-                    <code style="color:#f1f5f9; font-size:0.82rem; font-family:var(--font-mono);">GasFee = 0.05 RAI ➜ 0.015 RAI Burned 🔥 | 0.035 RAI to Miner ⚡</code>
+                    <code style="color:#f1f5f9; font-size:0.82rem; font-family:var(--font-mono);">GasFee = 0.05 RAIX ➜ 0.015 RAIX Burned 🔥 | 0.035 RAIX to Miner ⚡</code>
                 </div>
                 <ul style="list-style:none; display:flex; flex-direction:column; gap:8px; font-size:0.85rem; color:#94a3b8;">
                     <li>✓ <strong>Unspendable Burn Address:</strong> <code>ctx100000000000000000000000000000000000000000000</code>.</li>
-                    <li>✓ <strong>Net-Deflationary Scarcity:</strong> High AI agent transaction throughput burns more RAI than block subsidies emit.</li>
+                    <li>✓ <strong>Net-Deflationary Scarcity:</strong> High AI agent transaction throughput burns more RAIX than block subsidies emit.</li>
                     <li>✓ <strong>AES-256-GCM Private Enclaves:</strong> Confidential memories are encrypted on-chain and only accessible by keyholder.</li>
                 </ul>
             </div>
@@ -217,7 +217,7 @@ const MERKLE_NODES_DATA = {
         hash: '0x960930fc695c28800a5e9d42d7aa8ca1d12dffa67c972386018178abbe29b735',
         payload: 'Root cryptographic commitment representing 4 aggregated vector state transitions',
         signer: 'System Merkle Consolidator',
-        gasBurned: '0.060 RAI Total (30% aggregated)',
+        gasBurned: '0.060 RAIX Total (30% aggregated)',
         proof: 'Verified by binary pair double SHA-256d hashing'
     },
     'branch-left': {
@@ -226,7 +226,7 @@ const MERKLE_NODES_DATA = {
         hash: '0x3b89e24fa10b9872c01948fe281903ba8910e7264859a01847291a847291a823',
         payload: 'Aggregated cryptographic proof for Quantitative Trading & Software Code AI memories',
         signer: 'Consensus Intermediate State #1',
-        gasBurned: '0.030 RAI',
+        gasBurned: '0.030 RAIX',
         proof: 'SHA-256d(Leaf_A + Leaf_B)'
     },
     'branch-right': {
@@ -235,7 +235,7 @@ const MERKLE_NODES_DATA = {
         hash: '0x7f41a982bb049e71029487c91820491823749102837491029384710293847102',
         payload: 'Aggregated cryptographic proof for Biotech Discovery & Gaming NPC AI memories',
         signer: 'Consensus Intermediate State #2',
-        gasBurned: '0.030 RAI',
+        gasBurned: '0.030 RAIX',
         proof: 'SHA-256d(Leaf_C + Leaf_D)'
     },
     'leaf-1': {
@@ -244,7 +244,7 @@ const MERKLE_NODES_DATA = {
         hash: '0x8f2a9410bca7892019487c918204918237491028374910293847102938471029',
         payload: '"Identified 4.2% spatial arbitrage opportunity on Uniswap v3 & Curve"',
         signer: 'ctx1eade8dcdc3b1335014b9c24f9ff43c9c8ad3e721cbd93103',
-        gasBurned: '0.015 RAI (30% fee burn)',
+        gasBurned: '0.015 RAIX (30% fee burn)',
         proof: 'ECDSA secp256k1 canonical signature verified'
     },
     'leaf-2': {
@@ -253,7 +253,7 @@ const MERKLE_NODES_DATA = {
         hash: '0x14bc78291048a918237491028374910293847102938471029384710293847102',
         payload: '"Implemented reentrancy guard check-effects-interaction pattern on staking module"',
         signer: 'ctx1bdafc2e389ddbd1d2164d9452bc567180448c1d8bacd58f1',
-        gasBurned: '0.015 RAI (30% fee burn)',
+        gasBurned: '0.015 RAIX (30% fee burn)',
         proof: 'ECDSA secp256k1 canonical signature verified'
     },
     'leaf-3': {
@@ -262,7 +262,7 @@ const MERKLE_NODES_DATA = {
         hash: '0x99fe410982374910283749102938471029384710293847102938471029384710',
         payload: '"Computed -11.4 kcal/mol docking energy for kinase inhibitor candidate CX-409"',
         signer: 'ctx18f25ebe9ada165ca45dcaab01575136e2a5f8e27f3c02eb8',
-        gasBurned: '0.015 RAI (30% fee burn)',
+        gasBurned: '0.015 RAIX (30% fee burn)',
         proof: 'ECDSA secp256k1 canonical signature verified'
     },
     'leaf-4': {
@@ -271,7 +271,7 @@ const MERKLE_NODES_DATA = {
         hash: '0x42da781920384710293847102938471029384710293847102938471029384710',
         payload: '"Formed diplomatic defense treaty with guild Vanguard in zone Valyria"',
         signer: 'ctx152e0120c610df2d8ba10dfd166ae38b740726a372469a5ba',
-        gasBurned: '0.015 RAI (30% fee burn)',
+        gasBurned: '0.015 RAIX (30% fee burn)',
         proof: 'ECDSA secp256k1 canonical signature verified'
     }
 };
@@ -728,7 +728,7 @@ async function openBlockInspector(blockIndex) {
                         <div class="memory-card-dark" style="cursor:pointer;" onclick="openTxInspector('${tx.id}')">
                             <div style="display:flex; justify-content:space-between; align-items:center;">
                                 <strong class="${tx.type === 'MEMORY_COMMIT' ? 'text-violet' : tx.type === 'COINBASE' ? 'text-emerald' : 'text-indigo'} font-bold">${tx.type}</strong>
-                                ${tx.type === 'MEMORY_COMMIT' ? `<span class="mono text-amber font-bold">${tx.fee || 0.05} RAI fee</span>` : `<span class="mono text-emerald font-bold">${tx.amount} RAI</span>`}
+                                ${tx.type === 'MEMORY_COMMIT' ? `<span class="mono text-amber font-bold">${tx.fee || 0.05} RAIX fee</span>` : `<span class="mono text-emerald font-bold">${tx.amount} RAIX</span>`}
                             </div>
                             <div class="mono text-muted text-break" style="font-size:0.74rem; margin:4px 0;">TxID: ${tx.id}</div>
                             ${tx.memoryPayload ? `<div style="color:#e2e8f0; font-size:0.78rem;"><em>"${escapeHtml(tx.memoryPayload.content.substring(0, 90))}..."</em></div>` : ''}
@@ -797,16 +797,16 @@ async function openTxInspector(txId) {
                     </div>
                     <div class="inspector-key-value">
                         <span class="inspector-key">${tx.type === 'MEMORY_COMMIT' ? 'Inscription Payload Value:' : 'Transfer Amount:'}</span>
-                        <span class="inspector-value font-bold ${tx.type === 'MEMORY_COMMIT' ? 'text-slate-400' : 'text-emerald'}" style="font-size:1.1rem;">${tx.type === 'MEMORY_COMMIT' ? '0.00 RAI (Data Inscription)' : `${tx.amount} RAI`}</span>
+                        <span class="inspector-value font-bold ${tx.type === 'MEMORY_COMMIT' ? 'text-slate-400' : 'text-emerald'}" style="font-size:1.1rem;">${tx.type === 'MEMORY_COMMIT' ? '0.00 RAIX (Data Inscription)' : `${tx.amount} RAIX`}</span>
                     </div>
                     <div class="inspector-key-value">
                         <span class="inspector-key">PoW Gas Fee:</span>
-                        <span class="inspector-value font-bold text-amber">${tx.fee || (tx.type === 'MEMORY_COMMIT' ? 0.05 : 0.01)} RAI</span>
+                        <span class="inspector-value font-bold text-amber">${tx.fee || (tx.type === 'MEMORY_COMMIT' ? 0.05 : 0.01)} RAIX</span>
                     </div>
                     ${tx.burnAmount || tx.type === 'MEMORY_COMMIT' ? `
                     <div class="inspector-key-value">
                         <span class="inspector-key text-flame">Deflationary Combustion (30% Burn):</span>
-                        <span class="inspector-value text-flame font-bold">🔥 -${tx.burnAmount || 0.015} RAI Permanent Burn</span>
+                        <span class="inspector-value text-flame font-bold">🔥 -${tx.burnAmount || 0.015} RAIX Permanent Burn</span>
                     </div>` : ''}
                     <div class="inspector-key-value">
                         <span class="inspector-key">Timestamp:</span>
@@ -910,7 +910,7 @@ async function openAddressInspector(address) {
                     <div class="explorer-stat-card" style="padding:14px;">
                         <span class="stat-card-label">BLOCKS MINED</span>
                         <div class="stat-card-value text-indigo" style="font-size:1.3rem;">${data.blocksMined}</div>
-                        <div class="stat-card-sub">+${data.totalMinedRewards} RAI Rewards</div>
+                        <div class="stat-card-sub">+${data.totalMinedRewards} RAIX Rewards</div>
                     </div>
                     <div class="explorer-stat-card" style="padding:14px;">
                         <span class="stat-card-label">TOTAL SENT</span>
@@ -955,16 +955,16 @@ async function openAddressInspector(address) {
 
                                     if (t.type === 'MEMORY_COMMIT') {
                                         const feeVal = (t.fee !== undefined && t.fee !== null && t.fee > 0) ? t.fee : 0.05;
-                                        amountDisplay = `<span class="mono font-bold text-amber">-${feeVal} RAI <span style="font-size:0.68rem; color:#fb923c;">(Gas/Burn 🔥)</span></span>`;
+                                        amountDisplay = `<span class="mono font-bold text-amber">-${feeVal} RAIX <span style="font-size:0.68rem; color:#fb923c;">(Gas/Burn 🔥)</span></span>`;
                                         counterpartyDisplay = `<span class="badge-subtle badge-violet" style="font-size:0.7rem;"><i class="fa-solid fa-brain"></i> AI State Root</span>`;
                                     } else if (t.type === 'COINBASE') {
-                                        amountDisplay = `<span class="mono font-bold text-emerald">+${t.amount} RAI <span style="font-size:0.68rem; color:#34d399;">(Reward ⚡)</span></span>`;
+                                        amountDisplay = `<span class="mono font-bold text-emerald">+${t.amount} RAIX <span style="font-size:0.68rem; color:#34d399;">(Reward ⚡)</span></span>`;
                                         counterpartyDisplay = `<span class="badge-subtle badge-emerald" style="font-size:0.7rem;"><i class="fa-solid fa-cube"></i> PoW Subsidy</span>`;
                                     } else if (isOut) {
-                                        amountDisplay = `<span class="mono font-bold text-slate-200">-${t.amount} RAI</span>`;
+                                        amountDisplay = `<span class="mono font-bold text-slate-200">-${t.amount} RAIX</span>`;
                                         counterpartyDisplay = `<span class="mono text-muted clickable-link" onclick="event.stopPropagation(); openAddressInspector('${otherAddr}')">${shortOther}</span>`;
                                     } else {
-                                        amountDisplay = `<span class="mono font-bold text-emerald">+${t.amount} RAI</span>`;
+                                        amountDisplay = `<span class="mono font-bold text-emerald">+${t.amount} RAIX</span>`;
                                         counterpartyDisplay = `<span class="mono text-muted clickable-link" onclick="event.stopPropagation(); openAddressInspector('${otherAddr}')">${shortOther}</span>`;
                                     }
 
@@ -1165,7 +1165,7 @@ async function fetchExplorerTelemetry() {
         }
 
         if (elBurned && statsRes.totalBurned !== undefined) {
-            elBurned.textContent = `${(statsRes.totalBurned || 0).toFixed(3)} RAI 🔥`;
+            elBurned.textContent = `${(statsRes.totalBurned || 0).toFixed(3)} RAIX 🔥`;
         }
     } catch(e) {}
 }
@@ -1552,7 +1552,7 @@ async function fetchStats() {
         const elDiff = document.getElementById('ticker-diff');
         if (elDiff) elDiff.textContent = data.difficulty;
         const elBurned = document.getElementById('ticker-burned');
-        if (elBurned) elBurned.textContent = `${(data.totalBurned || 0).toFixed(3)} RAI 🔥`;
+        if (elBurned) elBurned.textContent = `${(data.totalBurned || 0).toFixed(3)} RAIX 🔥`;
 
         const elHeroBlocks = document.getElementById('hero-stat-blocks');
         if (elHeroBlocks) elHeroBlocks.textContent = (data.height || 0).toLocaleString();
@@ -1604,7 +1604,7 @@ function updateMiningCalculator() {
     document.getElementById('calc-network-diff').textContent = diffVal;
 
     // PoW continuous block emission formula:
-    // Block time = 30s -> 2,880 blocks/day * 49.5 RAI (pool reward) = 142,560 RAI/day
+    // Block time = 30s -> 2,880 blocks/day * 49.5 RAIX (pool reward) = 142,560 RAIX/day
     const dailyEmission = 2880 * 49.5;
     const netHr = Math.max(100000, currentNetworkHashrate || 380000);
     
@@ -1613,8 +1613,8 @@ function updateMiningCalculator() {
     const baseDaily = Math.round(dailyEmission * myShare);
     const baseMonthly = Math.round(baseDaily * 30);
 
-    document.getElementById('calc-daily-ctx').textContent = `~ ${baseDaily.toLocaleString()} RAI`;
-    document.getElementById('calc-monthly-ctx').textContent = `~ ${baseMonthly.toLocaleString()} RAI`;
+    document.getElementById('calc-daily-ctx').textContent = `~ ${baseDaily.toLocaleString()} RAIX`;
+    document.getElementById('calc-monthly-ctx').textContent = `~ ${baseMonthly.toLocaleString()} RAIX`;
 }
 
 // DEDICATED PERSONAL RIG & WORKERS DASHBOARD
@@ -1642,8 +1642,8 @@ async function updateMyRigDashboard(address) {
         document.getElementById('my-rig-total-hr').textContent = `${hrStr} Total`;
         document.getElementById('my-rig-workers-count').textContent = `${data.workersCount || 0} Rig${data.workersCount === 1 ? '' : 's'}`;
         document.getElementById('my-rig-round-share').textContent = `${data.roundEffortPercent || 0}%`;
-        document.getElementById('my-rig-est-reward').textContent = `${data.estimatedBlockReward || 0} RAI`;
-        document.getElementById('my-rig-total-paid').textContent = `${(data.totalPaid || 0).toFixed(2)} RAI`;
+        document.getElementById('my-rig-est-reward').textContent = `${data.estimatedBlockReward || 0} RAIX`;
+        document.getElementById('my-rig-total-paid').textContent = `${(data.totalPaid || 0).toFixed(2)} RAIX`;
 
         const workersTbody = document.getElementById('my-workers-tbody');
         if (workersTbody) {
@@ -1869,7 +1869,7 @@ async function fetchMempool() {
             div.innerHTML = `
                 <div class="memory-card-header-dark">
                     <span class="text-amber font-bold"><i class="fa-solid fa-hourglass-half"></i> ${tx.type}</span>
-                    <span class="mono text-emerald font-bold">${tx.amount} RAI (Fee: ${tx.fee} RAI)</span>
+                    <span class="mono text-emerald font-bold">${tx.amount} RAIX (Fee: ${tx.fee} RAI)</span>
                 </div>
                 <div class="mono" style="font-size:0.78rem; color: #94a3b8; margin-top:4px;">
                     From: <span class="clickable-link text-indigo" onclick="event.stopPropagation(); openAddressInspector('${tx.sender}')">${tx.sender.substring(0, 14)}...</span> 
@@ -1889,7 +1889,7 @@ function generateNewWallet() {
             currentWallet = data;
             saveWallet(data);
             renderWallet();
-            showToast('New $RAI Wallet generated successfully!');
+            showToast('New $RAIX Wallet generated successfully!');
         });
 }
 
@@ -1951,7 +1951,7 @@ function updateAllWalletDisplays() {
                 <div class="connected-wallet-pill" onclick="openWalletAccountModal()" title="View Account Details">
                     <span class="dot-indicator"></span>
                     <span class="mono text-xs font-bold text-slate-800">${shortAddr}</span>
-                    <span class="badge-subtle badge-emerald mono text-xs font-bold">${balNum} RAI</span>
+                    <span class="badge-subtle badge-emerald mono text-xs font-bold">${balNum} RAIX</span>
                 </div>
             `;
         }
@@ -1960,7 +1960,7 @@ function updateAllWalletDisplays() {
         if (secretBox) secretBox.style.display = 'block';
         if (privDisplay) privDisplay.textContent = currentWallet.privateKey;
         if (modalAddr) modalAddr.textContent = currentWallet.address;
-        if (modalBal) modalBal.textContent = `${balNum} RAI`;
+        if (modalBal) modalBal.textContent = `${balNum} RAIX`;
 
         // DEX Swap Button
         if (dexSwapBtn) {
@@ -2312,7 +2312,7 @@ async function claimFaucet() {
             showToast(data.error, true);
         } else {
             if (statusMsg) statusMsg.innerHTML = `<span class="text-emerald font-bold">✓ ${data.message}</span>`;
-            showToast('💧 5.00 Testnet $RAI successfully received!');
+            showToast('💧 5.00 Testnet $RAIX successfully received!');
             if (currentWallet && currentWallet.address === address) {
                 fetchWalletBalance();
             }
@@ -2324,7 +2324,7 @@ async function claimFaucet() {
     } finally {
         if (btn) {
             btn.disabled = false;
-            btn.innerHTML = '<i class="fa-solid fa-droplet"></i> Claim 5 RAI';
+            btn.innerHTML = '<i class="fa-solid fa-droplet"></i> Claim 5 RAIX';
         }
     }
 }
@@ -2565,7 +2565,7 @@ function renderInitialSwarmFeed() {
                 <span class="text-slate-600">Spatial arbitrage notarized: 3.4% spread on Curve</span>
             </div>
             <div class="flex items-center gap-2">
-                <span class="mono text-xs text-flame font-bold">-0.015 RAI 🔥</span>
+                <span class="mono text-xs text-flame font-bold">-0.015 RAIX 🔥</span>
                 <span class="badge-subtle text-xs">Merkle Verified</span>
             </div>
         </div>
@@ -2575,7 +2575,7 @@ function renderInitialSwarmFeed() {
                 <span class="text-slate-600">Kinase CX-882 docking affinity anchored: -14.8 kcal/mol</span>
             </div>
             <div class="flex items-center gap-2">
-                <span class="mono text-xs text-flame font-bold">-0.015 RAI 🔥</span>
+                <span class="mono text-xs text-flame font-bold">-0.015 RAIX 🔥</span>
                 <span class="badge-subtle text-xs">Merkle Verified</span>
             </div>
         </div>
@@ -2585,7 +2585,7 @@ function renderInitialSwarmFeed() {
                 <span class="text-slate-600">Reentrancy interceptor proof inscribed for ERC-4626 vault</span>
             </div>
             <div class="flex items-center gap-2">
-                <span class="mono text-xs text-flame font-bold">-0.015 RAI 🔥</span>
+                <span class="mono text-xs text-flame font-bold">-0.015 RAIX 🔥</span>
                 <span class="badge-subtle text-xs">Merkle Verified</span>
             </div>
         </div>
@@ -2630,7 +2630,7 @@ function triggerSwarmReasoning() {
                     <span class="text-slate-800">${randomItem.thought}</span>
                 </div>
                 <div class="flex items-center gap-2">
-                    <span class="mono text-xs text-flame font-bold">-0.015 RAI 🔥</span>
+                    <span class="mono text-xs text-flame font-bold">-0.015 RAIX 🔥</span>
                     <span class="badge-subtle text-xs" style="color:var(--emerald);">Verified ✓</span>
                 </div>
             </div>
@@ -2775,11 +2775,11 @@ function updateDexBalances() {
     const userCtxBal = currentWallet ? (currentWallet.balance || 0) : 0;
 
     if (dexState.fromSymbol === 'RAI') {
-        if (fromBalEl) fromBalEl.textContent = `${userCtxBal.toFixed(2)} RAI`;
+        if (fromBalEl) fromBalEl.textContent = `${userCtxBal.toFixed(2)} RAIX`;
         if (toBalEl) toBalEl.textContent = `${dexState.userUsdc.toFixed(2)} tUSDC`;
     } else {
         if (fromBalEl) fromBalEl.textContent = `${dexState.userUsdc.toFixed(2)} tUSDC`;
-        if (toBalEl) toBalEl.textContent = `${userCtxBal.toFixed(2)} RAI`;
+        if (toBalEl) toBalEl.textContent = `${userCtxBal.toFixed(2)} RAIX`;
     }
 
     calculateDexSwap();
@@ -2835,11 +2835,11 @@ function calculateDexSwap() {
         // x * y = k => (x + dx) * (y - dy) = k => dy = (y * dx) / (x + dx)
         amountOut = (dexState.poolUsdc * amountInWithFee) / (dexState.poolCtx + amountInWithFee);
         impact = (amountIn / (dexState.poolCtx + amountIn)) * 100;
-        if (rateEl) rateEl.textContent = `1 RAI ≈ ${(dexState.poolUsdc / dexState.poolCtx).toFixed(4)} tUSDC`;
+        if (rateEl) rateEl.textContent = `1 RAIX ≈ ${(dexState.poolUsdc / dexState.poolCtx).toFixed(4)} tUSDC`;
     } else {
         amountOut = (dexState.poolCtx * amountInWithFee) / (dexState.poolUsdc + amountInWithFee);
         impact = (amountIn / (dexState.poolUsdc + amountIn)) * 100;
-        if (rateEl) rateEl.textContent = `1 tUSDC ≈ ${(dexState.poolCtx / dexState.poolUsdc).toFixed(4)} RAI`;
+        if (rateEl) rateEl.textContent = `1 tUSDC ≈ ${(dexState.poolCtx / dexState.poolUsdc).toFixed(4)} RAIX`;
     }
 
     if (toIn) toIn.value = amountOut.toFixed(4);
@@ -2868,7 +2868,7 @@ async function executeDexSwap() {
 
     if (dexState.fromSymbol === 'RAI') {
         if (amountIn > userCtxBal) {
-            if (statusEl) statusEl.innerHTML = `<span class="text-flame">Insufficient RAI balance (${userCtxBal.toFixed(2)} RAI available).</span>`;
+            if (statusEl) statusEl.innerHTML = `<span class="text-flame">Insufficient RAIX balance (${userCtxBal.toFixed(2)} RAIX available).</span>`;
             return;
         }
         // Deduct RAI, credit USDC
@@ -2922,7 +2922,7 @@ function addDexLiquidity() {
     const uVal = parseFloat(usdcIn?.value || '0');
 
     if (cVal <= 0 || uVal <= 0) {
-        alert('Please enter both RAI and tUSDC amounts to provide liquidity.');
+        alert('Please enter both RAIX and tUSDC amounts to provide liquidity.');
         return;
     }
 
@@ -3180,7 +3180,7 @@ function renderUserPositionCard() {
                         <div class="user-pos-icon"><i class="fa-solid fa-satellite-dish text-indigo"></i></div>
                         <div>
                             <div class="text-sm font-bold text-white">Your Connected Wallet: <span class="mono text-indigo">${userAddr.substring(0, 10)}...${userAddr.substring(userAddr.length - 6)}</span></div>
-                            <div class="text-xs text-slate-400 mt-0.5">Not yet ranked on Testnet 2.0. Mine blocks or test swaps to qualify for the 210k $RAI airdrop!</div>
+                            <div class="text-xs text-slate-400 mt-0.5">Not yet ranked on Testnet 2.0. Mine blocks or test swaps to qualify for the 210k $RAIX airdrop!</div>
                         </div>
                     </div>
                     <button class="btn btn-sm btn-primary" onclick="navigateTo('landing', 'faucet')"><i class="fa-solid fa-faucet-drip"></i> Claim Faucet</button>
@@ -3220,11 +3220,11 @@ function renderUserPositionCard() {
                     </div>
                     <div class="user-pos-metric-box">
                         <span class="text-xs text-slate-400 font-bold block" style="font-size:0.7rem;">Day 1 Liquid (20%)</span>
-                        <div class="text-sm font-bold text-cyan-400 mono">${myEntry.day1Liquid} RAI</div>
+                        <div class="text-sm font-bold text-cyan-400 mono">${myEntry.day1Liquid} RAIX</div>
                     </div>
                     <div class="user-pos-metric-box">
                         <span class="text-xs text-slate-400 font-bold block" style="font-size:0.7rem;">90d Stream (80%)</span>
-                        <div class="text-sm font-bold text-indigo mono">${myEntry.vestedStream} RAI</div>
+                        <div class="text-sm font-bold text-indigo mono">${myEntry.vestedStream} RAIX</div>
                     </div>
                 </div>
             </div>
@@ -3291,11 +3291,11 @@ function renderLeaderboardPodium() {
                             <span class="font-extrabold text-white mono text-base">${item.estimatedReward.toLocaleString()} <span class="text-xs text-indigo">RAI</span></span>
                         </div>
                         <div class="flex items-center justify-between text-xs text-slate-400 font-mono mb-2" style="font-size:0.75rem;">
-                            <span>Day 1 (20%): <strong class="text-emerald font-bold">${item.day1Liquid} RAI</strong></span>
-                            <span>Stream (80%): <strong class="text-cyan-400 font-bold">${item.vestedStream} RAI</strong></span>
+                            <span>Day 1 (20%): <strong class="text-emerald font-bold">${item.day1Liquid} RAIX</strong></span>
+                            <span>Stream (80%): <strong class="text-cyan-400 font-bold">${item.vestedStream} RAIX</strong></span>
                         </div>
                         <div class="peg-ratio-indicator" style="width: 100%; justify-content: center;">
-                            <i class="fa-solid fa-scale-balanced text-amber"></i> 1,000 $tCTX = 1.00 $RAI Mainnet
+                            <i class="fa-solid fa-scale-balanced text-amber"></i> 1,000 $tCTX = 1.00 $RAIX Mainnet
                         </div>
                     </div>
                 </div>
@@ -3330,7 +3330,7 @@ function handleLeaderboardSearch(query) {
 
 function simulateConversion(val) {
     const raw = parseFloat(val) || 0;
-    // 1000 $tCTX = 1.00 Mainnet $RAI (Capped at 6,300 max)
+    // 1000 $tCTX = 1.00 Mainnet $RAIX (Capped at 6,300 max)
     const mainnetCtx = Math.min(6300, +(raw / 1000).toFixed(4));
     const day1 = +(mainnetCtx * 0.20).toFixed(2);
     const stream = +(mainnetCtx * 0.80).toFixed(2);
@@ -3339,9 +3339,9 @@ function simulateConversion(val) {
     const elDay1 = document.getElementById('sim-day1-val');
     const elStream = document.getElementById('sim-stream-val');
 
-    if (elMain) elMain.innerText = `${mainnetCtx.toLocaleString()} $RAI Mainnet`;
-    if (elDay1) elDay1.innerText = `${day1.toLocaleString()} RAI`;
-    if (elStream) elStream.innerText = `${stream.toLocaleString()} RAI`;
+    if (elMain) elMain.innerText = `${mainnetCtx.toLocaleString()} $RAIX Mainnet`;
+    if (elDay1) elDay1.innerText = `${day1.toLocaleString()} RAIX`;
+    if (elStream) elStream.innerText = `${stream.toLocaleString()} RAIX`;
 }
 
 function simulateWithCurrentWallet() {
@@ -3554,7 +3554,7 @@ function updateWebWalletHeader() {
         if (btn) btn.style.display = 'none';
         if (pill) pill.style.display = 'inline-flex';
         if (addrEl) addrEl.textContent = shortAddr;
-        if (balEl) balEl.textContent = `${cortexWeb3State.balanceCtx.toFixed(2)} RAI`;
+        if (balEl) balEl.textContent = `${cortexWeb3State.balanceCtx.toFixed(2)} RAIX`;
         if (mobileText) mobileText.textContent = `${shortAddr} (${cortexWeb3State.balanceCtx.toFixed(2)} RAI)`;
     } else {
         if (btn) {
@@ -3578,7 +3578,7 @@ async function syncWebWalletBalances() {
         cortexWeb3State.balanceUsdc = typeof dexRes.usdc === 'number' ? dexRes.usdc : 1000;
 
         const balEl = document.getElementById('web-wallet-bal-badge');
-        if (balEl) balEl.textContent = `${cortexWeb3State.balanceCtx.toFixed(2)} RAI`;
+        if (balEl) balEl.textContent = `${cortexWeb3State.balanceCtx.toFixed(2)} RAIX`;
     } catch(e) {}
 }
 
@@ -3935,7 +3935,7 @@ async function submitInteractiveAgentMemory() {
                     </div>
                     <div class="flex items-center gap-2">
                         <a href="javascript:void(0)" onclick="openTxInspector('${data.txId}')" class="text-indigo mono text-xs hover-underline" style="text-decoration:none;"><i class="fa-solid fa-receipt"></i> ${data.txId.substring(0, 10)}...</a>
-                        <span class="mono text-xs text-flame font-bold">-0.015 RAI 🔥</span>
+                        <span class="mono text-xs text-flame font-bold">-0.015 RAIX 🔥</span>
                         <span class="badge-subtle text-xs" style="color:var(--emerald);">Verified ✓</span>
                     </div>
                 </div>
@@ -3977,7 +3977,7 @@ function renderPoCReceipt(receipt) {
                         <i class="fa-solid fa-circle-check text-emerald"></i> CONFIRMED ON RETICULUM L1 TESTNET
                     </span>
                     <span class="badge-subtle badge-flame font-mono text-xs">
-                        <i class="fa-solid fa-fire"></i> -0.0150 RAI BURNED
+                        <i class="fa-solid fa-fire"></i> -0.0150 RAIX BURNED
                     </span>
                 </div>
                 <div class="text-xs text-slate-400 font-mono">
@@ -4032,7 +4032,7 @@ function renderPoCReceipt(receipt) {
                         <span class="badge-subtle badge-flame text-xs">30% OF GAS</span>
                     </div>
                     <div class="receipt-val text-flame">
-                        0.0150 RAI Permanently Destroyed 🔥
+                        0.0150 RAIX Permanently Destroyed 🔥
                     </div>
                 </div>
 

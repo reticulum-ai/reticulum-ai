@@ -8,7 +8,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png?v=5">
     <link rel="shortcut icon" href="assets/favicon.ico?v=5">
     <link rel="apple-touch-icon" sizes="128x128" href="assets/favicon-128x128.png?v=5">
-    <link rel="stylesheet" href="style.css?v=9.4">
+    <link rel="stylesheet" href="style.css?v=9.8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -539,7 +539,7 @@
             </div>
             <h1 class="hero-title">Testnet Incentive & Airdrop Portal</h1>
             <p class="hero-subtitle">
-                Reticulum AI allocates 63,000 $RAI (30% of the initial 210,000 RAI pool) to active testnet builders, miners, and AI agent developers with strict anti-whale protection.
+                Reticulum AI allocates 63,000 $RAIX (30% of the initial 210,000 RAIX pool) to active testnet builders, miners, and AI agent developers with strict anti-whale protection.
             </p>
         </header>
 
@@ -547,7 +547,7 @@
         <div class="metrics-grid">
             <div class="metric-card">
                 <div class="metric-label"><i class="fa-solid fa-coins"></i> Total Incentive Pool</div>
-                <div class="metric-value">210,000 RAI</div>
+                <div class="metric-value">210,000 RAIX</div>
                 <div class="metric-sub">1% of 21M Hard Cap</div>
             </div>
             <div class="metric-card">
@@ -557,7 +557,7 @@
             </div>
             <div class="metric-card">
                 <div class="metric-label"><i class="fa-solid fa-scale-balanced"></i> Anti-Whale Cap</div>
-                <div class="metric-value">6,300 RAI</div>
+                <div class="metric-value">6,300 RAIX</div>
                 <div class="metric-sub">3% maximum cap per participant</div>
             </div>
             <div class="metric-card">
@@ -572,7 +572,7 @@
             <div class="checker-header">
                 <div class="checker-title-group">
                     <h2><i class="fa-solid fa-magnifying-glass-chart"></i> Check Your Allocation & Eligibility</h2>
-                    <p>Enter any testnet RAI address to verify your ranking, activity points, and estimated Mainnet payout.</p>
+                    <p>Enter any testnet RAIX address to verify your ranking, activity points, and estimated Mainnet payout.</p>
                 </div>
                 <button class="check-btn" id="btnUseMyWallet" style="background: rgba(255,255,255,0.08); border: 1px solid var(--border-subtle);">
                     <i class="fa-solid fa-wallet"></i> Check Connected Wallet
@@ -597,8 +597,8 @@
                         <div style="margin-top: 8px; font-family: 'JetBrains Mono'; font-size: 0.95rem; color: #94a3b8;" id="resAddressLabel">ctx1...</div>
                     </div>
                     <div style="text-align: right;">
-                        <div class="reward-highlight" id="resRewardValue">0.00 RAI</div>
-                        <div class="reward-sub">Estimated Value: <span id="resRewardUsd">$0.00 USD</span> (Peg: 1,000 tCTX = 1 RAI)</div>
+                        <div class="reward-highlight" id="resRewardValue">0.00 RAIX</div>
+                        <div class="reward-sub">Estimated Value: <span id="resRewardUsd">$0.00 USD</span> (Peg: 1,000 tCTX = 1 RAIX)</div>
                     </div>
                 </div>
 
@@ -609,11 +609,11 @@
                     </div>
                     <div class="breakdown-card">
                         <div class="b-label">Day 1 Liquid (20%)</div>
-                        <div class="b-val" id="resDay1">-- RAI</div>
+                        <div class="b-val" id="resDay1">-- RAIX</div>
                     </div>
                     <div class="breakdown-card">
                         <div class="b-label">Vested Stream (80%)</div>
-                        <div class="b-val" id="resVested">-- RAI</div>
+                        <div class="b-val" id="resVested">-- RAIX</div>
                     </div>
                     <div class="breakdown-card">
                         <div class="b-label">Blocks Mined</div>
@@ -639,7 +639,7 @@
                     <div class="quest-icon icon-miner"><i class="fa-solid fa-microchip"></i></div>
                     <h3 class="quest-title">1. Mine on CPU</h3>
                     <p class="quest-desc">Connect any standard laptop or multi-core desktop to the Stratum mining pool. Each submitted share and block discovered boosts your allocation tier.</p>
-                    <div class="quest-reward"><i class="fa-solid fa-star"></i> 50 RAI per block + Mining Pool Points</div>
+                    <div class="quest-reward"><i class="fa-solid fa-star"></i> 50 RAIX per block + Mining Pool Points</div>
                 </div>
                 <a href="mining.html" class="quest-btn"><i class="fa-solid fa-download"></i> Start Mining CPU</a>
             </div>
@@ -658,7 +658,7 @@
                 <div>
                     <div class="quest-icon icon-dex"><i class="fa-solid fa-chart-line"></i></div>
                     <h3 class="quest-title">3. Provide AMM Liquidity</h3>
-                    <p class="quest-desc">Add RAI and tUSDC into the decentralized DEX pool to capture 14.2% streaming APY and qualify for the liquidity provider bootstrap tier.</p>
+                    <p class="quest-desc">Add RAIX and tUSDC into the decentralized DEX pool to capture 14.2% streaming APY and qualify for the liquidity provider bootstrap tier.</p>
                     <div class="quest-reward"><i class="fa-solid fa-star"></i> Pro-Rata Share of 0.3% Trading Fees</div>
                 </div>
                 <a href="dex.html" class="quest-btn"><i class="fa-solid fa-water"></i> Add LP on DEX</a>
@@ -671,7 +671,7 @@
                     <p class="quest-desc">Load the non-custodial Reticulum Chrome Extension into developer mode, claim faucet tokens, and sign peer-to-peer transfers.</p>
                     <div class="quest-reward"><i class="fa-solid fa-star"></i> Faucet Claim + Activity Streak</div>
                 </div>
-                <a href="faucet.html" class="quest-btn"><i class="fa-solid fa-faucet"></i> Claim Faucet RAI</a>
+                <a href="faucet.html" class="quest-btn"><i class="fa-solid fa-faucet"></i> Claim Faucet RAIX</a>
             </div>
         </div>
 
@@ -683,7 +683,7 @@
                     <span style="font-size: 0.85rem; color: #94a3b8;">Updated automatically every 10 seconds directly from L1 blockchain state.</span>
                 </div>
                 <div style="font-size: 0.85rem; color: #cbd5e1; font-family: 'JetBrains Mono';">
-                    Conversion: <span style="color: var(--brand-cyan);">1,000 $tCTX = 1.00 $RAI</span>
+                    Conversion: <span style="color: var(--brand-cyan);">1,000 $tCTX = 1.00 $RAIX</span>
                 </div>
             </div>
 
@@ -696,7 +696,7 @@
                         <th>Blocks Mined</th>
                         <th>AI State Commits</th>
                         <th>Transfers</th>
-                        <th>Estimated RAI Mainnet</th>
+                        <th>Estimated RAIX Mainnet</th>
                         <th>Vesting Breakdown</th>
                     </tr>
                 </thead>
@@ -761,7 +761,7 @@
                         <td class="mono">${item.blocksMined || 0}</td>
                         <td class="mono" style="color: var(--brand-purple); font-weight: 600;">${item.stateCommits || 0}</td>
                         <td class="mono">${item.transfers || 0}</td>
-                        <td class="mono" style="color: var(--brand-cyan); font-weight: 700; font-size: 1rem;">${(item.estimatedReward || 0).toLocaleString()} RAI</td>
+                        <td class="mono" style="color: var(--brand-cyan); font-weight: 700; font-size: 1rem;">${(item.estimatedReward || 0).toLocaleString()} RAIX</td>
                         <td style="font-size: 0.82rem; color: #94a3b8;">
                             <span style="color: var(--brand-emerald); font-weight: 600;">${item.day1Liquid || 0}</span> liquid / 
                             <span>${item.vestedStream || 0}</span> stream
@@ -782,11 +782,11 @@
             if (found) {
                 document.getElementById('resAddressLabel').textContent = found.address;
                 document.getElementById('resRank').textContent = `#${found.rank}`;
-                document.getElementById('resRewardValue').textContent = `${(found.estimatedReward || 0).toLocaleString()} RAI`;
+                document.getElementById('resRewardValue').textContent = `${(found.estimatedReward || 0).toLocaleString()} RAIX`;
                 const usdVal = ((found.estimatedReward || 0) * 1.96).toFixed(2);
                 document.getElementById('resRewardUsd').textContent = `$${usdVal} USD`;
-                document.getElementById('resDay1').textContent = `${found.day1Liquid || 0} RAI`;
-                document.getElementById('resVested').textContent = `${found.vestedStream || 0} RAI`;
+                document.getElementById('resDay1').textContent = `${found.day1Liquid || 0} RAIX`;
+                document.getElementById('resVested').textContent = `${found.vestedStream || 0} RAIX`;
                 document.getElementById('resBlocks').textContent = found.blocksMined || 0;
                 document.getElementById('resCommits').textContent = found.stateCommits || 0;
                 document.getElementById('resTransfers').textContent = found.transfers || 0;
@@ -798,10 +798,10 @@
             } else {
                 document.getElementById('resAddressLabel').textContent = addressToFind;
                 document.getElementById('resRank').textContent = 'Unranked';
-                document.getElementById('resRewardValue').textContent = '0.00 RAI';
+                document.getElementById('resRewardValue').textContent = '0.00 RAIX';
                 document.getElementById('resRewardUsd').textContent = '$0.00 USD';
-                document.getElementById('resDay1').textContent = '0 RAI';
-                document.getElementById('resVested').textContent = '0 RAI';
+                document.getElementById('resDay1').textContent = '0 RAIX';
+                document.getElementById('resVested').textContent = '0 RAIX';
                 document.getElementById('resBlocks').textContent = '0';
                 document.getElementById('resCommits').textContent = '0';
                 document.getElementById('resTransfers').textContent = '0';

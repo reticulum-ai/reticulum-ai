@@ -8,7 +8,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png?v=5">
     <link rel="shortcut icon" href="assets/favicon.ico?v=5">
     <link rel="apple-touch-icon" sizes="128x128" href="assets/favicon-128x128.png?v=5">
-    <link rel="stylesheet" href="style.css?v=9.4">
+    <link rel="stylesheet" href="style.css?v=9.8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -423,8 +423,8 @@
         <!-- Telemetry HUD -->
         <div class="hud-grid">
             <div class="hud-card">
-                <div class="hud-label"><i class="fa-solid fa-fire" style="color: var(--brand-rose);"></i> Total $RAI Burned</div>
-                <div class="hud-val" id="hudBurned">110.49 RAI</div>
+                <div class="hud-label"><i class="fa-solid fa-fire" style="color: var(--brand-rose);"></i> Total $RAIX Burned</div>
+                <div class="hud-val" id="hudBurned">110.49 RAIX</div>
                 <div class="hud-sub">Permanently destroyed to null address</div>
             </div>
             <div class="hud-card">
@@ -477,7 +477,7 @@
 
                 if (list.length > 0 && list[0].statsSnapshot) {
                     const snap = list[0].statsSnapshot;
-                    document.getElementById('hudBurned').textContent = `${(snap.burned || 110.49).toFixed(2)} RAI`;
+                    document.getElementById('hudBurned').textContent = `${(snap.burned || 110.49).toFixed(2)} RAIX`;
                     document.getElementById('hudHeight').textContent = `#${(snap.height || 15320).toLocaleString()}`;
                     document.getElementById('hudHashrate').textContent = `${((snap.hashrate || 211000) / 1000).toFixed(1)} kH/s`;
                     document.getElementById('hudTvl').textContent = `$${((snap.tvl || 1602222) / 1000000).toFixed(2)}M USD`;
