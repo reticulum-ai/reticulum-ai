@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Reticulum L1 — Dual Terminal Video Studio</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #090a0f;
+    color: #e2e8f0;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  .controls {
+    background: #111420;
+    border: 1px solid #1e2438;
+    padding: 14px 24px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  }
+  .btn {
+    background: #4f46e5;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+  }
+  .btn:hover { background: #4338ca; transform: translateY(-1px); }
+  .btn-rec {
+    background: #ef4444;
+    animation: pulse 2s infinite;
+  }
+  .btn-rec:hover { background: #dc2626; }
+  .btn-rec.recording {
+    background: #b91c1c;
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.8);
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+  }
+  .status {
+    font-family: monospace;
+    font-size: 14px;
+    color: #94a3b8;
+  }
+  .status strong { color: #38bdf8; }
+  #canvas {
+    width: 100%;
+    max-width: 1280px;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border: 2px solid #1e2438;
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 30px rgba(99, 102, 241, 0.15);
+    background: #06070a;
+  }
+</style>
+</head>
+<body>
+
+<div class="controls">
+  <button id="recBtn" class="btn btn-rec">
+    <span>●</span> <span id="recText">ENREGISTRER LA VIDÉO (15 SECONDES)</span>
+  </button>
+  <button id="snapBtn" class="btn" style="background:#059669;">
+    📷 Télécharger Capture HD
+  </button>
+  <div class="status" id="statusText">Statut : <strong>Prêt à enregistrer (Full HD 60 FPS)</strong></div>
+</div>
+
+<canvas id="canvas" width="1920" height="1080"></canvas>
+
+<script>
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+const recBtn = document.getElementById('recBtn');
+const snapBtn = document.getElementById('snapBtn');
+const statusText = document.getElementById('statusText');
+const recText = document.getElementById('recText');
+
+// Simulation State
+let height = 23832;
+let hashrate = 109.27;
+let burned = 158.580;
+let mempoolPending = 7;
+let lastBlockTime = Date.now();
+
+const workers = [
+  { name: 'DESKTOP-129D', hr: '3.04 kH/s', paid: '1817.71 RAI', addr: 'ctx19ebb88c090d2d1...' },
+  { name: 'vm902',        hr: '4.79 kH/s', paid: '  79.24 RAI', addr: 'ctx1a13c0450d66a23...' },
+  { name: 'vm901',        hr: '2.21 kH/s', paid: '  96.33 RAI', addr: 'ctx1936e9f47295e75...' },
+  { name: 'DESKTOP-UEOC', hr: '0.23 kH/s', paid: ' 333.70 RAI', addr: 'ctx13018973bf7b66d...' },
+  { name: 'Miner-900',    hr: '2.45 kH/s', paid: ' 425.10 RAI', addr: 'ctx1267b56aec75892...' },
+];
+
+let recentBlocks = [
+  { index: 23832, diff: 5, txs: 9, hash: '0000375c86f1ae43887e9531941efa15' },
+  { index: 23831, diff: 5, txs: 7, hash: '00005067764acc677e4739da4050a3ae' },
+  { index: 23830, diff: 5, txs: 12, hash: '0000094f3a4e907d51103eaa0e6f0ad4' },
+  { index: 23829, diff: 4, txs: 6, hash: '00008a2b7918fb1459242d6d00a129ef' },
+  { index: 23828, diff: 4, txs: 4, hash: '000026023ce242a440aa0269f8c104aa' },
+];
+
+const memoryLog = [
+  {
+    time: '2:40:10 PM',
+    block: 23831,
+    status: 'CONFIRMED',
+    agent: 'Aegis-Security-Audit',
+    topic: 'Block Propagation & Cryptographic Invariants',
+    reasoning: 'Security check at Block #23830: Verified tip block 0000094f with 12 confirmed transactions. Signature validation: 100% valid ECDSA secp256k1 proofs. Mempool state synchronized.',
+    root: '6784c4e045bea9b7dfdd02c8c1f41c4e01e50ca81943faf7096053690f657244'
+  },
+  {
+    time: '2:42:10 PM',
+    block: 23832,
+    status: 'CONFIRMED',
+    agent: 'Reticulum-HashWatch-AI',
+    topic: 'PoW Consensus & Hashrate Integrity',
+    reasoning: 'Audit at Block #23831: Network difficulty 5. Mining pool reports 9 active worker nodes (109.27 kH/s). Zero chain divergence detected on tip 00005067... Consensus verified stable.',
+    root: '69001ebec1698ba11451225e4e8bb4afc5fe97f50c3447864704ac5b002b806a'
+  },
+  {
+    time: '2:44:10 PM',
+    block: 23832,
+    status: 'CONFIRMED',
+    agent: 'Reticulum-Econ-Oracle',
+    topic: 'Deflationary Burn & Supply Telemetry',
+    reasoning: 'Economic audit at Block #23832: Total supply tracking 1,191,798.726 RAI. Programmatic burn accumulator: 158.58 RAI permanently destroyed via autonomous fees. Supply curve conforms to protocol parameters.',
+    root: 'dd3dda718db82c00324a9cf514aa4553dd4c5ba0d053a4c4194012153c54d288'
+  }
+];
+
+// Live animation clock
+let frame = 0;
+
+function draw() {
+  frame++;
+  
+  // Update state occasionally
+  if (frame % 240 === 0) { // every 4 sec
+    height++;
+    hashrate = +(108 + Math.random() * 4).toFixed(2);
+    burned = +(burned + 0.015).toFixed(3);
+    const newHash = '0000' + Math.random().toString(16).substring(2, 10) + Math.random().toString(16).substring(2, 10);
+    recentBlocks.unshift({ index: height, diff: 5, txs: Math.floor(4 + Math.random() * 8), hash: newHash });
+    if (recentBlocks.length > 5) recentBlocks.pop();
+
+    // Trigger AI memory inscription
+    const agents = ['Reticulum-HashWatch-AI', 'Aegis-Security-Audit', 'Reticulum-Econ-Oracle'];
+    const ag = agents[height % agents.length];
+    const d = new Date();
+    const timeStr = d.toLocaleTimeString();
+    memoryLog.push({
+      time: timeStr,
+      block: height,
+      status: 'CONFIRMED',
+      agent: ag,
+      topic: ag.includes('Hash') ? 'PoW Consensus & Hashrate Integrity' : (ag.includes('Aegis') ? 'Cryptographic State Attestation' : 'Deflationary Burn & Supply Telemetry'),
+      reasoning: `Telemetry verification at Block #${height}: Network difficulty 5. Pool reports 9 active worker nodes (${hashrate} kH/s). Zero chain divergence. State verified sealed.`,
+      root: Math.random().toString(16).substring(2) + Math.random().toString(16).substring(2)
+    });
+    if (memoryLog.length > 3) memoryLog.shift();
+  }
+
+  // Clear Canvas
+  ctx.fillStyle = '#06070a';
+  ctx.fillRect(0, 0, 1920, 1080);
+
+  // Draw Vertical Divider
+  ctx.strokeStyle = '#1a1f2e';
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+  ctx.moveTo(960, 0);
+  ctx.lineTo(960, 1080);
+  ctx.stroke();
+
+  // ----------------------------------------------------
+  // LEFT PANE: RETICULUM NODE L1 (0 to 960)
+  // ----------------------------------------------------
+  drawNodePane(40, 50, 880);
+
+  // ----------------------------------------------------
+  // RIGHT PANE: AI AGENT COGNITIVE FEED (960 to 1920)
+  // ----------------------------------------------------
+  drawAgentPane(1000, 50, 880);
+
+  // Subtle Scanline & Vignette Effect
+  drawVignette();
+
+  requestAnimationFrame(draw);
+}
+
+function drawNodePane(x, y, w) {
+  // Title Box
+  ctx.strokeStyle = '#06b6d4';
+  ctx.lineWidth = 2;
+  ctx.strokeRect(x, y, w, 60);
+
+  ctx.fillStyle = '#22d3ee';
+  ctx.font = 'bold 22px "Cascadia Code", "Fira Code", Consolas, monospace';
+  ctx.fillText('🧠  RETICULUM AI (L1) — CORE CONSENSUS & VALIDATOR ENGINE', x + 24, y + 38);
+
+  ctx.fillStyle = '#64748b';
+  ctx.font = '16px Consolas, monospace';
+  ctx.fillText('Chain ID: reticulum-l1-testnet   |   Algorithm: RandomX (rx/0)   |   Stratum: 3333', x + 24, y + 95);
+
+  let py = y + 140;
+
+  // NETWORK STATE
+  ctx.fillStyle = '#f8fafc';
+  ctx.font = 'bold 20px Consolas, monospace';
+  ctx.fillText('● NETWORK STATE:', x + 20, py);
+  py += 32;
+
+  ctx.font = '18px Consolas, monospace';
+  drawStatLine(x + 30, py, 'Height:', `#${height} (Total: ${height + 1})`, '#22c55e', true); py += 28;
+  drawStatLine(x + 30, py, 'Difficulty:', '5 leading zeros (Dynamic)', '#eab308'); py += 28;
+  drawStatLine(x + 30, py, 'Pool Hashrate:', `${hashrate} kH/s`, '#06b6d4', true); py += 28;
+  drawStatLine(x + 30, py, 'Connected Workers:', '9 active rigs online', '#a855f7'); py += 28;
+  drawStatLine(x + 30, py, 'Total Supply:', '1,191,798.726 RAI', '#e2e8f0'); py += 28;
+  drawStatLine(x + 30, py, '🔥 Total Burned:', `${burned} RAI (Deflationary)`, '#ef4444', true); py += 28;
+  drawStatLine(x + 30, py, 'Mempool Pending:', `${mempoolPending} txs`, '#eab308'); py += 45;
+
+  // LIVE CONNECTED MINING RIGS
+  ctx.fillStyle = '#f8fafc';
+  ctx.font = 'bold 20px Consolas, monospace';
+  ctx.fillText('● LIVE CONNECTED MINING RIGS (STRATUM TCP):', x + 20, py);
+  py += 32;
+
+  for (const wk of workers) {
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '17px Consolas, monospace';
+    ctx.fillText('⚙', x + 30, py);
+    ctx.fillStyle = '#f1f5f9';
+    ctx.fillText(wk.name.padEnd(14), x + 55, py);
+    ctx.fillStyle = '#64748b'; ctx.fillText('|', x + 210, py);
+    ctx.fillStyle = '#06b6d4'; ctx.fillText(wk.hr.padStart(9), x + 230, py);
+    ctx.fillStyle = '#64748b'; ctx.fillText('|', x + 340, py);
+    ctx.fillStyle = '#22c55e'; ctx.fillText(`Paid: ${wk.paid}`, x + 360, py);
+    ctx.fillStyle = '#64748b'; ctx.fillText('|', x + 550, py);
+    ctx.fillStyle = '#475569'; ctx.fillText(wk.addr, x + 570, py);
+    py += 26;
+  }
+
+  py += 25;
+
+  // RECENT BLOCKS
+  ctx.fillStyle = '#f8fafc';
+  ctx.font = 'bold 20px Consolas, monospace';
+  ctx.fillText('● RECENT ON-CHAIN BLOCKS (POW + PPLNS):', x + 20, py);
+  py += 32;
+
+  for (const b of recentBlocks) {
+    ctx.fillStyle = '#38bdf8';
+    ctx.fillText('💎', x + 30, py);
+    ctx.fillStyle = '#f8fafc';
+    ctx.font = 'bold 17px Consolas, monospace';
+    ctx.fillText(`Block #${b.index}`, x + 60, py);
+    ctx.fillStyle = '#22c55e';
+    ctx.font = 'bold 15px Consolas, monospace';
+    ctx.fillText('[CONFIRMED]', x + 210, py);
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '16px Consolas, monospace';
+    ctx.fillText(`Diff ${b.diff} | Txs: ${b.txs.toString().padEnd(2)} |`, x + 325, py);
+    ctx.fillStyle = '#475569';
+    ctx.fillText(`${b.hash}...`, x + 510, py);
+    py += 27;
+  }
+
+  // Footer pulse
+  const dot = (Math.floor(frame / 20) % 2 === 0) ? '●' : '○';
+  ctx.fillStyle = '#22c55e';
+  ctx.font = '14px Consolas, monospace';
+  ctx.fillText(`${dot} L1 Consensus Loop: Active & Synchronized (15.0s block target)`, x + 20, 1020);
+}
+
+function drawStatLine(x, y, label, val, valColor, isBold = false) {
+  ctx.fillStyle = '#94a3b8';
+  ctx.font = '17px Consolas, monospace';
+  ctx.fillText(label.padEnd(20), x, y);
+  ctx.fillStyle = valColor;
+  ctx.font = (isBold ? 'bold ' : '') + '17px Consolas, monospace';
+  ctx.fillText(val, x + 190, y);
+}
+
+function drawAgentPane(x, y, w) {
+  // Title Box
+  ctx.strokeStyle = '#ec4899';
+  ctx.lineWidth = 2;
+  ctx.strokeRect(x, y, w, 60);
+
+  ctx.fillStyle = '#f472b6';
+  ctx.font = 'bold 22px "Cascadia Code", "Fira Code", Consolas, monospace';
+  ctx.fillText('🤖  RETICULUM NEURAL TELEMETRY & FLIGHT RECORDER ENGINE', x + 30, y + 38);
+
+  ctx.fillStyle = '#64748b';
+  ctx.font = '16px Consolas, monospace';
+  ctx.fillText('Agent: Autonomous Core   |   Crypto: secp256k1   |   Mode: Inscription', x + 30, y + 95);
+
+  let py = y + 130;
+
+  for (let i = 0; i < memoryLog.length; i++) {
+    const m = memoryLog[i];
+    py = drawMemoryCard(x + 10, py, w - 20, m);
+    py += 20;
+  }
+
+  // Pulsing agent radar
+  const radarAlpha = 0.5 + Math.sin(frame * 0.08) * 0.4;
+  ctx.fillStyle = `rgba(34, 197, 94, ${radarAlpha})`;
+  ctx.font = '14px Consolas, monospace';
+  ctx.fillText('📡 Autonomous Agent Heartbeat: Inscribing neural memory every 120s (-0.015 RAI gas burn)', x + 20, 1020);
+}
+
+function drawMemoryCard(x, y, w, m) {
+  const cardHeight = 220;
+
+  // Box border
+  ctx.strokeStyle = '#eab308';
+  ctx.lineWidth = 1.5;
+  ctx.strokeRect(x, y, w, cardHeight);
+
+  // Header banner
+  ctx.fillStyle = '#0f172a';
+  ctx.fillRect(x + 1, y + 1, w - 2, 34);
+  ctx.fillStyle = '#eab308';
+  ctx.font = 'bold 16px Consolas, monospace';
+  ctx.fillText(`[${m.time}] COGNITIVE STATE INSCRIPTION (BLOCK #${m.block})`, x + 16, y + 24);
+
+  let ly = y + 62;
+  ctx.font = '16px Consolas, monospace';
+
+  // Agent
+  ctx.fillStyle = '#94a3b8'; ctx.fillText('🤖 Agent:     ', x + 20, ly);
+  ctx.fillStyle = '#38bdf8'; ctx.fillText(m.agent, x + 150, ly);
+  ctx.fillStyle = '#22c55e'; ctx.font = 'bold 13px Consolas, monospace'; ctx.fillText('[VERIFIED ECDSA secp256k1]', x + 370, ly);
+  ly += 26; ctx.font = '16px Consolas, monospace';
+
+  // Subsystem
+  ctx.fillStyle = '#94a3b8'; ctx.fillText('📡 Subsystem: ', x + 20, ly);
+  ctx.fillStyle = '#f8fafc'; ctx.fillText(m.topic, x + 150, ly);
+  ly += 26;
+
+  // Reasoning (multiline)
+  ctx.fillStyle = '#94a3b8'; ctx.fillText('🧠 Reasoning: ', x + 20, ly);
+  ctx.fillStyle = '#cbd5e1';
+  ctx.font = 'italic 15px Consolas, monospace';
+  wrapText(ctx, `"${m.reasoning}"`, x + 150, ly, w - 170, 20);
+  ly += 42; ctx.font = '16px Consolas, monospace';
+
+  // Proof Root
+  ctx.fillStyle = '#94a3b8'; ctx.fillText('🔐 Proof Root:', x + 20, ly);
+  ctx.fillStyle = '#64748b'; ctx.fillText(m.root, x + 150, ly);
+  ly += 26;
+
+  // Deflation
+  ctx.fillStyle = '#94a3b8'; ctx.fillText('🔥 Deflation: ', x + 20, ly);
+  ctx.fillStyle = '#ef4444'; ctx.fillText('-0.015 RAI permanently destroyed via autonomous fees', x + 150, ly);
+  ly += 26;
+
+  // Finality
+  ctx.fillStyle = '#94a3b8'; ctx.fillText('⛓️ Finality:  ', x + 20, ly);
+  ctx.fillStyle = '#22c55e'; ctx.font = 'bold 16px Consolas, monospace';
+  ctx.fillText(`Sealed on L1 Block #${m.block} [CONFIRMED]`, x + 150, ly);
+
+  return y + cardHeight;
+}
+
+function wrapText(context, text, x, y, maxWidth, lineHeight) {
+  const words = text.split(' ');
+  let line = '';
+  let curY = y;
+  for (let n = 0; n < words.length; n++) {
+    const testLine = line + words[n] + ' ';
+    const metrics = context.measureText(testLine);
+    if (metrics.width > maxWidth && n > 0) {
+      context.fillText(line, x, curY);
+      line = words[n] + ' ';
+      curY += lineHeight;
+    } else {
+      line = testLine;
+    }
+  }
+  context.fillText(line, x, curY);
+}
+
+function drawVignette() {
+  const grad = ctx.createRadialGradient(960, 540, 500, 960, 540, 1100);
+  grad.addColorStop(0, 'rgba(0,0,0,0)');
+  grad.addColorStop(1, 'rgba(0,0,0,0.6)');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, 1920, 1080);
+}
+
+// Start loop
+draw();
+
+// ----------------------------------------------------
+// 1-CLICK HD VIDEO RECORDER
+// ----------------------------------------------------
+let mediaRecorder;
+let recordedChunks = [];
+let isRecording = false;
+
+recBtn.addEventListener('click', () => {
+  if (isRecording) return;
+  startRecording();
+});
+
+function startRecording() {
+  isRecording = true;
+  recordedChunks = [];
+  recBtn.classList.add('recording');
+  
+  const stream = canvas.captureStream(60); // 60 FPS
+  const options = { mimeType: 'video/webm;codecs=vp9', videoBitsPerSecond: 8000000 };
+  
+  try {
+    mediaRecorder = new MediaRecorder(stream, options);
+  } catch (e) {
+    mediaRecorder = new MediaRecorder(stream);
+  }
+
+  mediaRecorder.ondataavailable = e => {
+    if (e.data.size > 0) recordedChunks.push(e.data);
+  };
+
+  mediaRecorder.onstop = saveVideo;
+  mediaRecorder.start();
+
+  let secondsLeft = 15;
+  statusText.innerHTML = `🔴 <strong>ENREGISTREMENT EN COURS : ${secondsLeft}s restantes...</strong>`;
+  recText.innerText = `ENREGISTREMENT (${secondsLeft}s)...`;
+
+  const countdown = setInterval(() => {
+    secondsLeft--;
+    if (secondsLeft > 0) {
+      statusText.innerHTML = `🔴 <strong>ENREGISTREMENT EN COURS : ${secondsLeft}s restantes...</strong>`;
+      recText.innerText = `ENREGISTREMENT (${secondsLeft}s)...`;
+    } else {
+      clearInterval(countdown);
+      mediaRecorder.stop();
+      isRecording = false;
+      recBtn.classList.remove('recording');
+      recText.innerText = 'ENREGISTRER LA VIDÉO (15 SECONDES)';
+      statusText.innerHTML = '✅ <strong>Vidéo générée et téléchargée avec succès !</strong>';
+    }
+  }, 1000);
+}
+
+function saveVideo() {
+  const blob = new Blob(recordedChunks, { type: 'video/webm' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.style.display = 'none';
+  a.href = url;
+  a.download = `reticulum-l1-dual-terminal-${height}.webm`;
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(() => {
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
+  }, 100);
+}
+
+// Screenshot HD
+snapBtn.addEventListener('click', () => {
+  const url = canvas.toDataURL('image/png');
+  const a = document.createElement('a');
+  a.download = `reticulum-l1-dual-terminal-${height}.png`;
+  a.href = url;
+  a.click();
+});
+</script>
+
+</body>
+</html>

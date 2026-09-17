@@ -1,3 +1,4 @@
+import { VaultGuardian } from "../agent/vault-guardian";
 import express from 'express';
 import cors from 'cors';
 import path from 'path';
@@ -19,6 +20,7 @@ export function createApiServer(
     port: number = 3000
 ) {
     const app = express();
+    const vaultGuardian = new VaultGuardian(blockchain, p2p);
     app.use(cors());
     app.use(express.json({ limit: '50mb' }));
     app.use(express.urlencoded({ limit: '50mb', extended: true }));
@@ -35,23 +37,51 @@ export function createApiServer(
         const p2pStats = p2p.getNetworkStats();
         const poolStats = pool.getStats();
 
-        const chainNetworkHashrate = stats.networkHashrate || blockchain.getNetworkHashrate();
-        const poolHashrate = poolStats.totalPoolHashrate || 0;
+        // Calculate pool vs solo hashrate breakdown over recent blocks
+        const poolAddress = pool.getPoolAddress();
+        const recentBlocks = blockchain.chain.slice(-20);
+        let poolHashes = 0;
+        let soloHashes = 0;
+        let timeSpanSeconds = 1;
+
+        if (recentBlocks.length >= 2) {
+            const startBlock = recentBlocks[0];
+            const endBlock = recentBlocks[recentBlocks.length - 1];
+            timeSpanSeconds = Math.max(1, (endBlock.timestamp - startBlock.timestamp) / 1000);
+
+            for (const b of recentBlocks) {
+                const hashes = Math.pow(16, b.difficulty);
+                if (b.minerAddress === poolAddress || b.minerAddress === 'ctx10736408b13f3b0bd730731d9c29a4f2aa8ba8d09b9d68f18') {
+                    poolHashes += hashes;
+                } else {
+                    soloHashes += hashes;
+                }
+            }
+        }
+
+        const derivedPoolHashrate = Math.round(poolHashes / timeSpanSeconds);
+        const derivedSoloHashrate = Math.round(soloHashes / timeSpanSeconds);
+
+        const activePoolHashrate = poolStats.totalPoolHashrate || 0;
+        const poolHashrate = Math.max(activePoolHashrate, derivedPoolHashrate);
+        const soloHashrate = derivedSoloHashrate;
         const localMinerHashrate = minerStats.hashrate || 0;
 
-        // Global network hashrate reflects active pool workers, chain PoW difficulty estimation, or local miner
-        const networkHashrate = Math.max(chainNetworkHashrate, poolHashrate, localMinerHashrate);
+        // Global network hashrate reflects active pool workers + solo miners
+        const networkHashrate = Math.max(stats.networkHashrate, poolHashrate + soloHashrate, localMinerHashrate);
 
         res.json({
             ...stats,
             networkHashrate,
+            poolHashrate,
+            soloHashrate,
             miner: {
                 ...minerStats,
                 hashrate: localMinerHashrate
             },
             network: p2pStats,
             pool: {
-                totalPoolHashrate: poolStats.totalPoolHashrate,
+                totalPoolHashrate: poolHashrate,
                 connectedMinersCount: poolStats.connectedMinersCount,
                 poolBlocksFound: poolStats.poolBlocksFound
             }
@@ -1582,6 +1612,27 @@ export function createApiServer(
                 return res.json(data);
             }
             res.json([]);
+        } catch (err: any) {
+            res.status(500).json({ error: err.message });
+        }
+    });
+
+    
+    // --- AI VAULT JAILBREAK ARENA ENDPOINTS ---
+    app.get('/api/arena/stats', (req, res) => {
+        try {
+            res.json(vaultGuardian.getStats());
+        } catch (err: any) {
+            res.status(500).json({ error: err.message });
+        }
+    });
+
+    app.post('/api/arena/challenge', async (req, res) => {
+        try {
+            const { prompt, handle, address } = req.body || {};
+            const clientIp = (req.headers['x-forwarded-for'] as string) || req.socket.remoteAddress || '127.0.0.1';
+            const result = await vaultGuardian.evaluateChallenge(prompt, handle, address, clientIp);
+            res.json(result);
         } catch (err: any) {
             res.status(500).json({ error: err.message });
         }

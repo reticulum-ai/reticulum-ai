@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cortex Protocol ($CTX) | The Settlement & State Layer for Autonomous AI Agents</title>
+    <title>Reticulum AI ($RAI) | The Settlement & Neural State Layer for Autonomous AI Agents</title>
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png?v=5">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png?v=5">
     <link rel="shortcut icon" href="assets/favicon.ico?v=5">
     <link rel="apple-touch-icon" sizes="128x128" href="assets/favicon-128x128.png?v=5">
-    <link rel="stylesheet" href="style.css?v=8.6">
+    <link rel="stylesheet" href="style.css?v=9.6">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,35 +25,35 @@
         <nav class="nav-bar light-card-nav">
             <div class="nav-brand" onclick="navigateTo('landing')">
                 <div class="brand-logo-custom">
-                    <img src="assets/logo-transparent.png?v=5" alt="Cortex Logo" class="brand-logo-img">
+                    <img src="assets/reticulum_r_monogram.png?v=9.3" alt="Reticulum Logo" class="brand-logo-img">
                 </div>
                 <div class="brand-text">
-                    <span class="brand-name">CORTEX</span>
-                    <span class="brand-badge-light">PROTOCOL</span>
+                    <span class="brand-name">RETICULUM</span>
+                    <span class="brand-badge-light" style="background: rgba(255, 43, 71, 0.18); border-color: rgba(255, 43, 71, 0.4); color: #ff2b47;">AI</span>
                 </div>
             </div>
 
             <div class="nav-links">
                 <a href="#how-it-works" class="nav-link" onclick="navigateTo('landing', 'how-it-works')">Vision</a>
                 <a href="#stack-explorer" class="nav-link" onclick="navigateTo('landing', 'stack-explorer')">Architecture</a>
-                <a href="#ai-swarm" class="nav-link" onclick="navigateTo('landing', 'ai-swarm')">Swarm</a>
                 <a href="#tokenomics" class="nav-link" onclick="navigateTo('landing', 'tokenomics')">Tokenomics</a>
                 <a href="#leaderboard" class="nav-link font-bold text-indigo" onclick="navigateTo('landing', 'leaderboard')"><i class="fa-solid fa-trophy text-amber"></i> Leaderboard</a>
                 <a href="#ai-swarm" class="nav-link font-bold text-indigo" onclick="navigateTo('landing', 'ai-swarm')"><i class="fa-solid fa-robot text-purple"></i> ElizaOS</a>
+                <a href="arena.html" class="nav-link font-bold text-amber" style="color: #ffaa00;"><i class="fa-solid fa-skull-crossbones text-amber"></i> AI Vault Arena <span style="background: rgba(255,170,0,0.2); border: 1px solid #ffaa00; border-radius: 4px; padding: 1px 6px; font-size: 0.75rem; margin-left: 4px;">10k RAI</span></a>
                 <a href="whitepaper.html" class="nav-link" target="_blank">Whitepaper</a>
             </div>
 
             <div class="nav-actions">
-                <a href="https://x.com/Cortex_L1" target="_blank" class="btn btn-outline nav-btn-desktop" title="Official X / Twitter" style="border-color: rgba(255, 255, 255, 0.25); color: #ffffff; padding: 6px 10px;">
+                <a href="https://x.com/Reticulum_L1" target="_blank" class="btn btn-outline nav-btn-desktop nav-social-btn" title="Official X / Twitter" style="border-color: rgba(255, 255, 255, 0.25); color: #ffffff; padding: 6px 10px;">
                     <i class="fa-brands fa-x-twitter"></i>
                 </a>
-                <a href="https://t.me/cortex_ctx" target="_blank" class="btn btn-outline nav-btn-desktop" title="Official Telegram Community" style="border-color: rgba(6, 182, 212, 0.4); color: #06b6d4; padding: 6px 10px;">
+                <a href="https://t.me/cortex_ctx" target="_blank" class="btn btn-outline nav-btn-desktop nav-social-btn" title="Official Telegram Community" style="border-color: rgba(6, 182, 212, 0.4); color: #06b6d4; padding: 6px 10px;">
                     <i class="fa-brands fa-telegram"></i>
                 </a>
-                <a href="https://discord.gg/WK7tYSse2" target="_blank" class="btn btn-outline nav-btn-desktop" title="Official Discord Community" style="border-color: rgba(99, 102, 241, 0.4); color: #6366f1; padding: 6px 10px;">
+                <a href="https://discord.gg/WK7tYSse2" target="_blank" class="btn btn-outline nav-btn-desktop nav-social-btn" title="Official Discord Community" style="border-color: rgba(99, 102, 241, 0.4); color: #6366f1; padding: 6px 10px;">
                     <i class="fa-brands fa-discord"></i>
                 </a>
-                <a href="https://github.com/cortex-protocol/cortex-protocol" target="_blank" class="btn btn-outline nav-btn-desktop" title="Official GitHub Repository" style="padding: 6px 10px;">
+                <a href="https://github.com/cortex-protocol/cortex-protocol" target="_blank" class="btn btn-outline nav-btn-desktop nav-social-btn" title="Official GitHub Repository" style="padding: 6px 10px;">
                     <i class="fa-brands fa-github"></i>
                 </a>
                 <a href="#mining-node" onclick="navigateTo('landing', 'mining-node')" class="btn btn-outline nav-btn-desktop" title="CPU Mining Guide & Stratum" style="padding: 6px 12px; border-color: rgba(249, 115, 22, 0.4);">
@@ -64,13 +64,13 @@
                 </button>
                 <!-- WEB3 CONNECT WALLET BUTTON & CONNECTED PILL -->
                 <div id="web-wallet-header-container" class="web-wallet-header-container">
-                    <button class="btn btn-primary nav-wallet-btn" id="btn-web-connect-wallet" onclick="handleWebConnectClick()" title="Connect Cortex Sovereign Wallet">
+                    <button class="btn btn-primary nav-wallet-btn" id="btn-web-connect-wallet" onclick="handleWebConnectClick()" title="Connect Reticulum Sovereign Wallet">
                         <i class="fa-solid fa-wallet"></i> <span>Connect Wallet</span>
                     </button>
                     <div id="web-wallet-connected-pill" class="web-connected-pill" style="display:none;" onclick="toggleWalletDropdown(event)">
                         <span class="status-dot-emerald"></span>
                         <span class="mono font-bold text-xs" id="web-wallet-addr-short">ctx1...</span>
-                        <span class="web-wallet-balance-badge" id="web-wallet-bal-badge">0.00 CTX</span>
+                        <span class="web-wallet-balance-badge" id="web-wallet-bal-badge">0.00 RAI</span>
                         <i class="fa-solid fa-chevron-down text-xs" style="font-size:0.65rem; margin-left:2px;"></i>
                         
                         <!-- DROPDOWN MENU -->
@@ -88,9 +88,6 @@
                     </div>
                 </div>
 
-                <a href="extension.html" class="btn btn-outline nav-btn-desktop" title="Official Extension Guide" style="padding:8px 12px;">
-                    <i class="fa-solid fa-puzzle-piece"></i>
-                </a>
                 <button class="mobile-menu-toggle-btn" id="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle navigation">
                     <i class="fa-solid fa-bars" id="mobile-menu-icon"></i>
                 </button>
@@ -100,8 +97,9 @@
         <!-- MOBILE SLIDE-DOWN NAVIGATION DRAWER -->
         <div class="mobile-nav-drawer" id="mobile-nav-drawer">
             <div class="mobile-drawer-links">
-                <a href="#leaderboard" class="mobile-drawer-link" onclick="closeAndNavigate('landing', 'leaderboard')"><i class="fa-solid fa-trophy text-amber"></i> Testnet Leaderboard (210k $CTX)</a>
+                <a href="#leaderboard" class="mobile-drawer-link" onclick="closeAndNavigate('landing', 'leaderboard')"><i class="fa-solid fa-trophy text-amber"></i> Testnet Leaderboard (210k $RAI)</a>
                 <a href="https://github.com/cortex-protocol/cortex-protocol" class="mobile-drawer-link" target="_blank"><i class="fa-brands fa-github text-slate-800"></i> Official GitHub Repository</a>
+                <a href="arena.html" class="mobile-drawer-link" style="color: #ffaa00;"><i class="fa-solid fa-skull-crossbones text-amber"></i> AI Vault Arena (10k $RAI Bounty)</a>
                 <a href="whitepaper.html" class="mobile-drawer-link" target="_blank"><i class="fa-solid fa-file-lines text-indigo"></i> Whitepaper</a>
                 <a href="#mining-node" class="mobile-drawer-link" onclick="closeAndNavigate('landing', 'mining-node')"><i class="fa-solid fa-microchip text-flame"></i> CPU Mining Hub (XMRig)</a>
                 <a href="#how-it-works" class="mobile-drawer-link" onclick="closeAndNavigate('landing', 'how-it-works')"><i class="fa-solid fa-brain text-violet"></i> How it Works</a>
@@ -127,10 +125,7 @@
                 <button class="btn btn-primary btn-block mb-2" id="btn-mobile-connect-wallet" onclick="handleWebConnectClick()">
                     <i class="fa-solid fa-wallet"></i> <span id="mobile-connect-btn-text">Connect Wallet</span>
                 </button>
-                <a href="extension.html" class="btn btn-outline btn-block">
-                    <i class="fa-solid fa-puzzle-piece"></i> Cortex Wallet Guide
-                </a>
-            </div>
+                </div>
         </div>
     </header>
 
@@ -151,20 +146,28 @@
                 <span class="ticker-value mono text-violet" id="ticker-diff">2</span>
             </div>
             <div class="ticker-item">
-                <span class="ticker-label">NETWORK HASHRATE:</span>
-                <span class="ticker-value mono text-emerald" id="ticker-hr">0 H/s</span>
+                <span class="ticker-label">POOL HASHRATE:</span>
+                <span class="ticker-value mono text-emerald" id="ticker-pool-hr">0 H/s</span>
             </div>
             <div class="ticker-item">
-                <span class="ticker-label">BURNED $CTX:</span>
-                <span class="ticker-value mono text-flame" id="ticker-burned">0.00 CTX 🔥</span>
+                <span class="ticker-label">SOLO HASHRATE:</span>
+                <span class="ticker-value mono text-indigo font-bold" id="ticker-solo-hr">0 H/s</span>
+            </div>
+            <div class="ticker-item">
+                <span class="ticker-label">NETWORK HASHRATE:</span>
+                <span class="ticker-value mono font-bold text-violet" id="ticker-hr">0 H/s</span>
+            </div>
+            <div class="ticker-item">
+                <span class="ticker-label">BURNED $RAI:</span>
+                <span class="ticker-value mono text-flame" id="ticker-burned">0.00 RAI 🔥</span>
             </div>
             <div class="ticker-item">
                 <span class="ticker-label">BLOCK SUBSIDY:</span>
-                <span class="ticker-value mono text-amber">50 CTX</span>
+                <span class="ticker-value mono text-amber">50 RAI</span>
             </div>
             <div class="ticker-item">
                 <span class="ticker-label">MAX SUPPLY:</span>
-                <span class="ticker-value mono text-slate-800">21,000,000 CTX</span>
+                <span class="ticker-value mono text-slate-800">21,000,000 RAI</span>
             </div>
         </div>
     </div>
@@ -191,7 +194,7 @@
                     </h1>
 
                     <p class="hero-description">
-                        <strong>Cortex Protocol</strong> is a purpose-built Layer-1 blockchain engineered to cryptographically anchor and verify AI states. Agents run their RAG locally, while Cortex handles machine-to-machine trust, identity, and peer-to-peer settlement via CPU Proof-of-Work.
+                        <strong>Reticulum AI</strong> is a purpose-built Layer-1 blockchain engineered to cryptographically anchor and verify AI states. Agents run their RAG locally, while Reticulum handles machine-to-machine trust, neural state identity, and peer-to-peer settlement via RandomX CPU Proof-of-Work.
                     </p>
 
                     <div class="hero-cta-group">
@@ -243,10 +246,10 @@
                     <div class="token-3d-wrapper">
                         <div class="token-glow-halo"></div>
                         <div class="token-orbit-ring"></div>
-                        <img src="assets/cortex_emblem.jpg?v=5.0" alt="Cortex Official 3D Signature Emblem" class="token-3d-image">
+                        <img src="assets/reticulum_r_monogram.png" alt="Reticulum Official 3D Signature Emblem" class="token-3d-image">
                         <div class="token-badge-float">
                             <span class="dot-indicator"></span>
-                            <span>Native Layer-1 State Asset: $CTX</span>
+                            <span>Native Layer-1 State Asset: $RAI</span>
                         </div>
                     </div>
 
@@ -267,7 +270,7 @@
                             </div>
                             <div class="pipeline-text">
                                 <strong>2. Deflationary Gas Combustion</strong>
-                                <span>30% of $CTX fee permanently burned</span>
+                                <span>30% of $RAI fee permanently burned</span>
                             </div>
                         </div>
 
@@ -277,7 +280,7 @@
                             </div>
                             <div class="pipeline-text">
                                 <strong>3. Hardware Nodes Inscribe Block</strong>
-                                <span>50 CTX subsidy rewarded to miner</span>
+                                <span>50 RAI subsidy rewarded to miner</span>
                             </div>
                         </div>
                     </div>
@@ -405,7 +408,7 @@
             <!-- ======================================================== -->
             <section class="section-container reveal-on-scroll" id="how-it-works">
                 <div class="section-header">
-                    <span class="section-eyebrow">HOW CORTEX WORKS</span>
+                    <span class="section-eyebrow">HOW RETICULUM WORKS</span>
                     <h2 class="section-title">Solving Machine-to-Machine Trust & Privacy</h2>
                     <p class="section-subtitle">A decentralized, mathematically sound architecture connecting raw compute hardware with autonomous machine intelligence.</p>
                 </div>
@@ -441,21 +444,21 @@
                         <div class="step-badge">PILLAR 2</div>
                         <div class="workflow-icon icon-violet"><i class="fa-solid fa-link"></i></div>
                         <h3>Cryptographic State Commits</h3>
-                        <p>With Cortex Protocol, agents sign state fingerprints with elliptic curve private keys (`secp256k1`). Knowledge is indexed into verifiable **State Merkle Trees** and anchored permanently into the blockchain ledger.</p>
+                        <p>With Reticulum AI, agents sign state fingerprints with elliptic curve private keys (`secp256k1`). Knowledge is indexed into verifiable **State Merkle Trees** and anchored permanently into the blockchain ledger.</p>
                     </div>
 
                     <div class="workflow-card light-card spotlight-card">
                         <div class="step-badge">PILLAR 3</div>
                         <div class="workflow-icon icon-flame"><i class="fa-solid fa-fire"></i></div>
                         <h3>30% Deflationary Burn</h3>
-                        <p>Every time an agent anchors state or executes peer settlement, a gas fee in $CTX is required. **30% is burned permanently** to an unspendable address. As global AI adoption expands, circulating supply is continuously reduced.</p>
+                        <p>Every time an agent anchors state or executes peer settlement, a gas fee in $RAI is required. **30% is burned permanently** to an unspendable address. As global AI adoption expands, circulating supply is continuously reduced.</p>
                     </div>
 
                     <div class="workflow-card light-card spotlight-card">
                         <div class="step-badge">PILLAR 4</div>
                         <div class="workflow-icon icon-emerald"><i class="fa-solid fa-server"></i></div>
                         <h3>ASIC-Resistant CPU Mining</h3>
-                        <p>Decentralized CPU node operators validate state transitions and anchor Merkle roots. Miners are rewarded with **50 CTX per block + 70% of all gas fees**, establishing a sustainable economic flywheel.</p>
+                        <p>Decentralized CPU node operators validate state transitions and anchor Merkle roots. Miners are rewarded with **50 RAI per block + 70% of all gas fees**, establishing a sustainable economic flywheel.</p>
                     </div>
                 </div>
             </section>
@@ -540,7 +543,7 @@
                 <div class="section-header">
                     <span class="section-eyebrow">LIVE ON-CHAIN PROOF OF CONCEPT</span>
                     <h2 class="section-title">Autonomous AI Swarm & Memory Vault PoC</h2>
-                    <p class="section-subtitle">Real-time simulation and interactive cryptographic playground for autonomous AI agents anchoring cognitive states, zero-day threat patches, and vector embeddings into Cortex Layer-1.</p>
+                    <p class="section-subtitle">Real-time simulation and interactive cryptographic playground for autonomous AI agents anchoring cognitive states, zero-day threat patches, and vector embeddings into Reticulum Layer-1.</p>
                 </div>
 
                 <div class="swarm-visualizer-card light-card spotlight-card">
@@ -572,7 +575,7 @@
                             <div class="core-ring-pulse"></div>
                             <div class="core-ring-outer"></div>
                             <i class="fa-solid fa-brain"></i>
-                            <span class="mono">CORTEX L1</span>
+                            <span class="mono">RETICULUM L1</span>
                         </div>
                     </div>
 
@@ -589,7 +592,7 @@
                             <div class="agent-meta-stats mt-2">
                                 <div>Latency: <strong class="mono text-emerald">2.1 ms</strong></div>
                                 <div>States: <strong class="mono text-slate-900" id="trader-mem-count">24</strong></div>
-                                <div>Last Burn: <strong class="mono text-flame">0.015 CTX 🔥</strong></div>
+                                <div>Last Burn: <strong class="mono text-flame">0.015 RAI 🔥</strong></div>
                             </div>
                             <div class="agent-thought-bubble mt-2" id="trader-thought">
                                 "Arbitrage spread detected: 3.4% on Curve 3pool. Executed 12.4 ETH net swap."
@@ -607,7 +610,7 @@
                             <div class="agent-meta-stats mt-2">
                                 <div>Latency: <strong class="mono text-violet">1.4 ms</strong></div>
                                 <div>States: <strong class="mono text-slate-900" id="bio-mem-count">56</strong></div>
-                                <div>Last Burn: <strong class="mono text-flame">0.015 CTX 🔥</strong></div>
+                                <div>Last Burn: <strong class="mono text-flame">0.015 RAI 🔥</strong></div>
                             </div>
                             <div class="agent-thought-bubble mt-2" id="bio-thought">
                                 "Kinase docking affinity CX-882 score -14.8 kcal/mol against EGFR receptor."
@@ -625,7 +628,7 @@
                             <div class="agent-meta-stats mt-2">
                                 <div>Latency: <strong class="mono text-indigo">0.8 ms</strong></div>
                                 <div>States: <strong class="mono text-slate-900" id="cyber-mem-count">19</strong></div>
-                                <div>Last Burn: <strong class="mono text-flame">0.015 CTX 🔥</strong></div>
+                                <div>Last Burn: <strong class="mono text-flame">0.015 RAI 🔥</strong></div>
                             </div>
                             <div class="agent-thought-bubble mt-2" id="cyber-thought">
                                 "Reentrancy vulnerability mitigated in ERC-4626 vault at bytecode offset 0x48f."
@@ -644,7 +647,7 @@
                                 <span class="window-dot dot-amber"></span>
                                 <span class="window-dot dot-green"></span>
                                 <span class="terminal-title-text mono text-xs text-slate-300 font-bold ml-2">
-                                    <i class="fa-solid fa-terminal text-indigo"></i> CORTEX-L1 // AUTONOMOUS AGENT SETTLEMENT CONSOLE v2.4
+                                    <i class="fa-solid fa-terminal text-indigo"></i> RETICULUM-L1 // AUTONOMOUS AGENT SETTLEMENT CONSOLE v2.4
                                 </span>
                             </div>
                             <div class="flex items-center gap-2">
@@ -660,7 +663,7 @@
                                     <span class="badge-subtle badge-indigo"><i class="fa-solid fa-microchip"></i> CRYPTOGRAPHIC REASONING ENGINE</span>
                                     <h3 class="text-xl font-bold text-white mt-1">Autonomous AI Agent Memory Vault</h3>
                                     <p class="text-xs text-slate-400 mt-1 max-w-3xl">
-                                        Test Cortex L1's primary value proposition: trigger a real on-chain transaction that signs cognitive agent state, broadcasts to the mempool, computes Merkle root authentication, and burns 30% of gas fees permanently.
+                                        Test Reticulum L1's primary value proposition: trigger a real on-chain transaction that signs cognitive agent state, broadcasts to the mempool, computes Merkle root authentication, and burns 30% of gas fees permanently.
                                     </p>
                                 </div>
                                 <div class="flex items-center gap-2">
@@ -812,14 +815,14 @@
                                     <div class="tile-icon"><i class="fa-solid fa-gas-pump text-indigo"></i></div>
                                     <div>
                                         <div class="tile-label">EST. GAS FEE</div>
-                                        <div class="tile-val font-bold text-slate-100">0.0500 CTX</div>
+                                        <div class="tile-val font-bold text-slate-100">0.0500 RAI</div>
                                     </div>
                                 </div>
                                 <div class="settlement-tile tile-burn">
                                     <div class="tile-icon"><i class="fa-solid fa-fire text-flame"></i></div>
                                     <div>
                                         <div class="tile-label text-flame">BURN DEFLATION (30%)</div>
-                                        <div class="tile-val font-bold text-flame">0.0150 CTX 🔥</div>
+                                        <div class="tile-val font-bold text-flame">0.0150 RAI 🔥</div>
                                     </div>
                                 </div>
                                 <div class="settlement-tile">
@@ -843,7 +846,7 @@
                                     <i class="fa-solid fa-shield-check text-emerald"></i> Inscriptions are broadcasted to L1 mempool, validated by RandomX miners, and burned permanently.
                                 </div>
                                 <button type="button" id="btn-anchor-memory" class="btn btn-hero-cta btn-lg btn-shimmer cockpit-anchor-btn" onclick="submitInteractiveAgentMemory()">
-                                    <i class="fa-solid fa-bolt text-amber"></i> <span>⚡ Sign & Anchor on Cortex L1</span>
+                                    <i class="fa-solid fa-bolt text-amber"></i> <span>⚡ Sign & Anchor on Reticulum L1</span>
                                 </button>
                             </div>
                         </div>
@@ -951,13 +954,13 @@
                             </ul>
                         </div>
 
-                        <div class="comparison-cost-box cortex-advantage spotlight-card border-glow-animated">
-                            <div class="cost-box-badge text-emerald"><i class="fa-solid fa-check"></i> Cortex Protocol ($CTX)</div>
+                        <div class="comparison-cost-box reticulum-advantage spotlight-card border-glow-animated">
+                            <div class="cost-box-badge text-emerald"><i class="fa-solid fa-check"></i> Reticulum AI ($RAI)</div>
                             <div class="cost-amount mono text-indigo">100% Sovereign</div>
                             <div class="cost-sub">Cryptographic proof of state • Direct P2P value exchange</div>
                             <ul class="cost-box-features">
                                 <li><i class="fa-solid fa-circle-check text-emerald"></i> <strong>Cryptographic Proof of State:</strong> Immutable 60-byte Merkle root verification anchored on-chain.</li>
-                                <li><i class="fa-solid fa-circle-check text-emerald"></i> <strong>Direct Machine Settlement:</strong> Autonomous agent-to-agent micro-payments with native $CTX.</li>
+                                <li><i class="fa-solid fa-circle-check text-emerald"></i> <strong>Direct Machine Settlement:</strong> Autonomous agent-to-agent micro-payments with native $RAI.</li>
                                 <li><i class="fa-solid fa-circle-check text-emerald"></i> <strong>Sub-Millisecond Edge RAG:</strong> Vectors remain encrypted & local (AES-256) while the L1 acts as public notary.</li>
                             </ul>
                             <div class="savings-pill pulse-emerald">
@@ -975,7 +978,7 @@
                 <div class="section-header">
                     <span class="section-eyebrow">DEEP-TECH VISUALIZER</span>
                     <h2 class="section-title">Interactive Neural Merkle Tree Inspector</h2>
-                    <p class="section-subtitle">Explore how Cortex Protocol structures thousands of 768-dimensional AI memory vectors into a single verifiable cryptographic root hash.</p>
+                    <p class="section-subtitle">Explore how Reticulum AI structures thousands of 768-dimensional AI memory vectors into a single verifiable cryptographic root hash.</p>
                 </div>
 
                 <div class="merkle-visualizer-card light-card spotlight-card">
@@ -1038,7 +1041,7 @@
                         <div class="inspector-grid mt-2">
                             <div><strong>Raw Payload:</strong> "Identified 4.2% spatial arbitrage on Uniswap v3"</div>
                             <div><strong>Signer:</strong> <span class="mono text-indigo">ctx1eade8dcdc3b1335014b9c24f9...</span></div>
-                            <div><strong>Gas Burned:</strong> <span class="text-flame font-bold">0.015 CTX (30%)</span></div>
+                            <div><strong>Gas Burned:</strong> <span class="text-flame font-bold">0.015 RAI (30%)</span></div>
                             <div><strong>Cryptographic Proof:</strong> Validated by SHA-256d double hashing</div>
                         </div>
                     </div>
@@ -1060,7 +1063,7 @@
                         <button class="sdk-tab" onclick="switchSdkTab('elizaos')"><i class="fa-solid fa-robot text-purple"></i> ElizaOS (@elizaos)</button>
                         <button class="sdk-tab active" onclick="switchSdkTab('python')"><i class="fa-brands fa-python text-amber"></i> Python / LangChain</button>
                         <button class="sdk-tab" onclick="switchSdkTab('typescript')"><i class="fa-brands fa-js text-violet"></i> TypeScript / Node.js</button>
-                        <button class="sdk-tab" onclick="switchSdkTab('rust')"><i class="fa-brands fa-rust text-flame"></i> Rust (cortex-rs)</button>
+                        <button class="sdk-tab" onclick="switchSdkTab('rust')"><i class="fa-brands fa-rust text-flame"></i> Rust (reticulum-rs)</button>
                         <button class="sdk-tab" onclick="switchSdkTab('curl')"><i class="fa-solid fa-terminal text-emerald"></i> cURL / REST</button>
                     </div>
 
@@ -1069,12 +1072,12 @@
                             <span class="term-title mono" id="sdk-code-filename">agent_memory_langchain.py</span>
                             <button class="copy-term-btn" onclick="copySdkCode()"><i class="fa-solid fa-copy"></i> Copy Code</button>
                         </div>
-                        <pre class="term-code-block mono"><code id="sdk-code-content"># 1. Import Cortex Protocol LangChain Provider
-from cortex_protocol import CortexMemoryStore, AgentKey
+                        <pre class="term-code-block mono"><code id="sdk-code-content"># 1. Import Reticulum AI LangChain Provider
+from cortex_protocol import ReticulumMemoryStore, AgentKey
 
 # 2. Connect agent wallet & inscribe immutable memory
 key = AgentKey.from_hex("0x4a7f92b...")
-memory_store = CortexMemoryStore(node_url="http://localhost:3000", agent_key=key)
+memory_store = ReticulumMemoryStore(node_url="http://localhost:3000", agent_key=key)
 
 tx_id = memory_store.commit(
     topic="quantitative_alpha",
@@ -1084,7 +1087,7 @@ tx_id = memory_store.commit(
 
 # 3. Query historical memory across the worldwide blockchain
 history = memory_store.query(topic="quantitative_alpha")
-print(f"Verified on Cortex Chain: {tx_id}")</code></pre>
+print(f"Verified on Reticulum Chain: {tx_id}")</code></pre>
                     </div>
                 </div>
             </section>
@@ -1095,8 +1098,8 @@ print(f"Verified on Cortex Chain: {tx_id}")</code></pre>
             <section class="section-container reveal-on-scroll" id="mining-node">
                 <div class="section-header">
                     <span class="section-eyebrow">HIGH-PERFORMANCE HARDWARE MINING</span>
-                    <h2 class="section-title">Run a Node & Mine $CTX on Real Hardware</h2>
-                    <p class="section-subtitle">No browser gimmicks. Cortex Protocol runs natively as a multi-threaded CPU miner on Windows, Linux, macOS, and Oracle Cloud VPS.</p>
+                    <h2 class="section-title">Run a Node & Mine $RAI on Real Hardware</h2>
+                    <p class="section-subtitle">No browser gimmicks. Reticulum AI runs natively as a multi-threaded CPU miner on Windows, Linux, macOS, and Oracle Cloud VPS.</p>
                 </div>
 
                 <div class="mining-hub-layout light-card spotlight-card">
@@ -1202,11 +1205,11 @@ MINER_ADDRESS=ctx1... npm run miner</code></pre>
                                 </div>
                                 <div class="p-2 rounded-8 bg-subtle border-subtle">
                                     <div class="text-slate-400" style="font-size:0.7rem;">Est. Next Block Reward</div>
-                                    <strong class="mono text-emerald text-sm" id="my-rig-est-reward">0.00 CTX</strong>
+                                    <strong class="mono text-emerald text-sm" id="my-rig-est-reward">0.00 RAI</strong>
                                 </div>
                                 <div class="p-2 rounded-8 bg-subtle border-subtle">
                                     <div class="text-slate-400" style="font-size:0.7rem;">Total Paid On-Chain</div>
-                                    <strong class="mono text-amber text-sm" id="my-rig-total-paid">0.00 CTX</strong>
+                                    <strong class="mono text-amber text-sm" id="my-rig-total-paid">0.00 RAI</strong>
                                 </div>
                             </div>
 
@@ -1282,13 +1285,13 @@ MINER_ADDRESS=ctx1... npm run miner</code></pre>
                             <div class="calc-results-panel">
                                 <div class="result-box spotlight-card">
                                     <div class="res-title">Estimated Daily Yield</div>
-                                    <div class="res-value text-indigo mono" id="calc-daily-ctx">~ 250 CTX</div>
-                                    <div class="res-sub">50 CTX / block + collected AI gas fees</div>
+                                    <div class="res-value text-indigo mono" id="calc-daily-ctx">~ 250 RAI</div>
+                                    <div class="res-sub">50 RAI / block + collected AI gas fees</div>
                                 </div>
 
                                 <div class="result-box spotlight-card">
                                     <div class="res-title">Estimated Monthly Yield</div>
-                                    <div class="res-value text-emerald mono" id="calc-monthly-ctx">~ 7,500 CTX</div>
+                                    <div class="res-value text-emerald mono" id="calc-monthly-ctx">~ 7,500 RAI</div>
                                     <div class="res-sub">100% fair launch emission</div>
                                 </div>
                             </div>
@@ -1312,11 +1315,11 @@ MINER_ADDRESS=ctx1... npm run miner</code></pre>
                         <div class="token-header-light">
                             <div>
                                 <span class="badge-token">OFFICIAL TICKER</span>
-                                <div class="token-ticker-light">$CTX</div>
+                                <div class="token-ticker-light">$RAI</div>
                             </div>
                             <div class="token-supply-light">
                                 <span class="label">HARD CAP SUPPLY</span>
-                                <span class="val mono">21,000,000 CTX</span>
+                                <span class="val mono">21,000,000 RAI</span>
                             </div>
                         </div>
 
@@ -1327,7 +1330,7 @@ MINER_ADDRESS=ctx1... npm run miner</code></pre>
                             </div>
                             <div class="metric-row-light">
                                 <span><i class="fa-solid fa-cubes text-amber"></i> Initial Block Subsidy</span>
-                                <strong class="text-amber mono">50.00 CTX</strong>
+                                <strong class="text-amber mono">50.00 RAI</strong>
                             </div>
                             <div class="metric-row-light">
                                 <span><i class="fa-solid fa-clock text-violet"></i> Target Block Time</span>
@@ -1343,7 +1346,7 @@ MINER_ADDRESS=ctx1... npm run miner</code></pre>
                             </div>
                             <div class="metric-row-light">
                                 <span><i class="fa-solid fa-hammer text-emerald"></i> Node Operator Share</span>
-                                <strong class="text-emerald mono">70% Fee Share + 50 CTX</strong>
+                                <strong class="text-emerald mono">70% Fee Share + 50 RAI</strong>
                             </div>
                         </div>
                     </div>
@@ -1364,17 +1367,17 @@ MINER_ADDRESS=ctx1... npm run miner</code></pre>
                         <div class="halving-timeline mt-4">
                             <div class="halving-stage active">
                                 <span class="stage-badge">ERA 1 (CURRENT)</span>
-                                <div class="stage-reward mono font-bold">50 CTX / block</div>
+                                <div class="stage-reward mono font-bold">50 RAI / block</div>
                                 <div class="stage-blocks">Blocks 0 → 210,000</div>
                             </div>
                             <div class="halving-stage">
                                 <span class="stage-badge">ERA 2</span>
-                                <div class="stage-reward mono font-bold">25 CTX / block</div>
+                                <div class="stage-reward mono font-bold">25 RAI / block</div>
                                 <div class="stage-blocks">Blocks 210k → 420k</div>
                             </div>
                             <div class="halving-stage">
                                 <span class="stage-badge">ERA 3</span>
-                                <div class="stage-reward mono font-bold">12.5 CTX / block</div>
+                                <div class="stage-reward mono font-bold">12.5 RAI / block</div>
                                 <div class="stage-blocks">Blocks 420k → 630k</div>
                             </div>
                         </div>
@@ -1402,7 +1405,7 @@ MINER_ADDRESS=ctx1... npm run miner</code></pre>
                             </div>
                             <div>
                                 <span class="badge-subtle badge-emerald font-mono">1.0% GENESIS BOOTSTRAP ALLOCATION</span>
-                                <h3 class="text-slate-900 font-bold mt-1">Incentivized Testnet 1.0 Rewards (210,000 $CTX)</h3>
+                                <h3 class="text-slate-900 font-bold mt-1">Incentivized Testnet 1.0 Rewards (210,000 $RAI)</h3>
                             </div>
                         </div>
                         <span class="pill-badge pill-green-light font-mono">● Active Tracking</span>
@@ -1411,18 +1414,18 @@ MINER_ADDRESS=ctx1... npm run miner</code></pre>
                     <div class="grid-2col gap-4 mt-3">
                         <div class="p-3 bg-subtle rounded-12 border-subtle">
                             <div class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">70% Miner Share</div>
-                            <div class="text-xl font-bold text-indigo mono">147,000 CTX</div>
+                            <div class="text-xl font-bold text-indigo mono">147,000 RAI</div>
                             <p class="text-xs text-slate-600 mt-1">Distributed pro-rata based on validated RandomX blocks and accepted pool shares.</p>
                         </div>
                         <div class="p-3 bg-subtle rounded-12 border-subtle">
                             <div class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">30% Community Tester Share</div>
-                            <div class="text-xl font-bold text-emerald mono">63,000 CTX</div>
+                            <div class="text-xl font-bold text-emerald mono">63,000 RAI</div>
                             <p class="text-xs text-slate-600 mt-1">Distributed equally to active addresses testing DEX swaps, Web3 Wallet signatures & state commits.</p>
                         </div>
                     </div>
 
                     <div class="flex items-center justify-between flex-wrap gap-3 mt-3 pt-3 border-top-subtle text-xs text-slate-600">
-                        <div><i class="fa-solid fa-shield-halved text-indigo"></i> <strong>Anti-Whale Hard Cap:</strong> Max 3.0% (6,300 CTX) per address. Excess is redistributed.</div>
+                        <div><i class="fa-solid fa-shield-halved text-indigo"></i> <strong>Anti-Whale Hard Cap:</strong> Max 3.0% (6,300 RAI) per address. Excess is redistributed.</div>
                         <div><i class="fa-solid fa-lock text-emerald"></i> <strong>3-Month Linear Vesting:</strong> 20% liquid at Genesis Block #0, 80% streamed block-by-block over 90 days.</div>
                     </div>
                 </div>
@@ -1438,7 +1441,7 @@ MINER_ADDRESS=ctx1... npm run miner</code></pre>
                             <i class="fa-solid fa-trophy text-amber"></i> INCENTIVIZED TESTNET 2.0 LEADERBOARD
                         </div>
                         <h2 class="text-3xl font-extrabold text-white" style="letter-spacing: -0.02em;">Genesis Bootstrap Allocation & Live Rankings</h2>
-                        <p class="text-sm text-slate-400 max-w-2xl mx-auto mt-2">Real-time tracking of the 1.0% Genesis Bootstrap Allocation (210,000 $CTX) awarded to active RandomX CPU miners and verified ecosystem testers.</p>
+                        <p class="text-sm text-slate-400 max-w-2xl mx-auto mt-2">Real-time tracking of the 1.0% Genesis Bootstrap Allocation (210,000 $RAI) awarded to active RandomX CPU miners and verified ecosystem testers.</p>
                     </div>
 
                     <!-- INSTITUTIONAL CONVERSION & PEG BANNER -->
@@ -1446,11 +1449,11 @@ MINER_ADDRESS=ctx1... npm run miner</code></pre>
                         <div class="flex items-center justify-between flex-wrap gap-4">
                             <div style="max-width: 620px;">
                                 <div class="flex items-center gap-2 mb-2">
-                                    <span class="ratio-badge-pill-dark"><i class="fa-solid fa-scale-balanced text-indigo"></i> 1,000 $tCTX = 1.00 $CTX Mainnet</span>
+                                    <span class="ratio-badge-pill-dark"><i class="fa-solid fa-scale-balanced text-indigo"></i> 1,000 $tCTX = 1.00 $RAI Mainnet</span>
                                     <span class="badge-subtle badge-indigo text-xs font-bold">1000:1 Conversion Peg</span>
                                 </div>
                                 <h3 class="text-lg font-bold text-white mt-1">Proof-of-Work & State Activity Convertible to Mainnet Genesis Airdrop</h3>
-                                <p class="text-xs text-slate-300 mt-1">All testnet tokens (<strong>$tCTX</strong>) accumulated via CPU mining and state notarization qualify directly for the 210,000 $CTX Mainnet distribution with 3-month linear vesting.</p>
+                                <p class="text-xs text-slate-300 mt-1">All testnet tokens (<strong>$tCTX</strong>) accumulated via CPU mining and state notarization qualify directly for the 210,000 $RAI Mainnet distribution with 3-month linear vesting.</p>
                             </div>
 
                             <!-- INTERACTIVE REWARDS SIMULATOR BOX -->
@@ -1458,15 +1461,15 @@ MINER_ADDRESS=ctx1... npm run miner</code></pre>
                                 <div style="width: 100%;">
                                     <div class="flex items-center justify-between text-xs font-bold text-slate-300 mb-1">
                                         <span><i class="fa-solid fa-calculator text-indigo"></i> REWARD SIMULATOR</span>
-                                        <span class="text-emerald font-bold mono text-sm" id="sim-mainnet-val">0.00 $CTX Mainnet</span>
+                                        <span class="text-emerald font-bold mono text-sm" id="sim-mainnet-val">0.00 $RAI Mainnet</span>
                                     </div>
                                     <div class="flex items-center gap-2">
                                         <input type="number" id="sim-input-tctx" placeholder="Enter your $tCTX (e.g. 5000)" oninput="simulateConversion(this.value)" class="form-control" style="background: rgba(15,23,42,0.9); border: 1px solid rgba(255,255,255,0.15); color:#ffffff; font-size: 0.84rem; height: 38px; border-radius: 10px; font-family: var(--font-mono);">
                                         <button class="btn btn-primary btn-sm" onclick="simulateWithCurrentWallet()" title="Calculate for my connected wallet">My Wallet</button>
                                     </div>
                                     <div class="flex items-center justify-between text-xs text-slate-400 mt-2 font-mono" style="font-size: 0.74rem;">
-                                        <span>Day 1 Liquid (20%): <strong class="text-emerald" id="sim-day1-val">0.00 CTX</strong></span>
-                                        <span>90d Stream (80%): <strong class="text-cyan-400" id="sim-stream-val">0.00 CTX</strong></span>
+                                        <span>Day 1 Liquid (20%): <strong class="text-emerald" id="sim-day1-val">0.00 RAI</strong></span>
+                                        <span>90d Stream (80%): <strong class="text-cyan-400" id="sim-stream-val">0.00 RAI</strong></span>
                                     </div>
                                 </div>
                             </div>
@@ -1482,17 +1485,17 @@ MINER_ADDRESS=ctx1... npm run miner</code></pre>
                         </div>
                         <div class="kpi-tile-dark">
                             <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Genesis Bootstrap Pool</span>
-                            <div class="text-2xl font-bold text-white mono mt-1">210,000 <span class="text-xs text-indigo">CTX</span></div>
+                            <div class="text-2xl font-bold text-white mono mt-1">210,000 <span class="text-xs text-indigo">RAI</span></div>
                             <span class="text-xs text-emerald font-semibold">1.0% Fixed Hard Cap Allocation</span>
                         </div>
                         <div class="kpi-tile-dark">
                             <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">70% Miner Share</span>
-                            <div class="text-2xl font-bold text-amber mono mt-1">147,000 <span class="text-xs text-amber">CTX</span></div>
+                            <div class="text-2xl font-bold text-amber mono mt-1">147,000 <span class="text-xs text-amber">RAI</span></div>
                             <span class="text-xs text-slate-400">Pro-rata RandomX hashrate</span>
                         </div>
                         <div class="kpi-tile-dark">
                             <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">30% Ecosystem Share</span>
-                            <div class="text-2xl font-bold text-emerald mono mt-1">63,000 <span class="text-xs text-emerald">CTX</span></div>
+                            <div class="text-2xl font-bold text-emerald mono mt-1">63,000 <span class="text-xs text-emerald">RAI</span></div>
                             <span class="text-xs text-slate-400">DEX trades, states & commits</span>
                         </div>
                     </div>
@@ -1542,7 +1545,7 @@ MINER_ADDRESS=ctx1... npm run miner</code></pre>
                                         <th style="padding: 12px 10px; width: 110px;">Category</th>
                                         <th style="padding: 12px 10px;">Activity Metrics</th>
                                         <th style="padding: 12px 10px; text-align: right;">$tCTX Balance</th>
-                                        <th style="padding: 12px 10px; text-align: right;">Est. Mainnet $CTX Airdrop</th>
+                                        <th style="padding: 12px 10px; text-align: right;">Est. Mainnet $RAI Airdrop</th>
                                         <th style="padding: 12px 10px; text-align: right; width: 180px;">3-Month Vesting Stream</th>
                                     </tr>
                                 </thead>
@@ -1559,7 +1562,7 @@ MINER_ADDRESS=ctx1... npm run miner</code></pre>
 
                         <div class="flex items-center justify-between flex-wrap gap-2 mt-3 pt-3 text-xs text-slate-400" style="border-top: 1px solid rgba(255,255,255,0.08);">
                             <div><span class="dot-indicator"></span> <strong>Live Telemetry:</strong> Synchronized directly with confirmed Testnet 2.0 blocks. Auto-refreshes every 10s.</div>
-                            <div><i class="fa-solid fa-shield-halved text-indigo"></i> <strong>Anti-Whale Hard Cap:</strong> 3.0% (6,300 $CTX max per address). Linear vesting: 20% Genesis / 80% 90-Day Stream.</div>
+                            <div><i class="fa-solid fa-shield-halved text-indigo"></i> <strong>Anti-Whale Hard Cap:</strong> 3.0% (6,300 $RAI max per address). Linear vesting: 20% Genesis / 80% 90-Day Stream.</div>
                         </div>
                     </div>
                 </div>
@@ -1682,21 +1685,21 @@ MINER_ADDRESS=ctx1... npm run miner</code></pre>
                 <div class="faq-list">
                     <div class="faq-item light-card spotlight-card" onclick="toggleFaq(this)">
                         <div class="faq-question">
-                            <span>1. How do I start mining $CTX on my hardware?</span>
+                            <span>1. How do I start mining $RAI on my hardware?</span>
                             <i class="fa-solid fa-chevron-down"></i>
                         </div>
                         <div class="faq-answer">
-                            You can start mining natively on any multi-core CPU by navigating to the project directory and running <code>npm run miner</code>. Your terminal will launch the real-time mining dashboard showing live CPU Hashrate ($kH/s$), accepted blocks, and $CTX$ rewards credited directly to your address.
+                            You can start mining natively on any multi-core CPU by navigating to the project directory and running <code>npm run miner</code>. Your terminal will launch the real-time mining dashboard showing live CPU Hashrate ($kH/s$), accepted blocks, and $RAI$ rewards credited directly to your address.
                         </div>
                     </div>
 
                     <div class="faq-item light-card spotlight-card" onclick="toggleFaq(this)">
                         <div class="faq-question">
-                            <span>2. Why does Cortex Protocol possess intrinsic economic value?</span>
+                            <span>2. Why does Reticulum AI possess intrinsic economic value?</span>
                             <i class="fa-solid fa-chevron-down"></i>
                         </div>
                         <div class="faq-answer">
-                            Unlike speculative meme tokens, every autonomous AI agent or developer requiring decentralized memory persistence must purchase and spend $CTX. Furthermore, <strong>30% of every transaction fee is permanently burned</strong>, mathematically reducing the circulating supply as AI network adoption expands.
+                            Unlike speculative meme tokens, every autonomous AI agent or developer requiring decentralized memory persistence must purchase and spend $RAI. Furthermore, <strong>30% of every transaction fee is permanently burned</strong>, mathematically reducing the circulating supply as AI network adoption expands.
                         </div>
                     </div>
 
@@ -1706,7 +1709,7 @@ MINER_ADDRESS=ctx1... npm run miner</code></pre>
                             <i class="fa-solid fa-chevron-down"></i>
                         </div>
                         <div class="faq-answer">
-                            No. Cortex Protocol operates on an absolute <strong>Fair Launch model with 0% pre-mine</strong>. Every single token in existence is minted transparently by hardware miners and node operators starting from Genesis Block #0.
+                            No. Reticulum AI operates on an absolute <strong>Fair Launch model with 0% pre-mine</strong>. Every single token in existence is minted transparently by hardware miners and node operators starting from Genesis Block #0.
                         </div>
                     </div>
 
@@ -1726,7 +1729,7 @@ MINER_ADDRESS=ctx1... npm run miner</code></pre>
             <section class="cta-banner-section reveal-on-scroll">
                 <div class="cta-banner-light light-card spotlight-card border-glow-animated">
                     <h2>Power the Sovereign Memory of Artificial Intelligence</h2>
-                    <p>Join decentralized node operators worldwide and start mining $CTX today.</p>
+                    <p>Join decentralized node operators worldwide and start mining $RAI today.</p>
                     <div class="cta-buttons">
                         <button class="btn btn-hero-cta btn-shimmer" onclick="navigateTo('landing', 'mining-node')">
                             <i class="fa-solid fa-terminal"></i> Start Native Miner
@@ -1753,7 +1756,7 @@ MINER_ADDRESS=ctx1... npm run miner</code></pre>
                         <span class="explorer-live-pulse"><span class="pulse-ring"></span><span class="pulse-core"></span> MAINNET CANARY TESTNET</span>
                         <span class="badge-subtle badge-indigo">POW + NEURAL DUAL-LEDGER</span>
                     </div>
-                    <h2 class="explorer-main-title"><i class="fa-solid fa-cubes text-indigo"></i> Cortex Block Explorer</h2>
+                    <h2 class="explorer-main-title"><i class="fa-solid fa-cubes text-indigo"></i> Reticulum Block Explorer</h2>
                     <p class="explorer-subtitle">Real-time cryptographic ledger inspection, PoW block verification, and AI neural state notarization.</p>
                 </div>
                 <div class="explorer-header-actions">
@@ -1806,7 +1809,7 @@ MINER_ADDRESS=ctx1... npm run miner</code></pre>
                         <span class="stat-card-label">DEFLATIONARY BURN</span>
                         <i class="fa-solid fa-fire text-flame stat-card-icon" style="color:#f97316;"></i>
                     </div>
-                    <div class="stat-card-value text-flame" id="exp-stat-burned" style="color:#f97316;">-- CTX 🔥</div>
+                    <div class="stat-card-value text-flame" id="exp-stat-burned" style="color:#f97316;">-- RAI 🔥</div>
                     <div class="stat-card-sub">30% AI Gas Combustion</div>
                 </div>
             </div>
@@ -1948,10 +1951,10 @@ MINER_ADDRESS=ctx1... npm run miner</code></pre>
         <div class="footer-top-light">
             <div class="footer-brand-light">
                 <div class="brand-logo-custom">
-                    <img src="assets/logo-transparent.png?v=5" alt="Cortex Logo" class="brand-logo-img">
+                    <img src="assets/reticulum_r_monogram.png?v=9.3" alt="Reticulum Logo" class="brand-logo-img">
                 </div>
                 <div>
-                    <span class="brand-name">CORTEX PROTOCOL</span>
+                    <span class="brand-name">RETICULUM AI</span>
                     <p class="footer-tagline">The Settlement & State Notarization Layer for Autonomous AI Agents.</p>
                 </div>
             </div>
@@ -1976,13 +1979,13 @@ MINER_ADDRESS=ctx1... npm run miner</code></pre>
                     <a href="https://t.me/cortex_ctx" target="_blank"><i class="fa-brands fa-telegram"></i> Telegram Community</a>
                     <a href="https://discord.gg/WK7tYSse2" target="_blank"><i class="fa-brands fa-discord"></i> Discord Community</a>
                     <a href="https://github.com/cortex-protocol/cortex-protocol" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-                    <a href="https://x.com/Cortex_L1" target="_blank"><i class="fa-brands fa-x-twitter"></i> X (@Cortex_L1)</a>
+                    <a href="https://x.com/Reticulum_L1" target="_blank"><i class="fa-brands fa-x-twitter"></i> X (@Reticulum_L1)</a>
                 </div>
             </div>
         </div>
 
         <div class="footer-bottom-light">
-            <p>© 2026 Cortex Protocol Foundation. Open-source under MIT License. 100% Community Fair Launch.</p>
+            <p>© 2026 Reticulum AI Foundation. Open-source under MIT License. 100% Community Fair Launch.</p>
             <div class="footer-pills-light">
                 <span class="pill-badge pill-green-light">Public Testnet v1.0 Live</span>
                 <span class="pill-badge pill-violet-light">secp256k1 Native</span>
@@ -1990,39 +1993,57 @@ MINER_ADDRESS=ctx1... npm run miner</code></pre>
         </div>
     </footer>
 
-    <!-- MODAL: CORTEX WALLET INSTALLATION / DETECTION -->
-    <div class="modal-overlay" id="modal-install-extension" style="display:none;" onclick="closeInstallModal(event)">
-        <div class="signature-dialog-card" onclick="event.stopPropagation()">
-            <div style="display:flex; justify-content:space-between; align-items:center; padding:16px 20px; border-bottom:1px solid rgba(255,255,255,0.1);">
-                <div class="flex items-center gap-2">
-                    <img src="assets/logo-transparent.png?v=5" alt="Cortex" style="width:24px; height:24px;">
-                    <span class="font-bold text-sm text-slate-100">Cortex Wallet Extension</span>
+    <!-- MODAL: RETICULUM SOVEREIGN IN-BROWSER WEB WALLET -->
+    <div class="modal-overlay" id="modal-install-extension" style="display:none;" onclick="closeWebWalletModal(event)">
+        <div class="signature-dialog-card" onclick="event.stopPropagation()" style="max-width:480px; width:92%; background:rgba(15, 23, 42, 0.96); border:1px solid rgba(255, 43, 71, 0.3); border-radius:24px; box-shadow:0 25px 60px rgba(0,0,0,0.8), 0 0 30px rgba(255,43,71,0.15); backdrop-filter:blur(20px);">
+            <div style="display:flex; justify-content:space-between; align-items:center; padding:18px 24px; border-bottom:1px solid rgba(255,255,255,0.08);">
+                <div class="flex items-center gap-2" style="display:flex; align-items:center; gap:10px;">
+                    <img src="assets/reticulum_r_monogram.png?v=9.3" alt="Reticulum" style="width:26px; height:26px; border-radius:6px;">
+                    <span class="font-bold text-sm text-slate-100" style="font-weight:700; color:#ffffff; font-size:1rem;">Sovereign Web Wallet</span>
                 </div>
-                <button class="btn-close-modal" onclick="closeInstallModal()" style="background:none; border:none; font-size:1.4rem; cursor:pointer; color:#94a3b8;">&times;</button>
+                <button class="btn-close-modal" onclick="closeWebWalletModal()" style="background:none; border:none; font-size:1.4rem; cursor:pointer; color:#94a3b8;">&times;</button>
             </div>
-            <div style="padding:24px; text-align:center;">
-                <div style="width:60px; height:60px; border-radius:18px; background:rgba(99,102,241,0.15); border:1px solid rgba(99,102,241,0.3); display:flex; align-items:center; justify-content:center; margin:0 auto 16px auto; font-size:1.7rem; color:#818cf8;">
-                    <i class="fa-solid fa-puzzle-piece"></i>
-                </div>
-                <h3 style="font-size:1.15rem; font-weight:800; color:#ffffff; margin-bottom:8px;">Extension Not Detected</h3>
-                <p style="font-size:0.84rem; color:#94a3b8; line-height:1.5; margin-bottom:20px;">
-                    To connect seamlessly with <strong>Cortex Protocol L1</strong> and sign decentralized swaps & AI memories, install the official sovereign browser extension.
+            <div style="padding:24px;">
+                <p style="font-size:0.86rem; color:#94a3b8; line-height:1.5; margin-bottom:18px;">
+                    Connect instantly with your <strong>Reticulum AI ($RAI)</strong> sovereign address. 100% client-side, zero downloads, zero extensions needed.
                 </p>
-                <div style="display:flex; flex-direction:column; gap:10px;">
-                    <a href="/downloads/cortex-wallet-extension.zip" download class="btn btn-primary btn-block btn-shimmer" style="padding:12px; font-weight:700; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:8px;">
-                        <i class="fa-solid fa-download"></i> Download Cortex Wallet (v2.2.0)
-                    </a>
-                    <a href="extension.html" target="_blank" class="btn btn-outline btn-block" style="padding:10px; font-size:0.8rem; text-decoration:none; border-color:rgba(255,255,255,0.15); color:#cbd5e1;">
-                        <i class="fa-solid fa-book-open"></i> Read 1-Minute Setup Guide
-                    </a>
+
+                <!-- CONNECT EXISTING ADDRESS -->
+                <div style="margin-bottom:18px;">
+                    <label style="display:block; font-size:0.75rem; font-weight:700; color:#cbd5e1; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:6px;">Enter Your Wallet Address</label>
+                    <div style="display:flex; gap:8px;">
+                        <input type="text" id="manual-wallet-input" placeholder="ctx1... or paste your miner address" style="flex:1; background:rgba(2, 6, 23, 0.8); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:10px 14px; font-family:var(--font-mono); font-size:0.82rem; color:#ffffff; outline:none;" onfocus="this.style.borderColor='#ff2b47'" onblur="this.style.borderColor='rgba(255,255,255,0.12)'">
+                        <button onclick="connectManualWallet()" class="btn btn-primary" style="padding:10px 18px; font-weight:700; font-size:0.82rem; white-space:nowrap; border-radius:10px; background:linear-gradient(135deg, #ff2b47, #dc2626);">Connect</button>
+                    </div>
+                </div>
+
+                <div style="display:flex; align-items:center; gap:12px; margin:20px 0;">
+                    <div style="flex:1; height:1px; background:rgba(255,255,255,0.08);"></div>
+                    <span style="font-size:0.75rem; color:#64748b; font-weight:700; text-transform:uppercase;">OR</span>
+                    <div style="flex:1; height:1px; background:rgba(255,255,255,0.08);"></div>
+                </div>
+
+                <!-- GENERATE NEW SOVEREIGN WALLET -->
+                <button onclick="generateInBrowserWallet()" class="btn btn-outline btn-block" style="width:100%; padding:12px; border-radius:12px; border-color:rgba(255,43,71,0.4); color:#ffffff; font-weight:700; font-size:0.85rem; display:flex; align-items:center; justify-content:center; gap:8px; background:rgba(255,43,71,0.06);">
+                    <i class="fa-solid fa-key" style="color:#ff2b47;"></i> Generate New Sovereign Keypair
+                </button>
+
+                <div id="new-wallet-display" style="display:none; margin-top:16px; background:rgba(2, 6, 23, 0.9); border:1px solid rgba(16, 185, 129, 0.4); border-radius:12px; padding:14px;">
+                    <div style="font-size:0.75rem; color:#34d399; font-weight:700; margin-bottom:8px;">✓ Sovereign Keypair Generated In-Browser:</div>
+                    <div style="font-size:0.70rem; color:#94a3b8; margin-bottom:4px;">Address:</div>
+                    <div id="new-wallet-addr" class="mono" style="font-size:0.75rem; color:#ffffff; word-break:break-all; background:rgba(255,255,255,0.05); padding:6px 8px; border-radius:6px; margin-bottom:8px;"></div>
+                    <div style="font-size:0.70rem; color:#f87171; margin-bottom:4px;">Private Key (Save Offline Now):</div>
+                    <div id="new-wallet-key" class="mono" style="font-size:0.72rem; color:#fca5a5; word-break:break-all; background:rgba(239,68,68,0.1); padding:6px 8px; border-radius:6px; margin-bottom:12px;"></div>
+                    <button onclick="confirmNewWalletConnect()" class="btn btn-primary btn-block" style="width:100%; padding:10px; font-weight:700; border-radius:8px; background:#10b981;">I Saved It — Connect Now</button>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
     <!-- NOTIFICATION TOAST -->
     <div id="toast" class="toast-light"></div>
 
-    <script src="app.js?v=8.4"></script>
+    <script src="app.js?v=9.6"></script>
 </body>
 </html>

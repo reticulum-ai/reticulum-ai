@@ -191,19 +191,31 @@ export class Blockchain {
     public getDifficulty(): number {
         const latestBlock = this.getLatestBlock();
 
+        let baseDifficulty = latestBlock.difficulty;
         if (latestBlock.index !== 0 && latestBlock.index % this.config.difficultyAdjustmentInterval === 0) {
             const prevAdjustmentBlock = this.chain[this.chain.length - this.config.difficultyAdjustmentInterval];
             const actualTime = (latestBlock.timestamp - prevAdjustmentBlock.timestamp) / 1000;
             const expectedTime = this.config.targetBlockTimeSeconds * this.config.difficultyAdjustmentInterval;
 
             if (actualTime < expectedTime / 2) {
-                return latestBlock.difficulty + 1;
+                baseDifficulty = latestBlock.difficulty + 1;
             } else if (actualTime > expectedTime * 2) {
-                return Math.max(1, latestBlock.difficulty - 1);
+                baseDifficulty = Math.max(1, latestBlock.difficulty - 1);
             }
         }
 
-        return latestBlock.difficulty;
+        // Emergency Anti-Stall DAA (Aserti/DigiShield style):
+        // If no block has been found for > 150 seconds (10x target block time),
+        // gradually step down difficulty to prevent the chain from freezing when large hashrate leaves.
+        const elapsedSec = (Date.now() - latestBlock.timestamp) / 1000;
+        if (elapsedSec > 150) {
+            const dropSteps = Math.min(baseDifficulty - 3, Math.floor((elapsedSec - 150) / 120) + 1);
+            if (dropSteps > 0) {
+                return Math.max(3, baseDifficulty - dropSteps);
+            }
+        }
+
+        return baseDifficulty;
     }
 
     /**

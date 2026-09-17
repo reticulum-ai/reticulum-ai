@@ -42,8 +42,13 @@ export class CortexMiningPool {
 
     constructor(blockchain: Blockchain, poolPrivateKeyHex?: string) {
         this.blockchain = blockchain;
-        const privKey = poolPrivateKeyHex || '9f8e7d6c5b4a3928170e9f8e7d6c5b4a3928170e9f8e7d6c5b4a3928170e9f8e';
-        this.poolKeyPair = CortexCrypto.fromPrivateKey(privKey);
+        const privKey = poolPrivateKeyHex || process.env.POOL_PRIVATE_KEY;
+        if (privKey) {
+            this.poolKeyPair = CortexCrypto.fromPrivateKey(privKey);
+        } else {
+            this.poolKeyPair = CortexCrypto.generateKeyPair();
+            console.warn("[Pool] Warning: No POOL_PRIVATE_KEY configured in environment. Generated ephemeral key: " + this.poolKeyPair.address);
+        }
         this.lastDistributedBlock = blockchain.getLatestBlock().index;
 
         // Monitor blockchain to distribute pool rewards whenever a new block is mined

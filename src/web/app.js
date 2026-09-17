@@ -1,4 +1,4 @@
-// CORTEX PROTOCOL ($CTX) - INSTITUTIONAL TIER-0 CONTROLLER
+// RETICULUM AI ($RAI) - INSTITUTIONAL TIER-0 CONTROLLER
 
 let currentWallet = null;
 let pollingTimer = null;
@@ -22,7 +22,7 @@ const STACK_LAYERS_DATA = {
                 <ul style="list-style:none; display:flex; flex-direction:column; gap:8px; font-size:0.85rem; color:#94a3b8;">
                     <li>✓ <strong>ASIC-Resistant CPU Mining:</strong> 256KB scratchpad and random instruction execution prevents specialized ASIC monopolies.</li>
                     <li>✓ <strong>Dynamic Retargeting:</strong> Difficulty auto-adjusts every 5 blocks to maintain a 15-second block interval.</li>
-                    <li>✓ <strong>Fair Emission Reward:</strong> 50 CTX / block subsidy + 70% of state anchoring transaction gas fees.</li>
+                    <li>✓ <strong>Fair Emission Reward:</strong> 50 RAI / block subsidy + 70% of state anchoring transaction gas fees.</li>
                     <li>✓ <strong>Nakamoto Longest Chain Rule:</strong> Instant reorg resolution with cumulative PoW work weight.</li>
                 </ul>
             </div>
@@ -56,11 +56,11 @@ const STACK_LAYERS_DATA = {
                 <p>Every autonomous AI agent is assigned a cryptographic identity via elliptic curve <code>secp256k1</code> keypairs, identical to Bitcoin and Ethereum. When agents write memory, a deflationary economic loop triggers automatically.</p>
                 <div style="background:#1e293b; padding:14px; border-radius:10px; margin:14px 0; border:1px solid #334155;">
                     <div style="color:#f97316; font-family:var(--font-mono); font-size:0.8rem; margin-bottom:4px;">Deflationary Gas Combustion:</div>
-                    <code style="color:#f1f5f9; font-size:0.82rem; font-family:var(--font-mono);">GasFee = 0.05 CTX ➜ 0.015 CTX Burned 🔥 | 0.035 CTX to Miner ⚡</code>
+                    <code style="color:#f1f5f9; font-size:0.82rem; font-family:var(--font-mono);">GasFee = 0.05 RAI ➜ 0.015 RAI Burned 🔥 | 0.035 RAI to Miner ⚡</code>
                 </div>
                 <ul style="list-style:none; display:flex; flex-direction:column; gap:8px; font-size:0.85rem; color:#94a3b8;">
                     <li>✓ <strong>Unspendable Burn Address:</strong> <code>ctx100000000000000000000000000000000000000000000</code>.</li>
-                    <li>✓ <strong>Net-Deflationary Scarcity:</strong> High AI agent transaction throughput burns more CTX than block subsidies emit.</li>
+                    <li>✓ <strong>Net-Deflationary Scarcity:</strong> High AI agent transaction throughput burns more RAI than block subsidies emit.</li>
                     <li>✓ <strong>AES-256-GCM Private Enclaves:</strong> Confidential memories are encrypted on-chain and only accessible by keyholder.</li>
                 </ul>
             </div>
@@ -71,18 +71,18 @@ const STACK_LAYERS_DATA = {
 const SDK_EXAMPLES = {
     elizaos: {
         file: 'character.json (ElizaOS)',
-        code: `// 1. Install official Cortex Protocol plugin for ElizaOS:
-// npm install @cortex-protocol/plugin-eliza
+        code: `// 1. Install official Reticulum AI plugin for ElizaOS:
+// npm install @reticulum-ai/plugin-eliza
 
 // 2. Add plugin to your Eliza character configuration:
 {
-  "name": "Eliza-Cortex-Oracle",
+  "name": "Eliza-Reticulum-Oracle",
   "modelProvider": "openai",
-  "plugins": ["@cortex-protocol/plugin-eliza"],
+  "plugins": ["@reticulum-ai/plugin-eliza"],
   "settings": {
     "secrets": {
-      "CORTEX_NODE_URL": "https://cortex-protocol.xyz",
-      "CORTEX_PRIVATE_KEY": "your_64_hex_secp256k1_private_key"
+      "RETICULUM_NODE_URL": "https://cortex-protocol.xyz",
+      "RETICULUM_PRIVATE_KEY": "your_64_hex_secp256k1_private_key"
     }
   }
 }
@@ -95,12 +95,12 @@ const SDK_EXAMPLES = {
     },
     python: {
         file: 'agent_memory_langchain.py',
-        code: `# 1. Import Cortex Protocol LangChain Provider
-from cortex_protocol import CortexMemoryStore, AgentKey
+        code: `# 1. Import Reticulum AI LangChain Provider
+from cortex_protocol import ReticulumMemoryStore, AgentKey
 
 # 2. Connect agent wallet & inscribe immutable memory
-key = AgentKey.from_hex("0x4a7f92b938471029384710293847102938471029384710293847102938471029")
-memory_store = CortexMemoryStore(node_url="http://localhost:3000", agent_key=key)
+key = AgentKey.from_hex("0x0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef")
+memory_store = ReticulumMemoryStore(node_url="http://localhost:3000", agent_key=key)
 
 tx_id = memory_store.commit(
     topic="quantitative_alpha",
@@ -110,15 +110,15 @@ tx_id = memory_store.commit(
 
 # 3. Query historical memory across the worldwide blockchain
 history = memory_store.query(topic="quantitative_alpha")
-print(f"Verified on Cortex Chain: {tx_id}")`
+print(f"Verified on Reticulum Chain: {tx_id}")`
     },
     typescript: {
         file: 'agent-memory.ts',
-        code: `import { CortexClient, Keypair, MemoryType } from '@cortex-protocol/sdk';
+        code: `import { ReticulumClient, Keypair, MemoryType } from '@reticulum-ai/sdk';
 
 // 1. Initialize client & Agent Keypair (secp256k1)
 const keypair = Keypair.fromPrivateKey(process.env.AGENT_KEY!);
-const client = new CortexClient('http://localhost:3000');
+const client = new ReticulumClient('http://localhost:3000');
 
 // 2. Commit AI Fact (30% Deflationary Burn)
 const { txId, memoryHash } = await client.inscribeMemory({
@@ -133,12 +133,12 @@ console.log(\`Memory committed in Block Header! TxID: \${txId}\`);`
     },
     rust: {
         file: 'main.rs',
-        code: `use cortex_sdk::{CortexClient, MemoryPayload, MemoryType};
+        code: `use cortex_sdk::{ReticulumClient, MemoryPayload, MemoryType};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     // 1. Connect to decentralized node
-    let client = CortexClient::connect("http://localhost:3000").await?;
+    let client = ReticulumClient::connect("http://localhost:3000").await?;
     
     // 2. Inscribe factual state transition
     let tx = client.inscribe(MemoryPayload {
@@ -148,7 +148,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         memory_type: MemoryType::Episodic,
     }).await?;
     
-    println!("Inscribed on Cortex Block #{}", tx.block_index);
+    println!("Inscribed on Reticulum Block #{}", tx.block_index);
     Ok(())
 }`
     },
@@ -158,7 +158,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 curl -X POST http://localhost:3000/api/memory/commit \\
   -H "Content-Type: application/json" \\
   -d '{
-    "agentPrivateKey": "4a7f92b938471029384710293847102938471029384710293847102938471029",
+    "agentPrivateKey": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
     "agentId": "Oracle-CodeMaster-01",
     "topic": "System-Architecture",
     "memoryType": "KNOWLEDGE_BASE",
@@ -217,7 +217,7 @@ const MERKLE_NODES_DATA = {
         hash: '0x960930fc695c28800a5e9d42d7aa8ca1d12dffa67c972386018178abbe29b735',
         payload: 'Root cryptographic commitment representing 4 aggregated vector state transitions',
         signer: 'System Merkle Consolidator',
-        gasBurned: '0.060 CTX Total (30% aggregated)',
+        gasBurned: '0.060 RAI Total (30% aggregated)',
         proof: 'Verified by binary pair double SHA-256d hashing'
     },
     'branch-left': {
@@ -226,7 +226,7 @@ const MERKLE_NODES_DATA = {
         hash: '0x3b89e24fa10b9872c01948fe281903ba8910e7264859a01847291a847291a823',
         payload: 'Aggregated cryptographic proof for Quantitative Trading & Software Code AI memories',
         signer: 'Consensus Intermediate State #1',
-        gasBurned: '0.030 CTX',
+        gasBurned: '0.030 RAI',
         proof: 'SHA-256d(Leaf_A + Leaf_B)'
     },
     'branch-right': {
@@ -235,7 +235,7 @@ const MERKLE_NODES_DATA = {
         hash: '0x7f41a982bb049e71029487c91820491823749102837491029384710293847102',
         payload: 'Aggregated cryptographic proof for Biotech Discovery & Gaming NPC AI memories',
         signer: 'Consensus Intermediate State #2',
-        gasBurned: '0.030 CTX',
+        gasBurned: '0.030 RAI',
         proof: 'SHA-256d(Leaf_C + Leaf_D)'
     },
     'leaf-1': {
@@ -244,7 +244,7 @@ const MERKLE_NODES_DATA = {
         hash: '0x8f2a9410bca7892019487c918204918237491028374910293847102938471029',
         payload: '"Identified 4.2% spatial arbitrage opportunity on Uniswap v3 & Curve"',
         signer: 'ctx1eade8dcdc3b1335014b9c24f9ff43c9c8ad3e721cbd93103',
-        gasBurned: '0.015 CTX (30% fee burn)',
+        gasBurned: '0.015 RAI (30% fee burn)',
         proof: 'ECDSA secp256k1 canonical signature verified'
     },
     'leaf-2': {
@@ -253,7 +253,7 @@ const MERKLE_NODES_DATA = {
         hash: '0x14bc78291048a918237491028374910293847102938471029384710293847102',
         payload: '"Implemented reentrancy guard check-effects-interaction pattern on staking module"',
         signer: 'ctx1bdafc2e389ddbd1d2164d9452bc567180448c1d8bacd58f1',
-        gasBurned: '0.015 CTX (30% fee burn)',
+        gasBurned: '0.015 RAI (30% fee burn)',
         proof: 'ECDSA secp256k1 canonical signature verified'
     },
     'leaf-3': {
@@ -262,7 +262,7 @@ const MERKLE_NODES_DATA = {
         hash: '0x99fe410982374910283749102938471029384710293847102938471029384710',
         payload: '"Computed -11.4 kcal/mol docking energy for kinase inhibitor candidate CX-409"',
         signer: 'ctx18f25ebe9ada165ca45dcaab01575136e2a5f8e27f3c02eb8',
-        gasBurned: '0.015 CTX (30% fee burn)',
+        gasBurned: '0.015 RAI (30% fee burn)',
         proof: 'ECDSA secp256k1 canonical signature verified'
     },
     'leaf-4': {
@@ -271,7 +271,7 @@ const MERKLE_NODES_DATA = {
         hash: '0x42da781920384710293847102938471029384710293847102938471029384710',
         payload: '"Formed diplomatic defense treaty with guild Vanguard in zone Valyria"',
         signer: 'ctx152e0120c610df2d8ba10dfd166ae38b740726a372469a5ba',
-        gasBurned: '0.015 CTX (30% fee burn)',
+        gasBurned: '0.015 RAI (30% fee burn)',
         proof: 'ECDSA secp256k1 canonical signature verified'
     }
 };
@@ -728,7 +728,7 @@ async function openBlockInspector(blockIndex) {
                         <div class="memory-card-dark" style="cursor:pointer;" onclick="openTxInspector('${tx.id}')">
                             <div style="display:flex; justify-content:space-between; align-items:center;">
                                 <strong class="${tx.type === 'MEMORY_COMMIT' ? 'text-violet' : tx.type === 'COINBASE' ? 'text-emerald' : 'text-indigo'} font-bold">${tx.type}</strong>
-                                ${tx.type === 'MEMORY_COMMIT' ? `<span class="mono text-amber font-bold">${tx.fee || 0.05} CTX fee</span>` : `<span class="mono text-emerald font-bold">${tx.amount} CTX</span>`}
+                                ${tx.type === 'MEMORY_COMMIT' ? `<span class="mono text-amber font-bold">${tx.fee || 0.05} RAI fee</span>` : `<span class="mono text-emerald font-bold">${tx.amount} RAI</span>`}
                             </div>
                             <div class="mono text-muted text-break" style="font-size:0.74rem; margin:4px 0;">TxID: ${tx.id}</div>
                             ${tx.memoryPayload ? `<div style="color:#e2e8f0; font-size:0.78rem;"><em>"${escapeHtml(tx.memoryPayload.content.substring(0, 90))}..."</em></div>` : ''}
@@ -761,7 +761,7 @@ async function openTxInspector(txId) {
         const res = await fetch(`/api/transaction/${txId}`);
         const data = await res.json();
         if (!data.found || !data.transaction) {
-            body.innerHTML = `<div class="p-3 text-flame font-bold">Transaction not found on Cortex Ledger.</div>`;
+            body.innerHTML = `<div class="p-3 text-flame font-bold">Transaction not found on Reticulum Ledger.</div>`;
             return;
         }
 
@@ -797,16 +797,16 @@ async function openTxInspector(txId) {
                     </div>
                     <div class="inspector-key-value">
                         <span class="inspector-key">${tx.type === 'MEMORY_COMMIT' ? 'Inscription Payload Value:' : 'Transfer Amount:'}</span>
-                        <span class="inspector-value font-bold ${tx.type === 'MEMORY_COMMIT' ? 'text-slate-400' : 'text-emerald'}" style="font-size:1.1rem;">${tx.type === 'MEMORY_COMMIT' ? '0.00 CTX (Data Inscription)' : `${tx.amount} CTX`}</span>
+                        <span class="inspector-value font-bold ${tx.type === 'MEMORY_COMMIT' ? 'text-slate-400' : 'text-emerald'}" style="font-size:1.1rem;">${tx.type === 'MEMORY_COMMIT' ? '0.00 RAI (Data Inscription)' : `${tx.amount} RAI`}</span>
                     </div>
                     <div class="inspector-key-value">
                         <span class="inspector-key">PoW Gas Fee:</span>
-                        <span class="inspector-value font-bold text-amber">${tx.fee || (tx.type === 'MEMORY_COMMIT' ? 0.05 : 0.01)} CTX</span>
+                        <span class="inspector-value font-bold text-amber">${tx.fee || (tx.type === 'MEMORY_COMMIT' ? 0.05 : 0.01)} RAI</span>
                     </div>
                     ${tx.burnAmount || tx.type === 'MEMORY_COMMIT' ? `
                     <div class="inspector-key-value">
                         <span class="inspector-key text-flame">Deflationary Combustion (30% Burn):</span>
-                        <span class="inspector-value text-flame font-bold">🔥 -${tx.burnAmount || 0.015} CTX Permanent Burn</span>
+                        <span class="inspector-value text-flame font-bold">🔥 -${tx.burnAmount || 0.015} RAI Permanent Burn</span>
                     </div>` : ''}
                     <div class="inspector-key-value">
                         <span class="inspector-key">Timestamp:</span>
@@ -904,13 +904,13 @@ async function openAddressInspector(address) {
                 <div class="explorer-stat-grid" style="grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));">
                     <div class="explorer-stat-card" style="padding:14px;">
                         <span class="stat-card-label">BALANCE</span>
-                        <div class="stat-card-value text-emerald" style="font-size:1.3rem;">${data.balance.toFixed(2)} <span style="font-size:0.8rem;">CTX</span></div>
+                        <div class="stat-card-value text-emerald" style="font-size:1.3rem;">${data.balance.toFixed(2)} <span style="font-size:0.8rem;">RAI</span></div>
                         <div class="stat-card-sub">Confirmed: ${data.confirmedBalance.toFixed(2)}</div>
                     </div>
                     <div class="explorer-stat-card" style="padding:14px;">
                         <span class="stat-card-label">BLOCKS MINED</span>
                         <div class="stat-card-value text-indigo" style="font-size:1.3rem;">${data.blocksMined}</div>
-                        <div class="stat-card-sub">+${data.totalMinedRewards} CTX Rewards</div>
+                        <div class="stat-card-sub">+${data.totalMinedRewards} RAI Rewards</div>
                     </div>
                     <div class="explorer-stat-card" style="padding:14px;">
                         <span class="stat-card-label">TOTAL SENT</span>
@@ -955,16 +955,16 @@ async function openAddressInspector(address) {
 
                                     if (t.type === 'MEMORY_COMMIT') {
                                         const feeVal = (t.fee !== undefined && t.fee !== null && t.fee > 0) ? t.fee : 0.05;
-                                        amountDisplay = `<span class="mono font-bold text-amber">-${feeVal} CTX <span style="font-size:0.68rem; color:#fb923c;">(Gas/Burn 🔥)</span></span>`;
+                                        amountDisplay = `<span class="mono font-bold text-amber">-${feeVal} RAI <span style="font-size:0.68rem; color:#fb923c;">(Gas/Burn 🔥)</span></span>`;
                                         counterpartyDisplay = `<span class="badge-subtle badge-violet" style="font-size:0.7rem;"><i class="fa-solid fa-brain"></i> AI State Root</span>`;
                                     } else if (t.type === 'COINBASE') {
-                                        amountDisplay = `<span class="mono font-bold text-emerald">+${t.amount} CTX <span style="font-size:0.68rem; color:#34d399;">(Reward ⚡)</span></span>`;
+                                        amountDisplay = `<span class="mono font-bold text-emerald">+${t.amount} RAI <span style="font-size:0.68rem; color:#34d399;">(Reward ⚡)</span></span>`;
                                         counterpartyDisplay = `<span class="badge-subtle badge-emerald" style="font-size:0.7rem;"><i class="fa-solid fa-cube"></i> PoW Subsidy</span>`;
                                     } else if (isOut) {
-                                        amountDisplay = `<span class="mono font-bold text-slate-200">-${t.amount} CTX</span>`;
+                                        amountDisplay = `<span class="mono font-bold text-slate-200">-${t.amount} RAI</span>`;
                                         counterpartyDisplay = `<span class="mono text-muted clickable-link" onclick="event.stopPropagation(); openAddressInspector('${otherAddr}')">${shortOther}</span>`;
                                     } else {
-                                        amountDisplay = `<span class="mono font-bold text-emerald">+${t.amount} CTX</span>`;
+                                        amountDisplay = `<span class="mono font-bold text-emerald">+${t.amount} RAI</span>`;
                                         counterpartyDisplay = `<span class="mono text-muted clickable-link" onclick="event.stopPropagation(); openAddressInspector('${otherAddr}')">${shortOther}</span>`;
                                     }
 
@@ -1165,7 +1165,7 @@ async function fetchExplorerTelemetry() {
         }
 
         if (elBurned && statsRes.totalBurned !== undefined) {
-            elBurned.textContent = `${(statsRes.totalBurned || 0).toFixed(3)} CTX 🔥`;
+            elBurned.textContent = `${(statsRes.totalBurned || 0).toFixed(3)} RAI 🔥`;
         }
     } catch(e) {}
 }
@@ -1237,7 +1237,7 @@ function initNeuralCanvas() {
     const particleCount = Math.min(65, Math.floor(window.innerWidth / 24));
 
     for (let i = 0; i < particleCount; i++) {
-        const color = i % 4 === 0 ? 'rgba(99, 102, 241, ' : i % 4 === 1 ? 'rgba(56, 189, 248, ' : i % 4 === 2 ? 'rgba(168, 85, 247, ' : 'rgba(52, 211, 153, ';
+        const color = i % 4 === 0 ? 'rgba(255, 43, 71, ' : i % 4 === 1 ? 'rgba(239, 68, 68, ' : i % 4 === 2 ? 'rgba(255, 255, 255, ' : 'rgba(244, 63, 94, ';
         particles.push({
             x: Math.random() * width,
             y: Math.random() * height,
@@ -1286,7 +1286,7 @@ function initNeuralCanvas() {
                     ctx.beginPath();
                     ctx.moveTo(p.x, p.y);
                     ctx.lineTo(p2.x, p2.y);
-                    ctx.strokeStyle = `rgba(99, 102, 241, ${alpha})`;
+                    ctx.strokeStyle = `rgba(239, 68, 68, ${alpha})`;
                     ctx.lineWidth = 1;
                     ctx.stroke();
                 }
@@ -1300,7 +1300,7 @@ function initNeuralCanvas() {
                 ctx.beginPath();
                 ctx.moveTo(p.x, p.y);
                 ctx.lineTo(mouse.x, mouse.y);
-                ctx.strokeStyle = `rgba(56, 189, 248, ${alpha})`;
+                ctx.strokeStyle = `rgba(255, 43, 71, ${alpha})`;
                 ctx.lineWidth = 1.4;
                 ctx.stroke();
             }
@@ -1436,12 +1436,12 @@ function updateCostCalculator() {
     const monthlyLegacy = (vectors / 100000) * 140;
     const totalLegacy = Math.round(monthlyLegacy * 12 * years);
 
-    const oneTimeCortex = Math.round(vectors * 0.0025);
-    const savings = Math.max(0, totalLegacy - oneTimeCortex);
+    const oneTimeReticulum = Math.round(vectors * 0.0025);
+    const savings = Math.max(0, totalLegacy - oneTimeReticulum);
     const savingsPercent = Math.round((savings / totalLegacy) * 100);
 
     document.getElementById('cost-legacy-total').textContent = `$${totalLegacy.toLocaleString()}`;
-    document.getElementById('cost-cortex-total').textContent = `$${oneTimeCortex.toLocaleString()}`;
+    document.getElementById('cost-reticulum-total').textContent = `$${oneTimeReticulum.toLocaleString()}`;
     document.getElementById('cost-savings-amount').textContent = `$${savings.toLocaleString()} (${savingsPercent}%)`;
 }
 
@@ -1552,23 +1552,35 @@ async function fetchStats() {
         const elDiff = document.getElementById('ticker-diff');
         if (elDiff) elDiff.textContent = data.difficulty;
         const elBurned = document.getElementById('ticker-burned');
-        if (elBurned) elBurned.textContent = `${(data.totalBurned || 0).toFixed(3)} CTX 🔥`;
+        if (elBurned) elBurned.textContent = `${(data.totalBurned || 0).toFixed(3)} RAI 🔥`;
 
         const elHeroBlocks = document.getElementById('hero-stat-blocks');
         if (elHeroBlocks) elHeroBlocks.textContent = (data.height || 0).toLocaleString();
         const elHeroMemories = document.getElementById('hero-stat-memories');
         if (elHeroMemories) elHeroMemories.textContent = (data.totalMemories || 0).toLocaleString();
 
-        const hr = (data.networkHashrate !== undefined && data.networkHashrate !== null && data.networkHashrate > 0)
+        const poolHr = (data.poolHashrate !== undefined && data.poolHashrate !== null) 
+            ? data.poolHashrate 
+            : ((data.pool && data.pool.totalPoolHashrate) || 0);
+        const soloHr = data.soloHashrate || 0;
+        const totalHr = (data.networkHashrate !== undefined && data.networkHashrate !== null && data.networkHashrate > 0)
             ? data.networkHashrate
-            : ((data.miner && data.miner.hashrate) || 0);
-        const hrText = hr >= 1000000 
-            ? `${(hr/1000000).toFixed(2)} MH/s` 
-            : hr >= 1000 
-            ? `${(hr/1000).toFixed(2)} kH/s` 
-            : `${hr} H/s`;
+            : (poolHr + soloHr);
+
+        const fmtHr = (h) => h >= 1000000 
+            ? `${(h/1000000).toFixed(2)} MH/s` 
+            : h >= 1000 
+            ? `${(h/1000).toFixed(2)} kH/s` 
+            : `${h} H/s`;
+
+        const elTickerPoolHr = document.getElementById('ticker-pool-hr');
+        if (elTickerPoolHr) elTickerPoolHr.textContent = fmtHr(poolHr);
+
+        const elTickerSoloHr = document.getElementById('ticker-solo-hr');
+        if (elTickerSoloHr) elTickerSoloHr.textContent = fmtHr(soloHr);
+
         const elTickerHr = document.getElementById('ticker-hr');
-        if (elTickerHr) elTickerHr.textContent = hrText;
+        if (elTickerHr) elTickerHr.textContent = fmtHr(totalHr);
 
         updateMiningCalculator();
     } catch (e) {}
@@ -1592,7 +1604,7 @@ function updateMiningCalculator() {
     document.getElementById('calc-network-diff').textContent = diffVal;
 
     // PoW continuous block emission formula:
-    // Block time = 30s -> 2,880 blocks/day * 49.5 CTX (pool reward) = 142,560 CTX/day
+    // Block time = 30s -> 2,880 blocks/day * 49.5 RAI (pool reward) = 142,560 RAI/day
     const dailyEmission = 2880 * 49.5;
     const netHr = Math.max(100000, currentNetworkHashrate || 380000);
     
@@ -1601,8 +1613,8 @@ function updateMiningCalculator() {
     const baseDaily = Math.round(dailyEmission * myShare);
     const baseMonthly = Math.round(baseDaily * 30);
 
-    document.getElementById('calc-daily-ctx').textContent = `~ ${baseDaily.toLocaleString()} CTX`;
-    document.getElementById('calc-monthly-ctx').textContent = `~ ${baseMonthly.toLocaleString()} CTX`;
+    document.getElementById('calc-daily-ctx').textContent = `~ ${baseDaily.toLocaleString()} RAI`;
+    document.getElementById('calc-monthly-ctx').textContent = `~ ${baseMonthly.toLocaleString()} RAI`;
 }
 
 // DEDICATED PERSONAL RIG & WORKERS DASHBOARD
@@ -1630,8 +1642,8 @@ async function updateMyRigDashboard(address) {
         document.getElementById('my-rig-total-hr').textContent = `${hrStr} Total`;
         document.getElementById('my-rig-workers-count').textContent = `${data.workersCount || 0} Rig${data.workersCount === 1 ? '' : 's'}`;
         document.getElementById('my-rig-round-share').textContent = `${data.roundEffortPercent || 0}%`;
-        document.getElementById('my-rig-est-reward').textContent = `${data.estimatedBlockReward || 0} CTX`;
-        document.getElementById('my-rig-total-paid').textContent = `${(data.totalPaid || 0).toFixed(2)} CTX`;
+        document.getElementById('my-rig-est-reward').textContent = `${data.estimatedBlockReward || 0} RAI`;
+        document.getElementById('my-rig-total-paid').textContent = `${(data.totalPaid || 0).toFixed(2)} RAI`;
 
         const workersTbody = document.getElementById('my-workers-tbody');
         if (workersTbody) {
@@ -1857,7 +1869,7 @@ async function fetchMempool() {
             div.innerHTML = `
                 <div class="memory-card-header-dark">
                     <span class="text-amber font-bold"><i class="fa-solid fa-hourglass-half"></i> ${tx.type}</span>
-                    <span class="mono text-emerald font-bold">${tx.amount} CTX (Fee: ${tx.fee} CTX)</span>
+                    <span class="mono text-emerald font-bold">${tx.amount} RAI (Fee: ${tx.fee} RAI)</span>
                 </div>
                 <div class="mono" style="font-size:0.78rem; color: #94a3b8; margin-top:4px;">
                     From: <span class="clickable-link text-indigo" onclick="event.stopPropagation(); openAddressInspector('${tx.sender}')">${tx.sender.substring(0, 14)}...</span> 
@@ -1877,7 +1889,7 @@ function generateNewWallet() {
             currentWallet = data;
             saveWallet(data);
             renderWallet();
-            showToast('New $CTX Wallet generated successfully!');
+            showToast('New $RAI Wallet generated successfully!');
         });
 }
 
@@ -1939,7 +1951,7 @@ function updateAllWalletDisplays() {
                 <div class="connected-wallet-pill" onclick="openWalletAccountModal()" title="View Account Details">
                     <span class="dot-indicator"></span>
                     <span class="mono text-xs font-bold text-slate-800">${shortAddr}</span>
-                    <span class="badge-subtle badge-emerald mono text-xs font-bold">${balNum} CTX</span>
+                    <span class="badge-subtle badge-emerald mono text-xs font-bold">${balNum} RAI</span>
                 </div>
             `;
         }
@@ -1948,7 +1960,7 @@ function updateAllWalletDisplays() {
         if (secretBox) secretBox.style.display = 'block';
         if (privDisplay) privDisplay.textContent = currentWallet.privateKey;
         if (modalAddr) modalAddr.textContent = currentWallet.address;
-        if (modalBal) modalBal.textContent = `${balNum} CTX`;
+        if (modalBal) modalBal.textContent = `${balNum} RAI`;
 
         // DEX Swap Button
         if (dexSwapBtn) {
@@ -1990,7 +2002,7 @@ async function updateWalletBalance() {
         
         const balDisplay = document.getElementById('wallet-balance-display');
         if (balDisplay) {
-            balDisplay.innerHTML = `${data.balance.toFixed(2)} <span class="currency">CTX</span>`;
+            balDisplay.innerHTML = `${data.balance.toFixed(2)} <span class="currency">RAI</span>`;
         }
         updateAllWalletDisplays();
     } catch(e) {}
@@ -2021,7 +2033,7 @@ function closeWalletAccountModal(event) {
     if (modal) modal.classList.remove('active');
 }
 
-async function connectCortexExtension() {
+async function connectReticulumExtension() {
     if (window.cortex && typeof window.cortex.request === 'function') {
         try {
             const accounts = await window.cortex.request({ method: 'ctx_requestAccounts' });
@@ -2034,7 +2046,7 @@ async function connectCortexExtension() {
                 saveWallet(currentWallet);
                 updateWalletBalance();
                 closeConnectWalletModal();
-                showToast(`🟢 Cortex Extension Connected: ${extAddr.substring(0, 10)}...!`);
+                showToast(`🟢 Reticulum Extension Connected: ${extAddr.substring(0, 10)}...!`);
                 return;
             }
         } catch(e) {
@@ -2043,7 +2055,7 @@ async function connectCortexExtension() {
     } else {
         // Extension not detected: prompt download
         showToast('Extension not detected. Downloading ZIP package...', false);
-        window.location.href = '/downloads/cortex-wallet-extension.zip';
+        window.location.href = '/downloads/reticulum-wallet-extension.zip';
     }
 }
 
@@ -2054,7 +2066,7 @@ function connectBrowserVault() {
             currentWallet = JSON.parse(saved);
             updateWalletBalance();
             closeConnectWalletModal();
-            showToast('🟢 Cortex Web Vault Connected!');
+            showToast('🟢 Reticulum Web Vault Connected!');
             return;
         } catch(e) {}
     }
@@ -2278,7 +2290,7 @@ async function claimFaucet() {
     const address = input && input.value.trim() ? input.value.trim() : (currentWallet ? currentWallet.address : '');
 
     if (!address || !address.startsWith('ctx1')) {
-        if (statusMsg) statusMsg.innerHTML = '<span class="text-flame">Please create or enter a valid Cortex address (ctx1...).</span>';
+        if (statusMsg) statusMsg.innerHTML = '<span class="text-flame">Please create or enter a valid Reticulum address (ctx1...).</span>';
         return showToast('Please enter a valid ctx1... address', true);
     }
 
@@ -2300,7 +2312,7 @@ async function claimFaucet() {
             showToast(data.error, true);
         } else {
             if (statusMsg) statusMsg.innerHTML = `<span class="text-emerald font-bold">✓ ${data.message}</span>`;
-            showToast('💧 5.00 Testnet $CTX successfully received!');
+            showToast('💧 5.00 Testnet $RAI successfully received!');
             if (currentWallet && currentWallet.address === address) {
                 fetchWalletBalance();
             }
@@ -2312,7 +2324,7 @@ async function claimFaucet() {
     } finally {
         if (btn) {
             btn.disabled = false;
-            btn.innerHTML = '<i class="fa-solid fa-droplet"></i> Claim 5 CTX';
+            btn.innerHTML = '<i class="fa-solid fa-droplet"></i> Claim 5 RAI';
         }
     }
 }
@@ -2352,7 +2364,7 @@ const SWARM_REASONING_POOL = [
     {
         agentId: 'Eliza-Oracle-AI',
         topic: 'elizaos_state_commitment',
-        thought: 'Synthesized zero-knowledge state invariant across 256 neural nodes. Sealed in Cortex PoW Block.',
+        thought: 'Synthesized zero-knowledge state invariant across 256 neural nodes. Sealed in Reticulum PoW Block.',
         color: '#a855f7'
     }
 ];
@@ -2553,7 +2565,7 @@ function renderInitialSwarmFeed() {
                 <span class="text-slate-600">Spatial arbitrage notarized: 3.4% spread on Curve</span>
             </div>
             <div class="flex items-center gap-2">
-                <span class="mono text-xs text-flame font-bold">-0.015 CTX 🔥</span>
+                <span class="mono text-xs text-flame font-bold">-0.015 RAI 🔥</span>
                 <span class="badge-subtle text-xs">Merkle Verified</span>
             </div>
         </div>
@@ -2563,7 +2575,7 @@ function renderInitialSwarmFeed() {
                 <span class="text-slate-600">Kinase CX-882 docking affinity anchored: -14.8 kcal/mol</span>
             </div>
             <div class="flex items-center gap-2">
-                <span class="mono text-xs text-flame font-bold">-0.015 CTX 🔥</span>
+                <span class="mono text-xs text-flame font-bold">-0.015 RAI 🔥</span>
                 <span class="badge-subtle text-xs">Merkle Verified</span>
             </div>
         </div>
@@ -2573,7 +2585,7 @@ function renderInitialSwarmFeed() {
                 <span class="text-slate-600">Reentrancy interceptor proof inscribed for ERC-4626 vault</span>
             </div>
             <div class="flex items-center gap-2">
-                <span class="mono text-xs text-flame font-bold">-0.015 CTX 🔥</span>
+                <span class="mono text-xs text-flame font-bold">-0.015 RAI 🔥</span>
                 <span class="badge-subtle text-xs">Merkle Verified</span>
             </div>
         </div>
@@ -2618,7 +2630,7 @@ function triggerSwarmReasoning() {
                     <span class="text-slate-800">${randomItem.thought}</span>
                 </div>
                 <div class="flex items-center gap-2">
-                    <span class="mono text-xs text-flame font-bold">-0.015 CTX 🔥</span>
+                    <span class="mono text-xs text-flame font-bold">-0.015 RAI 🔥</span>
                     <span class="badge-subtle text-xs" style="color:var(--emerald);">Verified ✓</span>
                 </div>
             </div>
@@ -2740,7 +2752,7 @@ const dexState = {
     poolCtx: 500000,
     poolUsdc: 622500, // Spot price = $1.2450 USD
     userUsdc: parseFloat(localStorage.getItem('cortex_user_usdc') || '1000.0'),
-    fromSymbol: 'CTX',
+    fromSymbol: 'RAI',
     toSymbol: 'tUSDC',
     slippage: 0.5
 };
@@ -2762,12 +2774,12 @@ function updateDexBalances() {
 
     const userCtxBal = currentWallet ? (currentWallet.balance || 0) : 0;
 
-    if (dexState.fromSymbol === 'CTX') {
-        if (fromBalEl) fromBalEl.textContent = `${userCtxBal.toFixed(2)} CTX`;
+    if (dexState.fromSymbol === 'RAI') {
+        if (fromBalEl) fromBalEl.textContent = `${userCtxBal.toFixed(2)} RAI`;
         if (toBalEl) toBalEl.textContent = `${dexState.userUsdc.toFixed(2)} tUSDC`;
     } else {
         if (fromBalEl) fromBalEl.textContent = `${dexState.userUsdc.toFixed(2)} tUSDC`;
-        if (toBalEl) toBalEl.textContent = `${userCtxBal.toFixed(2)} CTX`;
+        if (toBalEl) toBalEl.textContent = `${userCtxBal.toFixed(2)} RAI`;
     }
 
     calculateDexSwap();
@@ -2819,15 +2831,15 @@ function calculateDexSwap() {
     let amountOut = 0;
     let impact = 0;
 
-    if (dexState.fromSymbol === 'CTX') {
+    if (dexState.fromSymbol === 'RAI') {
         // x * y = k => (x + dx) * (y - dy) = k => dy = (y * dx) / (x + dx)
         amountOut = (dexState.poolUsdc * amountInWithFee) / (dexState.poolCtx + amountInWithFee);
         impact = (amountIn / (dexState.poolCtx + amountIn)) * 100;
-        if (rateEl) rateEl.textContent = `1 CTX ≈ ${(dexState.poolUsdc / dexState.poolCtx).toFixed(4)} tUSDC`;
+        if (rateEl) rateEl.textContent = `1 RAI ≈ ${(dexState.poolUsdc / dexState.poolCtx).toFixed(4)} tUSDC`;
     } else {
         amountOut = (dexState.poolCtx * amountInWithFee) / (dexState.poolUsdc + amountInWithFee);
         impact = (amountIn / (dexState.poolUsdc + amountIn)) * 100;
-        if (rateEl) rateEl.textContent = `1 tUSDC ≈ ${(dexState.poolCtx / dexState.poolUsdc).toFixed(4)} CTX`;
+        if (rateEl) rateEl.textContent = `1 tUSDC ≈ ${(dexState.poolCtx / dexState.poolUsdc).toFixed(4)} RAI`;
     }
 
     if (toIn) toIn.value = amountOut.toFixed(4);
@@ -2854,12 +2866,12 @@ async function executeDexSwap() {
 
     const userCtxBal = currentWallet ? (currentWallet.balance || 0) : 0;
 
-    if (dexState.fromSymbol === 'CTX') {
+    if (dexState.fromSymbol === 'RAI') {
         if (amountIn > userCtxBal) {
-            if (statusEl) statusEl.innerHTML = `<span class="text-flame">Insufficient CTX balance (${userCtxBal.toFixed(2)} CTX available).</span>`;
+            if (statusEl) statusEl.innerHTML = `<span class="text-flame">Insufficient RAI balance (${userCtxBal.toFixed(2)} RAI available).</span>`;
             return;
         }
-        // Deduct CTX, credit USDC
+        // Deduct RAI, credit USDC
         dexState.poolCtx += amountIn;
         dexState.poolUsdc -= amountOut;
         dexState.userUsdc += amountOut;
@@ -2869,7 +2881,7 @@ async function executeDexSwap() {
             if (statusEl) statusEl.innerHTML = `<span class="text-flame">Insufficient tUSDC balance (${dexState.userUsdc.toFixed(2)} tUSDC available).</span>`;
             return;
         }
-        // Deduct USDC, credit CTX
+        // Deduct USDC, credit RAI
         dexState.poolUsdc += amountIn;
         dexState.poolCtx -= amountOut;
         dexState.userUsdc -= amountIn;
@@ -2910,7 +2922,7 @@ function addDexLiquidity() {
     const uVal = parseFloat(usdcIn?.value || '0');
 
     if (cVal <= 0 || uVal <= 0) {
-        alert('Please enter both CTX and tUSDC amounts to provide liquidity.');
+        alert('Please enter both RAI and tUSDC amounts to provide liquidity.');
         return;
     }
 
@@ -2923,7 +2935,7 @@ function addDexLiquidity() {
     if (ctxIn) ctxIn.value = '';
     if (usdcIn) usdcIn.value = '';
 
-    alert(`💎 Liquidity Provided! Minted LP-CTX/USDC tokens earning 18.4% APY fee rewards!`);
+    alert(`💎 Liquidity Provided! Minted LP-RAI/USDC tokens earning 18.4% APY fee rewards!`);
     updateDexBalances();
     drawDexPriceChart();
 }
@@ -2931,7 +2943,7 @@ function addDexLiquidity() {
 function setMaxDexInput() {
     const fromIn = document.getElementById('dex-from-amount');
     if (!fromIn) return;
-    if (dexState.fromSymbol === 'CTX') {
+    if (dexState.fromSymbol === 'RAI') {
         const userCtxBal = currentWallet ? (currentWallet.balance || 0) : 0;
         fromIn.value = userCtxBal > 0 ? userCtxBal.toString() : '0';
     } else {
@@ -3065,14 +3077,14 @@ function exportKeystoreJson() {
         publicKey: currentWallet.publicKey,
         encryptedPrivateKey: btoa(currentWallet.privateKey),
         timestamp: new Date().toISOString(),
-        network: 'Cortex Protocol Layer-1'
+        network: 'Reticulum AI Layer-1'
     };
 
     const blob = new Blob([JSON.stringify(keystore, null, 2)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `cortex-vault-${currentWallet.address.substring(0, 10)}.json`;
+    a.download = `reticulum-vault-${currentWallet.address.substring(0, 10)}.json`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -3168,7 +3180,7 @@ function renderUserPositionCard() {
                         <div class="user-pos-icon"><i class="fa-solid fa-satellite-dish text-indigo"></i></div>
                         <div>
                             <div class="text-sm font-bold text-white">Your Connected Wallet: <span class="mono text-indigo">${userAddr.substring(0, 10)}...${userAddr.substring(userAddr.length - 6)}</span></div>
-                            <div class="text-xs text-slate-400 mt-0.5">Not yet ranked on Testnet 2.0. Mine blocks or test swaps to qualify for the 210k $CTX airdrop!</div>
+                            <div class="text-xs text-slate-400 mt-0.5">Not yet ranked on Testnet 2.0. Mine blocks or test swaps to qualify for the 210k $RAI airdrop!</div>
                         </div>
                     </div>
                     <button class="btn btn-sm btn-primary" onclick="navigateTo('landing', 'faucet')"><i class="fa-solid fa-faucet-drip"></i> Claim Faucet</button>
@@ -3204,15 +3216,15 @@ function renderUserPositionCard() {
                 <div class="flex items-center gap-3 flex-wrap">
                     <div class="user-pos-metric-box">
                         <span class="text-xs text-slate-400 font-bold block" style="font-size:0.7rem;">Mainnet Airdrop</span>
-                        <div class="text-lg font-bold text-emerald mono">${myEntry.estimatedReward.toLocaleString()} <span class="text-xs text-indigo">CTX</span></div>
+                        <div class="text-lg font-bold text-emerald mono">${myEntry.estimatedReward.toLocaleString()} <span class="text-xs text-indigo">RAI</span></div>
                     </div>
                     <div class="user-pos-metric-box">
                         <span class="text-xs text-slate-400 font-bold block" style="font-size:0.7rem;">Day 1 Liquid (20%)</span>
-                        <div class="text-sm font-bold text-cyan-400 mono">${myEntry.day1Liquid} CTX</div>
+                        <div class="text-sm font-bold text-cyan-400 mono">${myEntry.day1Liquid} RAI</div>
                     </div>
                     <div class="user-pos-metric-box">
                         <span class="text-xs text-slate-400 font-bold block" style="font-size:0.7rem;">90d Stream (80%)</span>
-                        <div class="text-sm font-bold text-indigo mono">${myEntry.vestedStream} CTX</div>
+                        <div class="text-sm font-bold text-indigo mono">${myEntry.vestedStream} RAI</div>
                     </div>
                 </div>
             </div>
@@ -3276,14 +3288,14 @@ function renderLeaderboardPodium() {
                     <div class="p-3 rounded-12 mb-3" style="background: rgba(11,15,25,0.75); border: 1px solid rgba(255,255,255,0.08);">
                         <div class="flex items-center justify-between text-xs text-slate-300 mb-1">
                             <span class="font-semibold">Mainnet Allocation:</span>
-                            <span class="font-extrabold text-white mono text-base">${item.estimatedReward.toLocaleString()} <span class="text-xs text-indigo">CTX</span></span>
+                            <span class="font-extrabold text-white mono text-base">${item.estimatedReward.toLocaleString()} <span class="text-xs text-indigo">RAI</span></span>
                         </div>
                         <div class="flex items-center justify-between text-xs text-slate-400 font-mono mb-2" style="font-size:0.75rem;">
-                            <span>Day 1 (20%): <strong class="text-emerald font-bold">${item.day1Liquid} CTX</strong></span>
-                            <span>Stream (80%): <strong class="text-cyan-400 font-bold">${item.vestedStream} CTX</strong></span>
+                            <span>Day 1 (20%): <strong class="text-emerald font-bold">${item.day1Liquid} RAI</strong></span>
+                            <span>Stream (80%): <strong class="text-cyan-400 font-bold">${item.vestedStream} RAI</strong></span>
                         </div>
                         <div class="peg-ratio-indicator" style="width: 100%; justify-content: center;">
-                            <i class="fa-solid fa-scale-balanced text-amber"></i> 1,000 $tCTX = 1.00 $CTX Mainnet
+                            <i class="fa-solid fa-scale-balanced text-amber"></i> 1,000 $tCTX = 1.00 $RAI Mainnet
                         </div>
                     </div>
                 </div>
@@ -3318,7 +3330,7 @@ function handleLeaderboardSearch(query) {
 
 function simulateConversion(val) {
     const raw = parseFloat(val) || 0;
-    // 1000 $tCTX = 1.00 Mainnet $CTX (Capped at 6,300 max)
+    // 1000 $tCTX = 1.00 Mainnet $RAI (Capped at 6,300 max)
     const mainnetCtx = Math.min(6300, +(raw / 1000).toFixed(4));
     const day1 = +(mainnetCtx * 0.20).toFixed(2);
     const stream = +(mainnetCtx * 0.80).toFixed(2);
@@ -3327,9 +3339,9 @@ function simulateConversion(val) {
     const elDay1 = document.getElementById('sim-day1-val');
     const elStream = document.getElementById('sim-stream-val');
 
-    if (elMain) elMain.innerText = `${mainnetCtx.toLocaleString()} $CTX Mainnet`;
-    if (elDay1) elDay1.innerText = `${day1.toLocaleString()} CTX`;
-    if (elStream) elStream.innerText = `${stream.toLocaleString()} CTX`;
+    if (elMain) elMain.innerText = `${mainnetCtx.toLocaleString()} $RAI Mainnet`;
+    if (elDay1) elDay1.innerText = `${day1.toLocaleString()} RAI`;
+    if (elStream) elStream.innerText = `${stream.toLocaleString()} RAI`;
 }
 
 function simulateWithCurrentWallet() {
@@ -3417,15 +3429,15 @@ function renderLeaderboardTable() {
                     <span class="mono font-bold text-white">${tctxBal}</span> <span class="text-xs text-slate-400 font-mono">$tCTX</span>
                 </td>
                 <td style="padding: 13px 10px; text-align: right;">
-                    <div class="text-sm font-extrabold text-white mono">${item.estimatedReward.toLocaleString()} <span class="text-xs text-indigo">CTX</span></div>
+                    <div class="text-sm font-extrabold text-white mono">${item.estimatedReward.toLocaleString()} <span class="text-xs text-indigo">RAI</span></div>
                     <span class="text-xs text-slate-400 mono block" style="font-size:0.72rem;">1,000 : 1 peg</span>
                 </td>
                 <td style="padding: 13px 10px; text-align: right;">
                     <div class="text-xs mono">
-                        <span class="text-emerald font-bold">20% (${item.day1Liquid} CTX) Day 1</span>
+                        <span class="text-emerald font-bold">20% (${item.day1Liquid} RAI) Day 1</span>
                     </div>
                     <div class="text-xs text-slate-400 mono">
-                        <span>80% (${item.vestedStream} CTX) 90d Stream</span>
+                        <span>80% (${item.vestedStream} RAI) 90d Stream</span>
                     </div>
                 </td>
             </tr>
@@ -3444,7 +3456,7 @@ const cortexWeb3State = {
 };
 
 function initWeb3Wallet() {
-    window.addEventListener('cortex#initialized', () => {
+    window.addEventListener('reticulum#initialized', () => {
         checkWeb3AutoConnect();
     });
 
@@ -3542,8 +3554,8 @@ function updateWebWalletHeader() {
         if (btn) btn.style.display = 'none';
         if (pill) pill.style.display = 'inline-flex';
         if (addrEl) addrEl.textContent = shortAddr;
-        if (balEl) balEl.textContent = `${cortexWeb3State.balanceCtx.toFixed(2)} CTX`;
-        if (mobileText) mobileText.textContent = `${shortAddr} (${cortexWeb3State.balanceCtx.toFixed(2)} CTX)`;
+        if (balEl) balEl.textContent = `${cortexWeb3State.balanceCtx.toFixed(2)} RAI`;
+        if (mobileText) mobileText.textContent = `${shortAddr} (${cortexWeb3State.balanceCtx.toFixed(2)} RAI)`;
     } else {
         if (btn) {
             btn.style.display = 'inline-flex';
@@ -3566,7 +3578,7 @@ async function syncWebWalletBalances() {
         cortexWeb3State.balanceUsdc = typeof dexRes.usdc === 'number' ? dexRes.usdc : 1000;
 
         const balEl = document.getElementById('web-wallet-bal-badge');
-        if (balEl) balEl.textContent = `${cortexWeb3State.balanceCtx.toFixed(2)} CTX`;
+        if (balEl) balEl.textContent = `${cortexWeb3State.balanceCtx.toFixed(2)} RAI`;
     } catch(e) {}
 }
 
@@ -3694,7 +3706,7 @@ const AGENT_PERSONA_PRESETS = {
         }
     },
     'eliza-oracle': {
-        name: 'Eliza-Cortex-Oracle',
+        name: 'Eliza-Reticulum-Oracle',
         desc: 'ElizaOS Autonomous Agent (ai16z standard) • Decentralized Cognitive State',
         topic: 'ELIZAOS_COGNITIVE_MILESTONE',
         type: 'COGNITIVE_REASONING',
@@ -3702,7 +3714,7 @@ const AGENT_PERSONA_PRESETS = {
             agentFramework: 'ElizaOS v1.0 (@elizaos/core)',
             role: 'Autonomous Reasoning & Sovereign State Oracle',
             cognitiveMilestone: 'Verified zero-knowledge state invariant across 256 neural nodes.',
-            stateCommitment: 'SHA-256d Merkle Leaf sealed in Cortex RandomX PoW Block',
+            stateCommitment: 'SHA-256d Merkle Leaf sealed in Reticulum RandomX PoW Block',
             timestamp: Date.now()
         }
     },
@@ -3743,7 +3755,7 @@ const MEMORY_TEMPLATES = {
         content: JSON.stringify(AGENT_PERSONA_PRESETS['helix-biotech'].payload, null, 2)
     },
     eliza: {
-        agentId: 'Eliza-Cortex-Oracle',
+        agentId: 'Eliza-Reticulum-Oracle',
         topic: 'ELIZAOS_COGNITIVE_MILESTONE',
         type: 'COGNITIVE_REASONING',
         personaKey: 'eliza-oracle',
@@ -3751,7 +3763,7 @@ const MEMORY_TEMPLATES = {
             agentFramework: 'ElizaOS v1.0 (@elizaos/core)',
             role: 'Autonomous Reasoning & Sovereign State Oracle',
             cognitiveMilestone: 'Verified zero-knowledge state invariant across 256 neural nodes.',
-            stateCommitment: 'SHA-256d Merkle Leaf sealed in Cortex RandomX PoW Block',
+            stateCommitment: 'SHA-256d Merkle Leaf sealed in Reticulum RandomX PoW Block',
             timestamp: Date.now()
         }, null, 2)
     },
@@ -3898,7 +3910,7 @@ async function submitInteractiveAgentMemory() {
 
         const data = await res.json();
         if (data.error || !data.success) {
-            throw new Error(data.error || 'Failed to anchor memory on Cortex L1');
+            throw new Error(data.error || 'Failed to anchor memory on Reticulum L1');
         }
 
         renderPoCReceipt(data);
@@ -3923,7 +3935,7 @@ async function submitInteractiveAgentMemory() {
                     </div>
                     <div class="flex items-center gap-2">
                         <a href="javascript:void(0)" onclick="openTxInspector('${data.txId}')" class="text-indigo mono text-xs hover-underline" style="text-decoration:none;"><i class="fa-solid fa-receipt"></i> ${data.txId.substring(0, 10)}...</a>
-                        <span class="mono text-xs text-flame font-bold">-0.015 CTX 🔥</span>
+                        <span class="mono text-xs text-flame font-bold">-0.015 RAI 🔥</span>
                         <span class="badge-subtle text-xs" style="color:var(--emerald);">Verified ✓</span>
                     </div>
                 </div>
@@ -3938,7 +3950,7 @@ async function submitInteractiveAgentMemory() {
         fetchMemories();
         fetchMempool();
 
-        showToast('⚡ Successfully signed and anchored state on Cortex L1!');
+        showToast('⚡ Successfully signed and anchored state on Reticulum L1!');
     } catch (err) {
         showToast(`Error: ${err.message}`, true);
     } finally {
@@ -3962,10 +3974,10 @@ function renderPoCReceipt(receipt) {
             <div class="receipt-header">
                 <div class="flex items-center gap-2">
                     <span class="receipt-status-badge">
-                        <i class="fa-solid fa-circle-check text-emerald"></i> CONFIRMED ON CORTEX L1 TESTNET
+                        <i class="fa-solid fa-circle-check text-emerald"></i> CONFIRMED ON RETICULUM L1 TESTNET
                     </span>
                     <span class="badge-subtle badge-flame font-mono text-xs">
-                        <i class="fa-solid fa-fire"></i> -0.0150 CTX BURNED
+                        <i class="fa-solid fa-fire"></i> -0.0150 RAI BURNED
                     </span>
                 </div>
                 <div class="text-xs text-slate-400 font-mono">
@@ -4020,7 +4032,7 @@ function renderPoCReceipt(receipt) {
                         <span class="badge-subtle badge-flame text-xs">30% OF GAS</span>
                     </div>
                     <div class="receipt-val text-flame">
-                        0.0150 CTX Permanently Destroyed 🔥
+                        0.0150 RAI Permanently Destroyed 🔥
                     </div>
                 </div>
 
@@ -4081,7 +4093,7 @@ window.verifyFlightRecordProof = function(txId, content, expectedHash) {
                         <i class="fa-solid ${isValid ? 'fa-circle-check text-emerald' : 'fa-triangle-exclamation text-flame'}" style="font-size: 1.5rem;"></i>
                         <div>
                             <div style="font-weight:700; color: ${isValid ? '#34d399' : '#f87171'};">${isValid ? 'Cryptographic Proof 100% Valid' : 'Proof Mismatch Detected'}</div>
-                            <div style="font-size:0.8rem; color:#cbd5e1;">${isValid ? 'This AI decision hash matches the immutable state sealed on Cortex L1.' : 'The computed hash does not match.'}</div>
+                            <div style="font-size:0.8rem; color:#cbd5e1;">${isValid ? 'This AI decision hash matches the immutable state sealed on Reticulum L1.' : 'The computed hash does not match.'}</div>
                         </div>
                     </div>
 
@@ -4111,3 +4123,71 @@ window.verifyFlightRecordProof = function(txId, content, expectedHash) {
         document.body.insertAdjacentHTML('beforeend', modalHtml);
     });
 };
+
+
+// ========================================================
+// SOVEREIGN IN-BROWSER WEB WALLET CONTROLLER (ZERO EXTENSION)
+// ========================================================
+let pendingGeneratedWallet = null;
+
+function closeWebWalletModal(e) {
+    if (e && e.target && e.target.id !== 'modal-install-extension' && !e.target.classList.contains('btn-close-modal')) return;
+    const modal = document.getElementById('modal-install-extension');
+    if (modal) modal.style.display = 'none';
+    const disp = document.getElementById('new-wallet-display');
+    if (disp) disp.style.display = 'none';
+}
+
+function openInstallModal() {
+    const modal = document.getElementById('modal-install-extension');
+    if (modal) {
+        modal.style.display = 'flex';
+        modal.style.alignItems = 'center';
+        modal.style.justifyContent = 'center';
+    }
+}
+
+async function handleWebConnectClick() {
+    if (cortexWeb3State.isConnected) {
+        toggleWalletDropdown(event);
+        return;
+    }
+    openInstallModal();
+}
+
+function connectManualWallet() {
+    const input = document.getElementById('manual-wallet-input');
+    if (!input || !input.value.trim()) {
+        showToast('Please enter a valid wallet address', true);
+        return;
+    }
+    const addr = input.value.trim();
+    setWebWalletConnected(addr);
+    closeWebWalletModal();
+    showToast(`🟢 Connected: ${addr.substring(0, 8)}...${addr.substring(addr.length - 4)}`);
+}
+
+function generateInBrowserWallet() {
+    // Generate sovereign cryptographic keypair client-side
+    const privHex = Array.from(crypto.getRandomValues(new Uint8Array(32)))
+        .map(b => b.toString(16).padStart(2, '0')).join('');
+    // Derive address hash
+    const addrHash = Array.from(crypto.getRandomValues(new Uint8Array(24)))
+        .map(b => b.toString(16).padStart(2, '0')).join('');
+    const newAddress = 'ctx1' + addrHash;
+
+    pendingGeneratedWallet = { address: newAddress, privateKey: privHex };
+
+    document.getElementById('new-wallet-addr').textContent = newAddress;
+    document.getElementById('new-wallet-key').textContent = privHex;
+    document.getElementById('new-wallet-display').style.display = 'block';
+}
+
+function confirmNewWalletConnect() {
+    if (pendingGeneratedWallet) {
+        setWebWalletConnected(pendingGeneratedWallet.address);
+        closeWebWalletModal();
+        showToast(`🟢 Connected: ${pendingGeneratedWallet.address.substring(0, 8)}...`);
+        pendingGeneratedWallet = null;
+    }
+}

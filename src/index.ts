@@ -14,7 +14,7 @@ const STRATUM_PORT = Number(process.env.STRATUM_PORT) || 3333;
 const PEERS = process.env.PEERS ? process.env.PEERS.split(',') : [];
 
 const blockchain = new Blockchain();
-const poolPrivKey = process.env.POOL_PRIVATE_KEY || '9f8e7d6c5b4a3928170e9f8e7d6c5b4a3928170e9f8e7d6c5b4a3928170e9f8e';
+const poolPrivKey = process.env.POOL_PRIVATE_KEY;
 const pool = new CortexMiningPool(blockchain, poolPrivKey);
 const stratumServer = new CortexStratumServer(pool, STRATUM_PORT);
 const MINER_ADDRESS = process.env.MINER_ADDRESS || pool.getPoolAddress();

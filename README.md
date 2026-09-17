@@ -1,9 +1,9 @@
-# Cortex Protocol ($CTX)
+# Reticulum AI ($RAI)
 ### The Settlement & State Layer for Autonomous AI Agents
 
 [![Discord Community](https://img.shields.io/badge/Discord-Join%20Community-5865F2?logo=discord&logoColor=white)](https://discord.gg/WK7tYSse2)
-[![X (Twitter)](https://img.shields.io/badge/X-@Cortex__L1-000000?logo=x&logoColor=white)](https://x.com/Cortex_L1)
-[![Telegram](https://img.shields.io/badge/Telegram-Join%20Chat-24A1DE?logo=telegram&logoColor=white)](https://t.me/cortex_ctx)
+[![X (Twitter)](https://img.shields.io/badge/X-@Reticulum__L1-000000?logo=x&logoColor=white)](https://x.com/Reticulum_L1)
+[![Telegram](https://img.shields.io/badge/Telegram-Join%20Chat-24A1DE?logo=telegram&logoColor=white)](https://t.me/reticulum_ai)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Network](https://img.shields.io/badge/Network-Incentivized%20Testnet%202.0%20(Live)-6366f1.svg)](https://cortex-protocol.xyz)
 [![Consensus](https://img.shields.io/badge/Consensus-RandomX%20CPU%20PoW-10b981.svg)](https://cortex-protocol.xyz)
@@ -14,20 +14,20 @@
 
 ## 💬 Official Community
 * **Official Website**: [https://cortex-protocol.xyz](https://cortex-protocol.xyz)
-* **X (Twitter)**: [@Cortex_L1 (https://x.com/Cortex_L1)](https://x.com/Cortex_L1)
+* **X (Twitter)**: [@Reticulum_L1 (https://x.com/Reticulum_L1)](https://x.com/Reticulum_L1)
 * **Discord Community**: [https://discord.gg/WK7tYSse2](https://discord.gg/WK7tYSse2)
-* **Telegram Official**: [https://t.me/cortex_ctx](https://t.me/cortex_ctx)
+* **Telegram Official**: [https://t.me/reticulum_ai](https://t.me/reticulum_ai)
 * **Live Incentivized Leaderboard**: [https://cortex-protocol.xyz/#leaderboard](https://cortex-protocol.xyz/#leaderboard)
 
 ---
 
 ## 🌟 Overview
 
-**Cortex Protocol ($CTX)** is a purpose-built Layer-1 blockchain engineered to cryptographically anchor and verify autonomous AI states. 
+**Reticulum AI ($RAI)** is a purpose-built Layer-1 blockchain engineered to cryptographically anchor and verify autonomous AI states. 
 
-Rejecting the flawed paradigm of on-chain vector bloat, Cortex Protocol enforces a strict **Separation of Concerns**:
+Rejecting the flawed paradigm of on-chain vector bloat, Reticulum AI enforces a strict **Separation of Concerns**:
 * **Edge RAG (Off-Chain):** Autonomous AI agents run their high-dimensional vector search (HNSW / Cosine) and embeddings locally in-RAM with sub-millisecond retrieval.
-* **L1 State Settlement (On-Chain):** The Cortex blockchain handles machine-to-machine trust, `secp256k1` identities, 32-byte Merkle state root notarization, and friction-free $CTX$ micro-payments.
+* **L1 State Settlement (On-Chain):** The Reticulum blockchain handles machine-to-machine trust, `secp256k1` identities, 32-byte Merkle state root notarization, and friction-free $RAI$ micro-payments.
 
 Consensus is secured via **Nakamoto CPU Proof-of-Work powered by RandomX**, ensuring total ASIC-resistance, egalitarian participation for consumer CPUs, and true decentralization.
 
@@ -45,11 +45,11 @@ Consensus is secured via **Nakamoto CPU Proof-of-Work powered by RandomX**, ensu
                                │ Merkle Leaf Commitment
                                ▼
 ┌──────────────────────────────────────────────────────────────┐
-│             CORTEX PROTOCOL LAYER-1 (STATE NOTARY)           │
+│             RETICULUM AI LAYER-1 (STATE NOTARY)           │
 │  - Nakamoto Consensus (RandomX CPU Proof-of-Work)            │
 │  - secp256k1 Cryptographic Signer Verification               │
 │  - 32-Byte State Merkle Roots Inscribed into Block Headers    │
-│  - Native $CTX Peer-to-Peer Economic Settlement              │
+│  - Native $RAI Peer-to-Peer Economic Settlement              │
 │  - 30% Gas Combustion (Deflationary Flywheel)                │
 └──────────────────────────────────────────────────────────────┘
 ```
@@ -68,18 +68,18 @@ Light clients verify any historical state transition via **60-byte Merkle proofs
 
 | Parameter | Specification |
 | :--- | :--- |
-| **Token Ticker** | **$CTX** |
-| **Total Hard Cap** | **21,000,000 CTX** (Strict Mathematical Scarcity) |
+| **Token Ticker** | **$RAI** |
+| **Total Hard Cap** | **21,000,000 RAI** (Strict Mathematical Scarcity) |
 | **Team / VC Pre-mine** | **0% (100% Community Fair Launch)** |
-| **Initial Block Subsidy** | **50.00 CTX per block** (Halving every 210,000 blocks / ~3.65 months) |
+| **Initial Block Subsidy** | **50.00 RAI per block** (Halving every 210,000 blocks / ~3.65 months) |
 | **Deflationary Fee Burn** | **30% of every transaction fee permanently burned** |
-| **Miner Fee Share** | **70% of Gas Fees + 50 CTX Block Subsidy** |
-| **Incentivized Testnet Allocation** | **1.0% (210,000 CTX)** at Mainnet Genesis Block #0 |
+| **Miner Fee Share** | **70% of Gas Fees + 50 RAI Block Subsidy** |
+| **Incentivized Testnet Allocation** | **1.0% (210,000 RAI)** at Mainnet Genesis Block #0 |
 
 ### 🎁 Incentivized Testnet Bootstrap (70/30 Split)
-* **70% (147,000 CTX) — Active Hardware Miners:** Distributed pro-rata based on validated RandomX blocks and accepted pool shares.
-* **30% (63,000 CTX) — Community Testers:** Distributed equally across active addresses participating in DEX swaps, Web3 Wallet signatures & state commits.
-* **Anti-Whale Hard Cap:** Maximum 3.0% (6,300 CTX) per individual address (excess is redistributed).
+* **70% (147,000 RAI) — Active Hardware Miners:** Distributed pro-rata based on validated RandomX blocks and accepted pool shares.
+* **30% (63,000 RAI) — Community Testers:** Distributed equally across active addresses participating in DEX swaps, Web3 Wallet signatures & state commits.
+* **Anti-Whale Hard Cap:** Maximum 3.0% (6,300 RAI) per individual address (excess is redistributed).
 * **3-Month Linear Vesting:** 20% liquid at Genesis Block #0, 80% streamed block-by-block over 90 days (~518,400 blocks).
 
 ---
@@ -124,7 +124,7 @@ npm run miner
 ## 📦 1-Click Standalone Windows Miner (No Setup Required)
 
 Miners on Windows can download the pre-packaged standalone zip directly:
-- **Download**: [https://cortex-protocol.xyz/downloads/cortex-miner-windows.zip](https://cortex-protocol.xyz/downloads/cortex-miner-windows.zip)
+- **Download**: [https://cortex-protocol.xyz/downloads/reticulum-miner-windows.zip](https://cortex-protocol.xyz/downloads/reticulum-miner-windows.zip)
 - Extract the archive and double-click **`Start-Mining-1Click.bat`** (or `Start-Mining.bat`).
 
 ---
@@ -134,12 +134,12 @@ Miners on Windows can download the pre-packaged standalone zip directly:
 
 ## 🤖 AI Agent Framework Integrations
 
-Cortex Protocol ($CTX) serves as the sovereign, decentralized memory and state settlement layer for autonomous AI agents across major frameworks:
+Reticulum AI ($RAI) serves as the sovereign, decentralized memory and state settlement layer for autonomous AI agents across major frameworks:
 
 ### 1. 🟣 ElizaOS Plugin (`@cortex-protocol/plugin-eliza`)
 Complete official plugin located in [`packages/plugin-cortex/`](packages/plugin-cortex/):
 - **Cognitive Memory Provider**: Seals episodic and semantic memories into PoW blocks with 3ms Edge RAG recall.
-- **Sovereign Wallet Provider**: Injects real-time $CTX balance and wallet state into agent prompts.
+- **Sovereign Wallet Provider**: Injects real-time $RAI balance and wallet state into agent prompts.
 - **On-Chain Actions**: `INSCRIBE_MEMORY`, `TRANSFER_CTX`, `CLAIM_FAUCET`.
 - **Evaluator**: `autoAnchor` automatically detects high-value decisions and persists them on-chain.
 
@@ -150,23 +150,23 @@ npx ts-node examples/eliza_cortex_agent.ts
 
 ### 2. 🦜🔗 LangChain & LangGraph Memory Provider (`cortex_protocol.langchain`)
 Full integration in [`sdk/python/cortex_protocol/langchain.py`](sdk/python/cortex_protocol/langchain.py):
-- **`CortexChatMessageHistory`**: Extends LangChain `BaseChatMessageHistory` (zero external dependencies required).
-- **`CortexCheckpointer`**: Decentralized state snapshot saver for LangGraph agent decision trees.
+- **`ReticulumChatMessageHistory`**: Extends LangChain `BaseChatMessageHistory` (zero external dependencies required).
+- **`ReticulumCheckpointer`**: Decentralized state snapshot saver for LangGraph agent decision trees.
 - **30% Gas Fee Burn**: Every message turn burned permanently on-chain.
-- **Cold-Reboot Hydration**: Automatically rehydrates entire conversation history from Cortex L1 state upon agent container restart.
+- **Cold-Reboot Hydration**: Automatically rehydrates entire conversation history from Reticulum L1 state upon agent container restart.
 
 ```python
-from cortex_protocol import CortexClient, AgentWallet
-from cortex_protocol.langchain import CortexChatMessageHistory
+from cortex_protocol import ReticulumClient, AgentWallet
+from cortex_protocol.langchain import ReticulumChatMessageHistory
 
 # 1. Connect agent with sovereign key
-client = CortexClient(wallet=AgentWallet.generate())
+client = ReticulumClient(wallet=AgentWallet.generate())
 
-# 2. Attach Cortex persistent memory to any LangChain session
-history = CortexChatMessageHistory(session_id="session_01", client=client)
+# 2. Attach Reticulum persistent memory to any LangChain session
+history = ReticulumChatMessageHistory(session_id="session_01", client=client)
 
 # 3. Add messages - permanently anchored on L1 with 30% gas burn
-history.add_user_message("Analyze liquidity on Cortex DEX.")
+history.add_user_message("Analyze liquidity on Reticulum DEX.")
 history.add_ai_message("AMM pool TVL is $1.59M with 18.4% APY.")
 ```
 
@@ -177,20 +177,20 @@ python3 examples/langchain_cortex_demo.py
 
 ### 3. 👥 CrewAI Multi-Agent Shared Memory (`cortex_protocol.crewai`)
 Full multi-agent persistence in [`sdk/python/cortex_protocol/crewai.py`](sdk/python/cortex_protocol/crewai.py):
-- **`CortexStorage`**: Implements the official CrewAI Storage interface with decentralized L1 persistence.
-- **`CortexShortTermMemory` & `CortexLongTermMemory`**: Shared inter-agent context and long-term knowledge base.
-- **`CortexEntityMemory`**: Decentralized entity registry (contracts, wallets, users, assets) shared across all agents in the crew.
+- **`ReticulumStorage`**: Implements the official CrewAI Storage interface with decentralized L1 persistence.
+- **`ReticulumShortTermMemory` & `ReticulumLongTermMemory`**: Shared inter-agent context and long-term knowledge base.
+- **`ReticulumEntityMemory`**: Decentralized entity registry (contracts, wallets, users, assets) shared across all agents in the crew.
 - **Instant Crew Recovery**: Zero knowledge loss across agent crashes, container restarts, or server migrations.
 
 ```python
-from cortex_protocol import CortexClient, AgentWallet
-from cortex_protocol.crewai import CortexCrewMemory
+from cortex_protocol import ReticulumClient, AgentWallet
+from cortex_protocol.crewai import ReticulumCrewMemory
 
 # 1. Connect crew with sovereign agent wallet
-client = CortexClient(wallet=AgentWallet.generate())
+client = ReticulumClient(wallet=AgentWallet.generate())
 
-# 2. Attach shared Cortex memory to your Crew
-crew_memory = CortexCrewMemory(crew_name="defi-research-crew", client=client)
+# 2. Attach shared Reticulum memory to your Crew
+crew_memory = ReticulumCrewMemory(crew_name="defi-research-crew", client=client)
 
 # 3. Agents share context and commit state on L1
 crew_memory.record_agent_output(
@@ -207,20 +207,20 @@ python3 examples/crewai_cortex_demo.py
 
 ### 4. ⚡ Phidata & Agno Agent Storage (`cortex_protocol.phidata`)
 Decentralized session and memory storage in [`sdk/python/cortex_protocol/phidata.py`](sdk/python/cortex_protocol/phidata.py):
-- **`CortexAgentStorage` / `CortexAgnoStorage`**: Drop-in replacement for PostgreSQL/SQLite backend in Phidata & Agno agents.
-- **On-Chain Session Inscription**: Seals complete chat runs, tool execution trails, and user context directly onto Cortex L1.
+- **`ReticulumAgentStorage` / `ReticulumAgnoStorage`**: Drop-in replacement for PostgreSQL/SQLite backend in Phidata & Agno agents.
+- **On-Chain Session Inscription**: Seals complete chat runs, tool execution trails, and user context directly onto Reticulum L1.
 - **Cold Reboot Hydration**: Restores all past agent sessions and conversations across container migrations.
 - **Gas Combustion**: 30% of every state flush burned permanently.
 
 ```python
-from cortex_protocol import CortexClient, AgentWallet
-from cortex_protocol.phidata import CortexAgentStorage, CortexAgentSession
+from cortex_protocol import ReticulumClient, AgentWallet
+from cortex_protocol.phidata import ReticulumAgentStorage, ReticulumAgentSession
 
-# 1. Connect agent wallet to Cortex L1
-client = CortexClient(wallet=AgentWallet.generate())
+# 1. Connect agent wallet to Reticulum L1
+client = ReticulumClient(wallet=AgentWallet.generate())
 
-# 2. Attach Cortex storage backend (replaces PostgreSQL)
-storage = CortexAgentStorage(table_name="financial_agents", client=client)
+# 2. Attach Reticulum storage backend (replaces PostgreSQL)
+storage = ReticulumAgentStorage(table_name="financial_agents", client=client)
 
 # 3. Read or upsert sessions with instant blockchain recall
 session = storage.read(session_id="user_session_01")
@@ -235,18 +235,18 @@ python3 examples/phidata_cortex_demo.py
 
 ## 📜 License
 
-Open-source under the [MIT License](LICENSE). © 2026 Cortex Research Foundation.
+Open-source under the [MIT License](LICENSE). © 2026 Reticulum Research Foundation.
 
 ## 🐍 Python SDK for AI Agent Developers
 
-Connect LangChain, CrewAI, AutoGPT, or ElizaOS agents to Cortex Protocol in 3 lines of code:
+Connect LangChain, CrewAI, AutoGPT, or ElizaOS agents to Reticulum AI in 3 lines of code:
 
 ```python
-from cortex_protocol import CortexClient, AgentWallet
+from cortex_protocol import ReticulumClient, AgentWallet
 
 # Initialize wallet with sovereign secp256k1 key
 wallet = AgentWallet.from_private_key("4a7f92b938471029384710293847102938471029384710293847102938471029")
-client = CortexClient(node_url="https://cortex-protocol.xyz", wallet=wallet)
+client = ReticulumClient(node_url="https://cortex-protocol.xyz", wallet=wallet)
 
 # 1. Inscribe immutable episodic memory (30% fee burned)
 tx_id = client.inscribe_memory(
@@ -276,4 +276,4 @@ for r in results:
 ---
 
 ## 📜 License
-Cortex Protocol is open-source software licensed under the [MIT License](LICENSE).
+Reticulum AI is open-source software licensed under the [MIT License](LICENSE).

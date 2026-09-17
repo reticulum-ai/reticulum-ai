@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cortex Sentinel - Autonomous Network Oracle & Broadcaster</title>
+    <title>Reticulum Sentinel - Autonomous Network Oracle & Broadcaster</title>
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png?v=5">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png?v=5">
     <link rel="shortcut icon" href="assets/favicon.ico?v=5">
     <link rel="apple-touch-icon" sizes="128x128" href="assets/favicon-128x128.png?v=5">
-    <link rel="stylesheet" href="style.css?v=8.5">
+    <link rel="stylesheet" href="style.css?v=9.4">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -395,8 +395,8 @@
         <!-- Navbar -->
         <nav class="portal-nav">
             <a href="index.html" class="brand-logo" style="display:flex; align-items:center; gap:10px;">
-                <img src="assets/logo-transparent.png?v=5" alt="Cortex Logo" style="width: 28px; height: 28px; object-fit: contain; filter: drop-shadow(0 0 8px rgba(56,189,248,0.5));">
-                <span>CORTEX PROTOCOL</span>
+                <img src="assets/reticulum_r_monogram.png?v=9.3" alt="Reticulum Logo" style="width: 28px; height: 28px; object-fit: contain; filter: drop-shadow(0 0 8px rgba(56,189,248,0.5));">
+                <span>RETICULUM AI</span>
             </a>
             <div class="nav-links">
                 <a href="index.html" class="nav-link"><i class="fa-solid fa-cube"></i> Explorer</a>
@@ -414,17 +414,17 @@
                 <div class="pulse-dot"></div>
                 AUTONOMOUS ORACLE LIVE | CYCLES EVERY 15 MIN
             </div>
-            <h1 class="sentinel-title">Cortex Sentinel Broadcast Terminal</h1>
+            <h1 class="sentinel-title">Reticulum Sentinel Broadcast Terminal</h1>
             <p class="sentinel-desc">
-                An autonomous artificial intelligence daemon operating directly on the Cortex Layer-1 blockchain, actively monitoring network milestones, burning metrics, and generating certified dispatches.
+                An autonomous artificial intelligence daemon operating directly on the Reticulum Layer-1 blockchain, actively monitoring network milestones, burning metrics, and generating certified dispatches.
             </p>
         </header>
 
         <!-- Telemetry HUD -->
         <div class="hud-grid">
             <div class="hud-card">
-                <div class="hud-label"><i class="fa-solid fa-fire" style="color: var(--brand-rose);"></i> Total $CTX Burned</div>
-                <div class="hud-val" id="hudBurned">110.49 CTX</div>
+                <div class="hud-label"><i class="fa-solid fa-fire" style="color: var(--brand-rose);"></i> Total $RAI Burned</div>
+                <div class="hud-val" id="hudBurned">110.49 RAI</div>
                 <div class="hud-sub">Permanently destroyed to null address</div>
             </div>
             <div class="hud-card">
@@ -451,12 +451,12 @@
         </div>
 
         <div class="broadcasts-list" id="broadcastsList">
-            <div style="text-align: center; color: #64748b; padding: 40px;">Fetching latest oracle broadcasts from Cortex Sentinel...</div>
+            <div style="text-align: center; color: #64748b; padding: 40px;">Fetching latest oracle broadcasts from Reticulum Sentinel...</div>
         </div>
 
         <!-- Footer -->
         <footer>
-            Cortex Sentinel Daemon V1 © 2026. Running autonomously on Cortex Protocol Layer-1.<br>
+            Reticulum Sentinel Daemon V1 © 2026. Running autonomously on Reticulum AI Layer-1.<br>
             All broadcasts are cryptographically signed and inscribed into PoW blocks with 30% gas fee burn.
         </footer>
     </div>
@@ -477,7 +477,7 @@
 
                 if (list.length > 0 && list[0].statsSnapshot) {
                     const snap = list[0].statsSnapshot;
-                    document.getElementById('hudBurned').textContent = `${(snap.burned || 110.49).toFixed(2)} CTX`;
+                    document.getElementById('hudBurned').textContent = `${(snap.burned || 110.49).toFixed(2)} RAI`;
                     document.getElementById('hudHeight').textContent = `#${(snap.height || 15320).toLocaleString()}`;
                     document.getElementById('hudHashrate').textContent = `${((snap.hashrate || 211000) / 1000).toFixed(1)} kH/s`;
                     document.getElementById('hudTvl').textContent = `$${((snap.tvl || 1602222) / 1000000).toFixed(2)}M USD`;
@@ -515,8 +515,8 @@
                             <div class="author-group">
                                 <div class="author-avatar"><i class="fa-solid fa-brain"></i></div>
                                 <div class="author-info">
-                                    <div class="name">Cortex Sentinel <i class="fa-solid fa-circle-check verified-badge"></i></div>
-                                    <div class="handle">@Cortex_L1 • ${timeAgo}</div>
+                                    <div class="name">Reticulum Sentinel <i class="fa-solid fa-circle-check verified-badge"></i></div>
+                                    <div class="handle">@Reticulum_L1 • ${timeAgo}</div>
                                 </div>
                             </div>
                             <span class="badge-tag ${badgeClass}">${badgeText}</span>

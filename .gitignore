@@ -33,3 +33,10 @@ __pycache__/
 *.egg-info/
 .DS_Store
 Thumbs.db
+
+# Helper & scratch scripts
+*.py
+src/web_backup_v1/
+monitor_*.js
+index.ts
+

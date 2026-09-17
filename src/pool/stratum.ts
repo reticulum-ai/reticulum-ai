@@ -314,6 +314,29 @@ export class CortexStratumServer {
                 shareWeight
             );
 
+            // Check if this share ALSO meets the full network block difficulty!
+            const networkPrefix = '0'.repeat(job.difficulty);
+            if (typeof reportedHash === 'string' && reportedHash.startsWith(networkPrefix)) {
+                let numericNonce = 0;
+                try {
+                    numericNonce = parseInt(nonceHex, 16) || 0;
+                } catch {
+                    numericNonce = 0;
+                }
+                this.pool.submitShare({
+                    minerAddress: client.minerAddress,
+                    workerId: client.workerId,
+                    hashrate: client.calculatedHashrate,
+                    index: job.templateIndex,
+                    previousHash: job.previousHash,
+                    timestamp: job.timestamp,
+                    transactions: job.transactions,
+                    difficulty: job.difficulty,
+                    nonce: numericNonce,
+                    hash: reportedHash
+                });
+            }
+
             this.sendResponse(client, {
                 id: msgId,
                 jsonrpc: '2.0',
@@ -529,7 +552,7 @@ export class CortexStratumServer {
         this.jobs.set(jobId, job);
         this.latestJob = job;
 
-        if (this.jobs.size > 25) {
+        if (this.jobs.size > 500) {
             const oldestKey = this.jobs.keys().next().value;
             if (oldestKey) this.jobs.delete(oldestKey);
         }
@@ -539,16 +562,13 @@ export class CortexStratumServer {
 
     private checkAndBroadcastNewJob() {
         const latestBlock = this.pool.getBlockchain().getLatestBlock();
-        const now = Date.now();
+        const currentDiff = this.pool.getBlockchain().getDifficulty();
         const isHeightChanged = !this.latestJob || this.latestJob.templateIndex !== latestBlock.index + 1 || this.latestJob.previousHash !== latestBlock.hash;
-        // Refresh job every 15 seconds even if height didn't change, to include fresh mempool txs and drop purged ones!
-        const isJobStale = this.latestJob && (now - this.latestJob.createdAt > 15000);
+        const isDiffChanged = this.latestJob && (this.latestJob.difficulty !== currentDiff);
 
-        if (isHeightChanged || isJobStale) {
+        if (isHeightChanged || isDiffChanged) {
             this.generateNewJob();
-            if (isHeightChanged) {
-                this.broadcastCurrentJob();
-            }
+            this.broadcastCurrentJob();
         }
     }
 
