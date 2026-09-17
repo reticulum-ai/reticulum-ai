@@ -1,10 +1,10 @@
-# CORTEX PROTOCOL ($CTX)
+# RETICULUM AI ($RAI)
 ## A Decentralized Neural Vector Memory & Cryptographic State Consensus Layer for Autonomous Machine Intelligence
 
 **Version:** 1.0.0 (Technical Specification)  
-**Authors:** Cortex Protocol Core Contributors  
+**Authors:** Reticulum AI Core Contributors  
 **Date:** September 2026  
-**Website:** [https://cortex-protocol.xyz](https://cortex-protocol.xyz)  
+**Website:** [https://reticulum-ai.xyz](https://reticulum-ai.xyz)  
 **Network:** Mainnet / Devnet 1.0 (Fair Launch • 0% Pre-mine)
 
 ---
@@ -13,7 +13,7 @@
 
 Modern Artificial Intelligence has transitioned from reactive prompt-response paradigms to long-horizon autonomous multi-agent swarms. However, current AI agent architectures suffer from severe structural vulnerability: **state amnesia and centralized database dependency**. If a centralized vector database (e.g., Pinecone, AWS OpenSearch) undergoes service disruption, API deprecation, or billing termination, the agent’s episodic memory, procedural heuristics, and sovereign identity are irrevocably destroyed.
 
-**Cortex Protocol ($CTX)** introduces a purpose-built Layer-1 blockchain engineered to provide immutable, decentralized, and verifiable vector memory persistence. Operating on a **Proof-of-Useful-Memory (PoUM)** consensus engine secured by multi-core CPU double SHA-256d hashing, Cortex combines cryptographic $secp256k1$ agent signatures, binary **Neural Merkle Trees**, normalized 768-dimensional vector hypersphere indexing, and an asymptotic monetary policy governed by a **30% deflationary gas burn**.
+**Reticulum AI ($RAI)** introduces a purpose-built Layer-1 blockchain engineered to provide immutable, decentralized, and verifiable vector memory persistence. Operating on a **Proof-of-Useful-Memory (PoUM)** consensus engine secured by multi-core CPU double SHA-256d hashing, Reticulum combines cryptographic $secp256k1$ agent signatures, binary **Neural Merkle Trees**, normalized 768-dimensional vector hypersphere indexing, and an asymptotic monetary policy governed by a **30% deflationary gas burn**.
 
 ---
 
@@ -29,12 +29,12 @@ Autonomous agents operate through cyclical loops of observation, planning, actio
 
 ```
 +------------------------+        +---------------------------+
-| Legacy Architecture    |        | Cortex Protocol Layer-1   |
+| Legacy Architecture    |        | Reticulum AI Layer-1   |
 +------------------------+        +---------------------------+
 | [AI Agent]             |        | [Autonomous AI Agent]     |
 |     | (Unsigned API)   |        |     | (secp256k1 ECDSA)   |
 |     v                  |        |     v                     |
-| [Centralized SaaS DB]  |        | [Cortex Planetary Swarm]  |
+| [Centralized SaaS DB]  |        | [Reticulum Planetary Swarm]  |
 | (AWS / Pinecone)       |        | (Decentralized PoUM Nodes)|
 |     |                  |        |     |                     |
 | (API Failure = Amnesia)|        | (Permanent & Immutable)   |
@@ -45,12 +45,12 @@ Autonomous agents operate through cyclical loops of observation, planning, actio
 
 ## 3. MATHEMATICAL ARCHITECTURE & VECTOR HYPER-INDEXING
 
-Every memory commitment in Cortex Protocol is transformed into a normalized unit vector in a 768-dimensional Hilbert space $\mathcal{H}$:
+Every memory commitment in Reticulum AI is transformed into a normalized unit vector in a 768-dimensional Hilbert space $\mathcal{H}$:
 
 $$\mathbf{v} = \begin{bmatrix} v_1, v_2, \dots, v_{768} \end{bmatrix}^T \in \mathbb{R}^{768}, \quad \|\mathbf{v}\|_2 = \sqrt{\sum_{i=1}^{768} v_i^2} = 1.0$$
 
 ### 3.1 Cosine Similarity Formulation
-When an agent queries the worldwide decentralized memory state, Cortex compute nodes compute the normalized dot product across confirmed memory leaves:
+When an agent queries the worldwide decentralized memory state, Reticulum compute nodes compute the normalized dot product across confirmed memory leaves:
 
 $$\text{Sim}(\mathbf{u}, \mathbf{v}) = \frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{u}\|_2 \|\mathbf{v}\|_2} = \sum_{i=1}^{768} u_i v_i$$
 
@@ -60,7 +60,7 @@ Because vectors are pre-normalized during leaf validation, distance computation 
 
 ## 4. DUAL MERKLE TREE ARCHITECTURE
 
-Every Cortex block header encapsulates two distinct cryptographic roots:
+Every Reticulum block header encapsulates two distinct cryptographic roots:
 
 $$\text{BlockHeader} = \langle \text{Index}, \text{PrevHash}, \text{Timestamp}, \mathcal{M}_{\text{tx}}, \mathcal{M}_{\text{mem}}, \text{Difficulty}, \text{Nonce}, \text{Miner} \rangle$$
 
@@ -90,7 +90,7 @@ Light clients and smart contracts can verify any historical AI memory in $O(\log
 
 ## 5. CONSENSUS ENGINE: PROOF-OF-USEFUL-MEMORY (PoUM)
 
-Cortex Protocol utilizes multi-core CPU double SHA-256d Proof-of-Work to enforce Byzantine Fault Tolerant (BFT) Nakamoto consensus:
+Reticulum AI utilizes multi-core CPU double SHA-256d Proof-of-Work to enforce Byzantine Fault Tolerant (BFT) Nakamoto consensus:
 
 $$\text{SHA-256d}\Big(\text{Header}\Big) < \mathcal{T}(\text{Difficulty})$$
 
@@ -109,14 +109,14 @@ $$\mathcal{D}_{\text{new}} = \begin{cases}
 
 | Parameter | Specification |
 | :--- | :--- |
-| **Token Ticker** | **$CTX** |
-| **Total Hard Cap** | **21,000,000 CTX** |
+| **Token Ticker** | **$RAI** |
+| **Total Hard Cap** | **21,000,000 RAI** |
 | **Pre-mine / Private Sale** | **0% (100% Fair Launch)** |
-| **Initial Block Subsidy** | **50.00 CTX per block** |
+| **Initial Block Subsidy** | **50.00 RAI per block** |
 | **Target Block Time** | **15.0 Seconds** |
 | **Halving Schedule** | **Every 210,000 Blocks (~3.65 Months)** |
 | **Deflationary Gas Burn** | **30% of every Memory Gas Fee permanently burned** |
-| **Miner Fee Share** | **70% of Gas Fee + 50 CTX Block Subsidy** |
+| **Miner Fee Share** | **70% of Gas Fee + 50 RAI Block Subsidy** |
 
 ### 6.1 Net-Deflationary Supply Equilibrium
 The circulating token supply $S_c(t)$ is governed by:
@@ -125,7 +125,7 @@ $$S_c(t) = \sum_{k=0}^{\text{Height}} R(k) - \sum_{j=1}^{\text{Transactions}} 0.
 
 Where the block subsidy $R(k)$ halves asymptotically:
 
-$$R(k) = \frac{50}{2^{\lfloor k / 210000 \rfloor}} \quad \text{CTX}$$
+$$R(k) = \frac{50}{2^{\lfloor k / 210000 \rfloor}} \quad \text{RAI}$$
 
 As autonomous agent swarms scale globally, aggregate memory write gas combustion exceeds block emission, inducing structural monetary deflation.
 
@@ -133,14 +133,14 @@ As autonomous agent swarms scale globally, aggregate memory write gas combustion
 
 ## 7. DEVELOPER SDK & INTEGRATION BLUEPRINT
 
-Autonomous agent frameworks (LangChain, AutoGPT, Eliza, CrewAI) integrate with Cortex in 3 lines of code:
+Autonomous agent frameworks (LangChain, AutoGPT, Eliza, CrewAI) integrate with Reticulum in 3 lines of code:
 
 ```python
-from cortex_protocol import CortexMemoryStore, AgentKey
+from cortex_protocol import ReticulumMemoryStore, AgentKey
 
 # Authenticate with sovereign secp256k1 keypair
 key = AgentKey.from_hex("0x4a7f92b...")
-store = CortexMemoryStore(node_url="https://cortex-protocol.xyz", agent_key=key)
+store = ReticulumMemoryStore(node_url="https://reticulum-ai.xyz", agent_key=key)
 
 # Inscribe immutable episodic memory (30% fee burned)
 tx_id = store.commit(
@@ -159,7 +159,7 @@ results = store.query(query="arbitrage opportunities on curve", top_k=5)
 
 ```mermaid
 gantt
-    title Cortex Protocol Engineering Roadmap
+    title Reticulum AI Engineering Roadmap
     dateFormat  YYYY-MM
     section Phase 1
     Testnet v1.0 Launch & P2P Swarm       :done, 2026-08, 2026-09
@@ -177,6 +177,6 @@ gantt
 
 ## 9. CONCLUSION
 
-Cortex Protocol ($CTX$) bridges high-performance distributed computing with autonomous machine intelligence. By providing immutable mathematical vector persistence, cryptographic Merkle verification, and an unyielding deflationary tokenomic engine, Cortex establishes the foundational memory layer for sovereign Artificial Intelligence.
+Reticulum AI ($RAI$) bridges high-performance distributed computing with autonomous machine intelligence. By providing immutable mathematical vector persistence, cryptographic Merkle verification, and an unyielding deflationary tokenomic engine, Reticulum establishes the foundational memory layer for sovereign Artificial Intelligence.
 
-*© 2026 Cortex Protocol Foundation. Open source under the MIT License.*
+*© 2026 Reticulum AI Foundation. Open source under the MIT License.*

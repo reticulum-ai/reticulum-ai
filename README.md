@@ -101,7 +101,7 @@ Light clients verify any historical state transition via **60-byte Merkle proofs
 
 ### 2. Clone and Install
 ```bash
-git clone https://github.com/cortex-protocol/cortex-protocol.git
+git clone https://github.com/reticulum-ai/reticulum-ai.git
 cd cortex-protocol
 npm install
 npm run build

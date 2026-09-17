@@ -1,7 +1,7 @@
 {
-  "name": "@cortex-protocol/plugin-eliza",
+  "name": "@reticulum-ai/plugin-eliza",
   "version": "1.0.0",
-  "description": "Official ElizaOS Plugin for Cortex Protocol ($CTX) – Sovereign Decentralized Memory, State Anchoring, and Layer-1 PoW Settlement for Autonomous AI Agents",
+  "description": "Official ElizaOS Plugin for Reticulum Protocol ($RAI) – Sovereign Decentralized Memory, State Anchoring, and Layer-1 PoW Settlement for Autonomous AI Agents",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -14,7 +14,7 @@
     "elizaos",
     "ai-agent",
     "cortex",
-    "cortex-protocol",
+    "reticulum-ai",
     "blockchain",
     "crypto",
     "pow",
@@ -22,7 +22,7 @@
     "memory",
     "decentralized-ai"
   ],
-  "author": "Cortex Protocol Foundation",
+  "author": "Reticulum Protocol Foundation",
   "license": "MIT",
   "dependencies": {
     "elliptic": "^6.6.1"

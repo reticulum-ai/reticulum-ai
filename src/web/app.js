@@ -183,7 +183,7 @@ MINER_ADDRESS=ctx1... npm run miner`
     linux: {
         title: 'Linux Terminal (Ubuntu / Debian / CentOS)',
         code: `# 1. Clone repository & install dependencies
-git clone https://github.com/cortex-protocol/cortex-protocol.git
+git clone https://github.com/reticulum-ai/reticulum-ai.git
 cd cortex-protocol && npm install
 
 # 2. Compile & Launch Hardware Miner with optimal threads

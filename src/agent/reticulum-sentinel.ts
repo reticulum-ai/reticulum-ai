@@ -147,7 +147,7 @@ class CortexSentinel {
             id: `ai_${now}`,
             timestamp: now,
             type: 'AI_MILESTONE',
-            tweetText: `🤖 4 AI AGENT FRAMEWORKS ARE NOW LIVE ON CORTEX L1\n\n🟣 ElizaOS (@cortex-protocol/plugin-eliza)\n🦜🔗 LangChain & LangGraph checkpointer\n👥 CrewAI multi-agent shared memory\n⚡ Phidata & Agno on-chain storage\n\nZero data loss across container reboots with 3ms Edge RAG.\n\nBuild today: github.com/cortex-protocol/cortex-protocol`,
+            tweetText: `🤖 4 AI AGENT FRAMEWORKS ARE NOW LIVE ON CORTEX L1\n\n🟣 ElizaOS (@cortex-protocol/plugin-eliza)\n🦜🔗 LangChain & LangGraph checkpointer\n👥 CrewAI multi-agent shared memory\n⚡ Phidata & Agno on-chain storage\n\nZero data loss across container reboots with 3ms Edge RAG.\n\nBuild today: github.com/reticulum-ai/reticulum-ai`,
             statsSnapshot: { height: stats.height, burned: stats.totalBurned, hashrate: stats.networkHashrate, miners, tvl: dex?.tvl || 1600000 }
         });
 

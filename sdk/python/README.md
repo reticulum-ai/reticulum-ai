@@ -25,7 +25,7 @@ pip install cortex-protocol
 
 Or install from source:
 ```bash
-git clone https://github.com/cortex-protocol/cortex.git
+git clone https://github.com/reticulum-ai/cortex.git
 cd cortex/sdk/python
 pip install -e .
 ```
