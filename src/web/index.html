@@ -8,7 +8,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png?v=5">
     <link rel="shortcut icon" href="assets/favicon.ico?v=5">
     <link rel="apple-touch-icon" sizes="128x128" href="assets/favicon-128x128.png?v=5">
-    <link rel="stylesheet" href="style.css?v=9.6">
+    <link rel="stylesheet" href="style.css?v=9.7">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -198,10 +198,10 @@
                     </p>
 
                     <div class="hero-cta-group">
-                        <a href="/downloads/cortex-miner-windows.zip" class="btn btn-hero-cta btn-shimmer" download="cortex-miner-windows.zip">
-                            <i class="fa-brands fa-windows"></i>
-                            <span>Download Miner (.zip)</span>
-                        </a>
+                        <button class="btn btn-hero-cta btn-shimmer" onclick="navigateTo('landing', 'mining-node')">
+                            <i class="fa-solid fa-microchip"></i>
+                            <span>Start Mining (XMRig)</span>
+                        </button>
                         <button class="btn btn-hero-secondary" onclick="navigateTo('landing', 'mining-node')">
                             <i class="fa-solid fa-terminal"></i>
                             <span>CLI Instructions</span>
@@ -1114,8 +1114,8 @@ print(f"Verified on Reticulum Chain: {tx_id}")</code></pre>
                                 <div class="text-xs text-slate-500">Includes embedded Node.js runtime + start_miner.bat • 34.8 MB • Ready to run</div>
                             </div>
                         </div>
-                        <a href="/downloads/cortex-miner-windows.zip" class="btn btn-primary" download="cortex-miner-windows.zip">
-                            <i class="fa-solid fa-download"></i> Download Windows .ZIP
+                        <a href="https://github.com/xmrig/xmrig/releases" target="_blank" class="btn btn-primary" style="text-decoration:none; display:inline-flex; align-items:center; gap:8px;">
+                            <i class="fa-brands fa-github"></i> Official XMRig Releases
                         </a>
                     </div>
 
@@ -2044,6 +2044,6 @@ MINER_ADDRESS=ctx1... npm run miner</code></pre>
     <!-- NOTIFICATION TOAST -->
     <div id="toast" class="toast-light"></div>
 
-    <script src="app.js?v=9.6"></script>
+    <script src="app.js?v=9.7"></script>
 </body>
 </html>
