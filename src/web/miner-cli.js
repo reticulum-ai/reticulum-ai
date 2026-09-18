@@ -8,12 +8,12 @@ const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
 const readline_1 = __importDefault(require("readline"));
 const crypto_1 = require("../core/crypto");
-let NODE_URL = process.env.NODE_URL || 'https://cortex-protocol.xyz';
+let NODE_URL = process.env.NODE_URL || 'https://reticulum-ai.xyz';
 let minerAddress = process.env.MINER_ADDRESS || '';
 let allocatedThreads = Number(process.env.MINER_THREADS) || Math.max(1, Math.floor(os_1.default.cpus().length / 2));
 let miningMode = 'pool';
 let workerId = 'worker-1';
-const CONFIG_DIR = path_1.default.join(os_1.default.homedir(), '.cortex');
+const CONFIG_DIR = path_1.default.join(os_1.default.homedir(), '.reticulum');
 const CONFIG_FILE = path_1.default.join(CONFIG_DIR, 'miner_config.json');
 const rl = readline_1.default.createInterface({
     input: process.stdin,
@@ -161,7 +161,7 @@ async function setupMiner() {
         nodeUrl: NODE_URL,
         savedAt: new Date().toISOString()
     });
-    console.log('\n\x1b[32m✓ Configuration saved to ~/.cortex/miner_config.json\x1b[0m');
+    console.log('\n\x1b[32m✓ Configuration saved to ~/.reticulum/miner_config.json\x1b[0m');
     console.log('\x1b[35mStarting mining dashboard in 2 seconds...\x1b[0m');
     await new Promise(r => setTimeout(r, 2000));
 }

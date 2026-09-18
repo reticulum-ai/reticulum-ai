@@ -33,21 +33,21 @@ function notifyDiscordBlock(block: any, source: string = 'Node Miner') {
         const memoryCount = block.transactions.filter((t: any) => t.type === 'MEMORY_COMMIT').length;
 
         const payload = JSON.stringify({
-            username: 'Cortex Network Bot',
-            avatar_url: 'https://cortex-protocol.xyz/assets/logo.svg',
+            username: 'Reticulum AI Network',
+            avatar_url: 'https://reticulum-ai.xyz/assets/reticulum_r_monogram.png',
             embeds: [{
                 title: `💎 Block #${block.index} Confirmed on Layer-1`,
-                description: `Successfully mined via **RandomX CPU PoW** by \`${source}\`\n[View Block on Explorer](https://cortex-protocol.xyz)`,
-                color: 0x6366f1,
+                description: `Successfully mined via **RandomX CPU PoW** by \`${source}\`\n[View Block on Explorer](https://reticulum-ai.xyz)`,
+                color: 0xef4444,
                 fields: [
                     { name: 'Block Hash', value: `\`${shortHash}\``, inline: true },
                     { name: 'Difficulty', value: `\`${block.difficulty}\``, inline: true },
-                    { name: 'Reward', value: `**+50 $tCTX**`, inline: true },
-                    { name: 'Miner Address', value: `[\`${shortMiner}\`](https://cortex-protocol.xyz/#leaderboard)`, inline: true },
+                    { name: 'Reward', value: `**+50 $RAIX**`, inline: true },
+                    { name: 'Miner Address', value: `[\`${shortMiner}\`](https://reticulum-ai.xyz/#leaderboard)`, inline: true },
                     { name: 'Transactions', value: `\`${block.transactions.length} txs\``, inline: true },
                     { name: 'AI States Anchored', value: `\`${memoryCount} states\``, inline: true }
                 ],
-                footer: { text: 'Cortex Protocol • Incentivized Testnet 2.0' },
+                footer: { text: 'Reticulum AI • Autonomous Swarm Intelligence' },
                 timestamp: new Date().toISOString()
             }]
         });

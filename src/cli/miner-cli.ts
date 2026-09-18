@@ -55,13 +55,13 @@ if (!isMainThread) {
     runWorkerBatch();
 } else {
 
-let NODE_URL = process.env.NODE_URL || 'https://cortex-protocol.xyz';
+let NODE_URL = process.env.NODE_URL || 'https://reticulum-ai.xyz';
 let minerAddress = process.env.MINER_ADDRESS || '';
 let allocatedThreads = Number(process.env.MINER_THREADS) || Math.max(1, Math.floor(os.cpus().length / 2));
 let miningMode: 'pool' | 'solo' = 'pool';
 let workerId = 'worker-1';
 
-const CONFIG_DIR = path.join(os.homedir(), '.cortex');
+const CONFIG_DIR = path.join(os.homedir(), '.reticulum');
 const CONFIG_FILE = path.join(CONFIG_DIR, 'miner_config.json');
 
 const rl = readline.createInterface({
@@ -133,7 +133,7 @@ async function fetchJson(endpoint: string, options: any = {}): Promise<any> {
 
 async function setupMiner() {
     console.log('\x1b[36m╔══════════════════════════════════════════════════════════════════════╗\x1b[0m');
-    console.log('\x1b[36m║\x1b[0m   \x1b[1;35m🧠 CORTEX PROTOCOL ($CTX) - HARDWARE CPU & POOL MINER\x1b[0m              \x1b[36m║\x1b[0m');
+    console.log('\x1b[36m║\x1b[0m   \x1b[1;35m🧠 RETICULUM AI ($RAIX) - HARDWARE CPU & POOL MINER\x1b[0m              \x1b[36m║\x1b[0m');
     console.log('\x1b[36m╚══════════════════════════════════════════════════════════════════════╝\x1b[0m\n');
 
     const totalCpus = os.cpus().length;
@@ -205,14 +205,14 @@ async function setupMiner() {
     // 1. Choose Mining Mode
     console.log('\x1b[1mSelect Mining Strategy:\x1b[0m');
     console.log('  \x1b[36m[1]\x1b[0m \x1b[1;32mCollaborative Mining Pool (Recommended)\x1b[0m - Lower share difficulty, regular PPLNS payouts');
-    console.log('  \x1b[36m[2]\x1b[0m \x1b[1;33mSolo Hardware Mining\x1b[0m - Full 50 CTX block rewards upon solving network difficulty');
+    console.log('  \x1b[36m[2]\x1b[0m \x1b[1;33mSolo Hardware Mining\x1b[0m - Full 50 RAIX block rewards upon solving network difficulty');
     const modeChoice = (await askQuestion('\nSelect mining mode [1-2] (default: 1): ')).trim() || '1';
     miningMode = modeChoice === '2' ? 'solo' : 'pool';
 
     // 2. Choose or Create Wallet
     console.log('\n\x1b[1mPlease choose your Payout Wallet setup:\x1b[0m');
-    console.log('  \x1b[36m[1]\x1b[0m Create a NEW $CTX Wallet (Generates secp256k1 keypair)');
-    console.log('  \x1b[36m[2]\x1b[0m Enter my EXISTING $CTX Address (e.g., ctx1...)');
+    console.log('  \x1b[36m[1]\x1b[0m Create a NEW $RAIX Wallet (Generates secp256k1 keypair)');
+    console.log('  \x1b[36m[2]\x1b[0m Enter my EXISTING $RAIX Address (e.g., ctx1...)');
     console.log('  \x1b[36m[3]\x1b[0m Import via PRIVATE KEY');
 
     const choice = (await askQuestion('\nSelect wallet option [1-3] (default: 1): ')).trim() || '1';
@@ -225,7 +225,7 @@ async function setupMiner() {
         console.log(`\x1b[31mPrivate Key    :\x1b[0m \x1b[1;31m${keyPair.privateKey}\x1b[0m`);
         console.log('\x1b[90m⚠️  Please save your private key in a secure place!\x1b[0m\n');
     } else if (choice === '2') {
-        const addr = (await askQuestion('\x1b[1mEnter your $CTX payout address (ctx1...): \x1b[0m')).trim();
+        const addr = (await askQuestion('\x1b[1mEnter your $RAIX payout address (ctx1...): \x1b[0m')).trim();
         if (!addr.startsWith('ctx1') || addr.length < 20) {
             console.log('\x1b[31mInvalid address format. Defaulting to new wallet.\x1b[0m');
             const keyPair = CortexCrypto.generateKeyPair();
@@ -259,7 +259,7 @@ async function setupMiner() {
     }
 
     // 5. Node URL
-    const nodeInput = await askQuestion(`\nEnter Cortex Node URL (default: ${NODE_URL}): `);
+    const nodeInput = await askQuestion(`\nEnter Reticulum Node URL (default: ${NODE_URL}): `);
     if (nodeInput.trim()) {
         NODE_URL = nodeInput.trim();
     }
@@ -274,7 +274,7 @@ async function setupMiner() {
         savedAt: new Date().toISOString()
     });
 
-    console.log('\n\x1b[32m✓ Configuration saved to ~/.cortex/miner_config.json\x1b[0m');
+    console.log('\n\x1b[32m✓ Configuration saved to ~/.reticulum/miner_config.json\x1b[0m');
     console.log('\x1b[35mStarting mining dashboard in 2 seconds...\x1b[0m');
     await new Promise(r => setTimeout(r, 2000));
 }
@@ -444,7 +444,7 @@ async function renderMinerDashboard() {
 
         clearScreen();
         console.log('\x1b[36m╔══════════════════════════════════════════════════════════════════════╗\x1b[0m');
-        console.log('\x1b[36m║\x1b[0m   \x1b[1;35m🧠 CORTEX PROTOCOL ($CTX) - RANDOMX CPU MINER (TESTNET 2.0)\x1b[0m        \x1b[36m║\x1b[0m');
+        console.log('\x1b[36m║\x1b[0m   \x1b[1;35m🧠 RETICULUM AI ($RAIX) - RANDOMX CPU MINER (TESTNET 2.0)\x1b[0m        \x1b[36m║\x1b[0m');
         console.log('\x1b[36m╠══════════════════════════════════════════════════════════════════════╣\x1b[0m');
         
         const strategyStr = miningMode === 'pool' ? '\x1b[1;35m● COLLABORATIVE POOL (PPLNS 1% Fee)\x1b[0m' : '\x1b[1;33m● SOLO HARDWARE MINING (Direct L1)\x1b[0m';

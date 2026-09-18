@@ -5,19 +5,19 @@
 [![X (Twitter)](https://img.shields.io/badge/X-@Reticulum__L1-000000?logo=x&logoColor=white)](https://x.com/Reticulum_L1)
 [![Telegram](https://img.shields.io/badge/Telegram-Join%20Chat-24A1DE?logo=telegram&logoColor=white)](https://t.me/reticulum_ai)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Network](https://img.shields.io/badge/Network-Incentivized%20Testnet%202.0%20(Live)-6366f1.svg)](https://cortex-protocol.xyz)
-[![Consensus](https://img.shields.io/badge/Consensus-RandomX%20CPU%20PoW-10b981.svg)](https://cortex-protocol.xyz)
-[![Tokenomics](https://img.shields.io/badge/Fair%20Launch-0%25%20VC%20Premine-f59e0b.svg)](https://cortex-protocol.xyz)
-[![Deflation](https://img.shields.io/badge/Gas%20Burn-30%25%20Permanent-ef4444.svg)](https://cortex-protocol.xyz)
+[![Network](https://img.shields.io/badge/Network-Incentivized%20Testnet%202.0%20(Live)-6366f1.svg)](https://reticulum-ai.xyz)
+[![Consensus](https://img.shields.io/badge/Consensus-RandomX%20CPU%20PoW-10b981.svg)](https://reticulum-ai.xyz)
+[![Tokenomics](https://img.shields.io/badge/Fair%20Launch-0%25%20VC%20Premine-f59e0b.svg)](https://reticulum-ai.xyz)
+[![Deflation](https://img.shields.io/badge/Gas%20Burn-30%25%20Permanent-ef4444.svg)](https://reticulum-ai.xyz)
 
 ---
 
 ## 💬 Official Community
-* **Official Website**: [https://cortex-protocol.xyz](https://cortex-protocol.xyz)
+* **Official Website**: [https://reticulum-ai.xyz](https://reticulum-ai.xyz)
 * **X (Twitter)**: [@Reticulum_L1 (https://x.com/Reticulum_L1)](https://x.com/Reticulum_L1)
 * **Discord Community**: [https://discord.gg/WK7tYSse2](https://discord.gg/WK7tYSse2)
 * **Telegram Official**: [https://t.me/reticulum_ai](https://t.me/reticulum_ai)
-* **Live Incentivized Leaderboard**: [https://cortex-protocol.xyz/#leaderboard](https://cortex-protocol.xyz/#leaderboard)
+* **Live Incentivized Leaderboard**: [https://reticulum-ai.xyz/#leaderboard](https://reticulum-ai.xyz/#leaderboard)
 
 ---
 
@@ -124,7 +124,7 @@ npm run miner
 ## 📦 1-Click Standalone Windows Miner (No Setup Required)
 
 Miners on Windows can download the pre-packaged standalone zip directly:
-- **Download**: [https://cortex-protocol.xyz/downloads/reticulum-miner-windows.zip](https://cortex-protocol.xyz/downloads/reticulum-miner-windows.zip)
+- **Download**: [https://reticulum-ai.xyz/downloads/reticulum-miner-windows.zip](https://reticulum-ai.xyz/downloads/reticulum-miner-windows.zip)
 - Extract the archive and double-click **`Start-Mining-1Click.bat`** (or `Start-Mining.bat`).
 
 ---
@@ -246,7 +246,7 @@ from cortex_protocol import ReticulumClient, AgentWallet
 
 # Initialize wallet with sovereign secp256k1 key
 wallet = AgentWallet.from_private_key("4a7f92b938471029384710293847102938471029384710293847102938471029")
-client = ReticulumClient(node_url="https://cortex-protocol.xyz", wallet=wallet)
+client = ReticulumClient(node_url="https://reticulum-ai.xyz", wallet=wallet)
 
 # 1. Inscribe immutable episodic memory (30% fee burned)
 tx_id = client.inscribe_memory(
@@ -267,11 +267,11 @@ for r in results:
 
 ## 🌐 Official Network Links
 
-- **Official Web Application & Explorer**: [https://cortex-protocol.xyz](https://cortex-protocol.xyz)
-- **Official Whitepaper**: [https://cortex-protocol.xyz/whitepaper.html](https://cortex-protocol.xyz/whitepaper.html)
-- **Public REST API**: `https://cortex-protocol.xyz/api/stats`
+- **Official Web Application & Explorer**: [https://reticulum-ai.xyz](https://reticulum-ai.xyz)
+- **Official Whitepaper**: [https://reticulum-ai.xyz/whitepaper.html](https://reticulum-ai.xyz/whitepaper.html)
+- **Public REST API**: `https://reticulum-ai.xyz/api/stats`
 - **P2P Gossip Peer**: `ws://141.145.223.211:6001`
-- **Public Testnet Faucet**: [https://cortex-protocol.xyz](https://cortex-protocol.xyz) (Web Wallet Tab)
+- **Public Testnet Faucet**: [https://reticulum-ai.xyz](https://reticulum-ai.xyz) (Web Wallet Tab)
 
 ---
 
