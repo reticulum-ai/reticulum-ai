@@ -440,7 +440,7 @@ async function renderMinerDashboard() {
             const diff = currentBal - lastKnownBalance;
             lastKnownBalance = currentBal;
             const timeStr = new Date().toLocaleTimeString();
-            activityLog.unshift(`\x1b[1;32m💸 [${timeStr}] ON-CHAIN PAYOUT CONFIRMED! +${diff.toFixed(4)} CTX CREDITED!\x1b[0m`);
+            activityLog.unshift(`\x1b[1;32m💸 [${timeStr}] ON-CHAIN PAYOUT CONFIRMED! +${diff.toFixed(4)} $RAIX CREDITED!\x1b[0m`);
             if (activityLog.length > 4) activityLog.pop();
         }
 
@@ -470,18 +470,18 @@ async function renderMinerDashboard() {
         const addrStr = `\x1b[1;37m${minerAddress.substring(0, 36)}...\x1b[0m`;
         console.log(`\x1b[36m║\x1b[0m  \x1b[33mPayout Address\x1b[0m      : ${padVisible(addrStr, padW)} \x1b[36m║\x1b[0m`);
         
-        const balStr = `\x1b[1;32m${currentBal.toFixed(4)} CTX\x1b[0m`;
+        const balStr = `\x1b[1;32m${currentBal.toFixed(4)} $RAIX\x1b[0m`;
         console.log(`\x1b[36m║\x1b[0m  \x1b[1;32mWallet Balance\x1b[0m      : ${padVisible(balStr, padW)} \x1b[36m║\x1b[0m`);
         
         if (miningMode === 'pool' && poolMiner) {
             const roundEffortStr = `\x1b[1;33m${poolMiner.roundShares || poolSharesSubmitted} Shares (${poolMiner.roundEffortPercent || '100.0'}% of Round)\x1b[0m`;
             console.log(`\x1b[36m║\x1b[0m  \x1b[33mRound Contribution\x1b[0m  : ${padVisible(roundEffortStr, padW)} \x1b[36m║\x1b[0m`);
 
-            const blockEstStr = `\x1b[1;35m~${(poolMiner.estimatedBlockReward || 49.50).toFixed(2)} CTX on Block Mined\x1b[0m`;
+            const blockEstStr = `\x1b[1;35m~${(poolMiner.estimatedBlockReward || 49.50).toFixed(2)} $RAIX on Block Mined\x1b[0m`;
             console.log(`\x1b[36m║\x1b[0m  \x1b[33mEst. Block Reward\x1b[0m   : ${padVisible(blockEstStr, padW)} \x1b[36m║\x1b[0m`);
         }
         
-        const earnStr = `\x1b[1;33m+${onChainGained.toFixed(4)} CTX (${miningMode === 'pool' ? poolSharesSubmitted + ' total shares' : localBlocksFound + ' blocks'})\x1b[0m`;
+        const earnStr = `\x1b[1;33m+${onChainGained.toFixed(4)} $RAIX (${miningMode === 'pool' ? poolSharesSubmitted + ' total shares' : localBlocksFound + ' blocks'})\x1b[0m`;
         console.log(`\x1b[36m║\x1b[0m  \x1b[33mSession Earnings\x1b[0m    : ${padVisible(earnStr, padW)} \x1b[36m║\x1b[0m`);
         
         console.log('\x1b[36m╠══════════════════════════════════════════════════════════════════════╣\x1b[0m');
@@ -507,8 +507,8 @@ async function renderMinerDashboard() {
         const netHrBoxStr = `\x1b[1;36m${netHrFormatted} (L1 Consensus)\x1b[0m`;
         console.log(`\x1b[36m║\x1b[0m  \x1b[34mGlobal Net Hashrate\x1b[0m : ${padVisible(netHrBoxStr, padW)} \x1b[36m║\x1b[0m`);
 
-        const burnStr = `\x1b[1;31m${stats.totalBurned.toFixed(3)} CTX 🔥\x1b[0m`;
-        console.log(`\x1b[36m║\x1b[0m  \x1b[34mTotal Burned CTX\x1b[0m    : ${padVisible(burnStr, padW)} \x1b[36m║\x1b[0m`);
+        const burnStr = `\x1b[1;31m${stats.totalBurned.toFixed(3)} $RAIX 🔥\x1b[0m`;
+        console.log(`\x1b[36m║\x1b[0m  \x1b[34mTotal Burned $RAIX\x1b[0m    : ${padVisible(burnStr, padW)} \x1b[36m║\x1b[0m`);
         
         console.log('\x1b[36m╠══════════════════════════════════════════════════════════════════════╣\x1b[0m');
         
