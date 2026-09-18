@@ -46,9 +46,23 @@ function saveConfig(config) {
         console.error('Error saving miner config:', e);
     }
 }
+function sanitizeNodeUrl(rawUrl) {
+    if (!rawUrl) return 'https://reticulum-ai.xyz';
+    let clean = rawUrl.trim();
+    clean = clean.replace(/::+/g, ':');
+    if (clean.includes(':3333')) {
+        clean = clean.replace(':3333', '');
+    }
+    if (!clean.startsWith('http://') && !clean.startsWith('https://')) {
+        clean = 'https://' + clean;
+    }
+    clean = clean.replace(/\/+$/, '');
+    return clean;
+}
+
 async function fetchJson(endpoint, options = {}) {
     try {
-        const url = `${NODE_URL.replace(/\/+$/, '')}${endpoint}`;
+        const url = `${sanitizeNodeUrl(NODE_URL)}${endpoint}`;
         const res = await fetch(url, {
             ...options,
             body: options.body ? (typeof options.body === 'string' ? options.body : JSON.stringify(options.body)) : undefined,
@@ -89,7 +103,7 @@ async function setupMiner() {
             miningMode = saved.miningMode || 'pool';
             workerId = saved.workerId || 'worker-1';
             allocatedThreads = saved.threads || allocatedThreads;
-            NODE_URL = saved.nodeUrl || NODE_URL;
+            NODE_URL = sanitizeNodeUrl(saved.nodeUrl || NODE_URL);
             return;
         }
     }
@@ -150,7 +164,7 @@ async function setupMiner() {
     // 5. Node URL
     const nodeInput = await askQuestion(`\nEnter Reticulum Node URL (default: ${NODE_URL}): `);
     if (nodeInput.trim()) {
-        NODE_URL = nodeInput.trim();
+        NODE_URL = sanitizeNodeUrl(nodeInput.trim());
     }
     // Save configuration
     saveConfig({

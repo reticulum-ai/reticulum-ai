@@ -108,9 +108,23 @@ function saveConfig(config: any) {
     }
 }
 
+function sanitizeNodeUrl(rawUrl: string): string {
+    if (!rawUrl) return 'https://reticulum-ai.xyz';
+    let clean = rawUrl.trim();
+    clean = clean.replace(/::+/g, ':');
+    if (clean.includes(':3333')) {
+        clean = clean.replace(':3333', '');
+    }
+    if (!clean.startsWith('http://') && !clean.startsWith('https://')) {
+        clean = 'https://' + clean;
+    }
+    clean = clean.replace(/\/+$/, '');
+    return clean;
+}
+
 async function fetchJson(endpoint: string, options: any = {}): Promise<any> {
     try {
-        const url = `${NODE_URL.replace(/\/+$/, '')}${endpoint}`;
+        const url = `${sanitizeNodeUrl(NODE_URL)}${endpoint}`;
         const res = await fetch(url, {
             ...options,
             body: options.body ? (typeof options.body === 'string' ? options.body : JSON.stringify(options.body)) : undefined,
@@ -164,7 +178,7 @@ async function setupMiner() {
         minerAddress = cliAddress;
         if (cliThreads && cliThreads >= 1) allocatedThreads = Math.min(cliThreads, totalCpus);
         if (cliMode) miningMode = cliMode;
-        if (cliNode) NODE_URL = cliNode;
+        if (cliNode) NODE_URL = sanitizeNodeUrl(cliNode);
         console.log(`\x1b[32m[AUTO-START]\x1b[0m Payout Address : \x1b[1;32m${minerAddress}\x1b[0m`);
         console.log(`\x1b[32m[AUTO-START]\x1b[0m Mining Mode    : \x1b[1;35m${miningMode.toUpperCase()}\x1b[0m`);
         console.log(`\x1b[32m[AUTO-START]\x1b[0m CPU Threads    : \x1b[1;33m${allocatedThreads} Threads\x1b[0m`);
@@ -197,7 +211,7 @@ async function setupMiner() {
             miningMode = saved.miningMode || 'pool';
             workerId = saved.workerId || 'worker-1';
             allocatedThreads = saved.threads || allocatedThreads;
-            NODE_URL = saved.nodeUrl || NODE_URL;
+            NODE_URL = sanitizeNodeUrl(saved.nodeUrl || NODE_URL);
             return;
         }
     }
@@ -261,7 +275,7 @@ async function setupMiner() {
     // 5. Node URL
     const nodeInput = await askQuestion(`\nEnter Reticulum Node URL (default: ${NODE_URL}): `);
     if (nodeInput.trim()) {
-        NODE_URL = nodeInput.trim();
+        NODE_URL = sanitizeNodeUrl(nodeInput.trim());
     }
 
     // Save configuration
