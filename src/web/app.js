@@ -1127,10 +1127,7 @@ function searchCurrentWallet() {
 
 async function fetchExplorerTelemetry() {
     try {
-        const [statsRes, memsRes] = await Promise.all([
-            fetch('/api/stats').then(r => r.json()).catch(() => ({})),
-            fetch('/api/memories').then(r => r.json()).catch(() => ([]))
-        ]);
+        const statsRes = await fetch('/api/stats').then(r => r.json()).catch(() => ({}));
 
         const elHeight = document.getElementById('exp-stat-height');
         const elHashrate = document.getElementById('exp-stat-hashrate');
@@ -1160,8 +1157,8 @@ async function fetchExplorerTelemetry() {
             elDiff.textContent = `Diff ${statsRes.difficulty}`;
         }
 
-        if (elMems && Array.isArray(memsRes)) {
-            elMems.textContent = `${memsRes.length} Vectors`;
+        if (elMems && statsRes.totalMemories !== undefined) {
+            elMems.textContent = `${statsRes.totalMemories} Vectors`;
         }
 
         if (elBurned && statsRes.totalBurned !== undefined) {
@@ -1796,7 +1793,7 @@ function renderBlocksTable() {
 // MEMORIES
 async function fetchMemories() {
     try {
-        const res = await fetch('/api/memories');
+        const res = await fetch('/api/memories?limit=20');
         const memories = await res.json();
         const container = document.getElementById('memory-feed-container');
         if (!container) return;

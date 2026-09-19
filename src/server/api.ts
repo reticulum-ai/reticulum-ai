@@ -415,7 +415,8 @@ export function createApiServer(
     // --- AI MEMORY & SEMANTIC SEARCH ENDPOINTS ---
 
     app.get('/api/memories', (req, res) => {
-        const { agentId, topic, memoryType } = req.query;
+        const { agentId, topic, memoryType, limit } = req.query;
+        const maxLimit = limit ? Math.min(Number(limit), 100) : 20;
         const confirmed = blockchain.queryMemories({
             agentId: agentId as string,
             topic: topic as string,
@@ -444,7 +445,8 @@ export function createApiServer(
                 });
             }
         }
-        res.json([...normalizedConfirmed, ...pending]);
+        const allMemories = [...normalizedConfirmed, ...pending];
+        res.json(allMemories.slice(-maxLimit));
     });
 
     // SEMANTIC VECTOR SEARCH (COSINE SIMILARITY TOP-K)
