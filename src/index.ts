@@ -23,7 +23,7 @@ const p2p = new P2PNetwork(blockchain, P2P_PORT, PEERS);
 
 import https from 'https';
 
-const DISCORD_WEBHOOK_URL = process.env.DISCORD_WEBHOOK_URL || 'https://discord.com/api/webhooks/1545577139359846520/n31MX7B8kdFZReiDr8cVQXbhgxJSfPQs_PoX4sSY50eKXtFAjYtcDtvN6yI2aBa9qBuZ';
+const DISCORD_WEBHOOK_URL = process.env.DISCORD_WEBHOOK_URL || '';
 
 function notifyDiscordBlock(block: any, source: string = 'Node Miner') {
     if (!DISCORD_WEBHOOK_URL) return;
