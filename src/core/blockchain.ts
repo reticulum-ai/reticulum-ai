@@ -603,15 +603,16 @@ export class Blockchain {
         const startBlock = this.chain[this.chain.length - 1 - count];
         const endBlock = this.chain[this.chain.length - 1];
 
-        const timeSpanSeconds = (endBlock.timestamp - startBlock.timestamp) / 1000;
-        if (timeSpanSeconds <= 0) {
-            const latestDiff = endBlock.difficulty;
-            return Math.round(Math.pow(16, latestDiff) / this.config.targetBlockTimeSeconds);
-        }
+        const blockSpan = Math.max(1, (endBlock.timestamp - startBlock.timestamp) / 1000);
+        const elapsedSinceTip = Math.max(0, (Date.now() - endBlock.timestamp) / 1000);
+        const timeSpanSeconds = blockSpan + elapsedSinceTip;
 
         let totalHashes = 0;
         for (let i = this.chain.length - count; i < this.chain.length; i++) {
             const b = this.chain[i];
+            if (endBlock.index >= CortexRandomX.FORK_BLOCK_HEIGHT && b.index < CortexRandomX.FORK_BLOCK_HEIGHT) {
+                continue;
+            }
             totalHashes += Math.pow(16, b.difficulty);
         }
 

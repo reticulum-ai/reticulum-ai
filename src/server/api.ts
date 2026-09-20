@@ -1,3 +1,4 @@
+import { CortexRandomX } from '../core/randomx';
 const recentRejectedSubmissions = new Set<string>();
 setInterval(() => {
     if (recentRejectedSubmissions.size > 2000) recentRejectedSubmissions.clear();
@@ -51,9 +52,16 @@ export function createApiServer(
         if (recentBlocks.length >= 2) {
             const startBlock = recentBlocks[0];
             const endBlock = recentBlocks[recentBlocks.length - 1];
-            timeSpanSeconds = Math.max(1, (endBlock.timestamp - startBlock.timestamp) / 1000);
+            // Include elapsed real time since the last block so hashrate decays when mining pauses
+            const blockSpanSeconds = Math.max(1, (endBlock.timestamp - startBlock.timestamp) / 1000);
+            const elapsedSinceTip = Math.max(0, (Date.now() - endBlock.timestamp) / 1000);
+            timeSpanSeconds = blockSpanSeconds + elapsedSinceTip;
 
             for (const b of recentBlocks) {
+                // Ignore pre-fork legacy GPU blocks when reporting post-fork active hashrate
+                if (endBlock.index >= CortexRandomX.FORK_BLOCK_HEIGHT && b.index < CortexRandomX.FORK_BLOCK_HEIGHT) {
+                    continue;
+                }
                 const hashes = Math.pow(16, b.difficulty);
                 if (b.minerAddress === poolAddress || b.minerAddress === 'ctx10736408b13f3b0bd730731d9c29a4f2aa8ba8d09b9d68f18') {
                     poolHashes += hashes;
@@ -72,7 +80,7 @@ export function createApiServer(
         const localMinerHashrate = minerStats.hashrate || 0;
 
         // Global network hashrate reflects active pool workers + solo miners
-        const networkHashrate = Math.max(stats.networkHashrate, poolHashrate + soloHashrate, localMinerHashrate);
+        const networkHashrate = poolHashrate + soloHashrate + localMinerHashrate;
 
         res.json({
             ...stats,
