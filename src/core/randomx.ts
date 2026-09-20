@@ -1,33 +1,48 @@
-﻿import crypto from 'crypto';
+import crypto from 'crypto';
 
 /**
- * CORTEX PROTOCOL - ASIC-RESISTANT RANDOMX CPU POW ENGINE
+ * RETICULUM AI PROTOCOL - ASIC-RESISTANT & GPU-IMMUNE RANDOMX CPU POW ENGINE
  * 
- * High-performance, zero-allocation memory-bound RandomX VM implementation.
+ * v1: 32 KB scratchpad, 64 VM iterations (historical blocks < FORK_BLOCK_HEIGHT)
+ * v2.1: 2 MB (2,048 KB) L3-cache-bound scratchpad, 128 VM iterations (blocks >= FORK_BLOCK_HEIGHT)
+ *       Monero rx/0 memory hardness standard: exceeds GPU shared memory / L1 cache (128KB max per SM),
+ *       forcing GPU threads into catastrophic VRAM memory stalls while consumer CPUs execute natively in L3 cache.
  */
 
 export class CortexRandomX {
-    public static readonly SCRATCHPAD_WORDS = 4096; // 32 KB L1/L2 cache-resident scratchpad
-    public static readonly VM_ITERATIONS = 64;     // Optimized instruction cycles per hash
+    public static readonly FORK_BLOCK_HEIGHT = 36040; // v2.1 CPU Supremacy Hard Fork Activation Block
+
+    public static readonly SCRATCHPAD_WORDS_V1 = 4096;   // 32 KB (4096 * 8 bytes)
+    public static readonly SCRATCHPAD_WORDS_V2 = 262144; // 2 MB (262144 * 8 bytes = 2,097,152 bytes)
+    public static readonly VM_ITERATIONS_V1 = 64;
+    public static readonly VM_ITERATIONS_V2 = 128;
     public static readonly EPOCH_BLOCKS = 2048;
 
     // Pre-allocated static buffers to avoid GC pressure
-    private static readonly sharedScratchpad = new BigInt64Array(CortexRandomX.SCRATCHPAD_WORDS);
+    private static readonly sharedScratchpadV1 = new BigInt64Array(CortexRandomX.SCRATCHPAD_WORDS_V1);
+    private static readonly sharedScratchpadV2 = new BigInt64Array(CortexRandomX.SCRATCHPAD_WORDS_V2);
     private static readonly sharedRegisters = new BigInt64Array(8);
     private static readonly sharedFloats = new Float64Array(4);
     private static readonly sharedFinalBuf = Buffer.alloc(64);
 
     /**
-     * Compute RandomX hash of a block header with zero-allocation speed
+     * Compute RandomX hash of a block header with zero-allocation speed.
+     * Selects v1 (32KB) for historical blocks or v2.1 (2MB L3-bound) for post-fork blocks.
      */
-    public static hash(header: string, seed: string = 'cortex-randomx-genesis-seed-v1'): string {
-        const scratchpad = this.sharedScratchpad;
+    public static hash(header: string, seed: string = 'cortex-randomx-genesis-seed-v1', blockIndex?: number): string {
+        const isV2 = (blockIndex !== undefined && blockIndex >= this.FORK_BLOCK_HEIGHT) ||
+                     seed.includes('v2') ||
+                     seed.includes('reticulum-randomx-v2');
+
+        const words = isV2 ? this.SCRATCHPAD_WORDS_V2 : this.SCRATCHPAD_WORDS_V1;
+        const iterations = isV2 ? this.VM_ITERATIONS_V2 : this.VM_ITERATIONS_V1;
+        const scratchpad = isV2 ? this.sharedScratchpadV2 : this.sharedScratchpadV1;
         const r = this.sharedRegisters;
         const f = this.sharedFloats;
 
         // Step 1: Initialize Scratchpad using Seed & Header
         let key = crypto.createHash('sha512').update(`${header}:${seed}`).digest();
-        for (let i = 0; i < this.SCRATCHPAD_WORDS; i += 8) {
+        for (let i = 0; i < words; i += 8) {
             for (let j = 0; j < 8; j++) {
                 scratchpad[i + j] = key.readBigInt64LE((j * 8) % 64);
             }
@@ -46,10 +61,10 @@ export class CortexRandomX {
         }
 
         // Step 3: Random Instruction VM Execution Loop
-        const mask = this.SCRATCHPAD_WORDS - 1;
+        const mask = words - 1;
         const seedBytes = Buffer.from(seed, 'utf8');
 
-        for (let iter = 0; iter < this.VM_ITERATIONS; iter++) {
+        for (let iter = 0; iter < iterations; iter++) {
             const opCode = (initialDigest[iter % 64] ^ seedBytes[iter % seedBytes.length]) % 10;
             const srcIdx = (iter + 1) % 8;
             const dstIdx = iter % 8;
@@ -106,15 +121,18 @@ export class CortexRandomX {
         return h2;
     }
 
-    public static verify(header: string, hash: string, difficulty: number, seed?: string): boolean {
+    public static verify(header: string, hash: string, difficulty: number, seed?: string, blockIndex?: number): boolean {
         const targetPrefix = '0'.repeat(difficulty);
         if (!hash.startsWith(targetPrefix)) return false;
-        const calculated = this.hash(header, seed);
+        const calculated = this.hash(header, seed, blockIndex);
         return calculated === hash;
     }
 
     public static getSeedForBlock(blockIndex: number): string {
         const epoch = Math.floor(blockIndex / this.EPOCH_BLOCKS);
+        if (blockIndex >= this.FORK_BLOCK_HEIGHT) {
+            return `reticulum-randomx-v2-epoch-${epoch}`;
+        }
         return `cortex-randomx-epoch-${epoch}`;
     }
 }

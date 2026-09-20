@@ -429,7 +429,7 @@ export class CortexStratumServer {
         }
 
         const header = `${job.headerPrefix}${numericNonce}${job.headerSuffix}`;
-        const computedHash = CortexRandomX.hash(header, job.seed);
+        const computedHash = CortexRandomX.hash(header, job.seed, job.templateIndex);
         const validShare = computedHash.startsWith('0'.repeat(job.shareDifficulty));
 
         if (validShare) {

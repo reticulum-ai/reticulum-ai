@@ -86,7 +86,7 @@ export class CortexMiner {
             const chunkLimit = Math.min(CHUNK_SIZE, maxIterations - hashes);
             for (let i = 0; i < chunkLimit; i++) {
                 const header = `${headerPrefix}${nonce}${headerSuffix}`;
-                const hash = CortexRandomX.hash(header, seed);
+                const hash = CortexRandomX.hash(header, seed, nextIndex);
                 hashes++;
                 this.totalHashes++;
 

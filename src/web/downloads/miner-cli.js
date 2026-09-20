@@ -36,7 +36,7 @@ if (!worker_threads_1.isMainThread) {
         const BATCH = 1500;
         for (let i = 0; i < BATCH; i++) {
             const header = `${headerPrefix}${nonce}${headerSuffix}`;
-            const hash = randomx_1.CortexRandomX.hash(header, seed);
+            const hash = randomx_1.CortexRandomX.hash(header, seed, templateIndex);
             if (hash.startsWith(targetPrefix)) {
                 worker_threads_1.parentPort?.postMessage({
                     type: 'found',

@@ -35,7 +35,7 @@ if (!isMainThread) {
 
         for (let i = 0; i < BATCH; i++) {
             const header = `${headerPrefix}${nonce}${headerSuffix}`;
-            const hash = CortexRandomX.hash(header, seed);
+            const hash = CortexRandomX.hash(header, seed, templateIndex);
 
             if (hash.startsWith(targetPrefix)) {
                 parentPort?.postMessage({

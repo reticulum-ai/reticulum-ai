@@ -1,3 +1,4 @@
+import { CortexRandomX } from './randomx';
 import { Block, IBlock } from './block';
 import { Transaction, CORTEX_BURN_ADDRESS } from './transaction';
 import { Mempool } from './mempool';
@@ -192,6 +193,13 @@ export class Blockchain {
         const latestBlock = this.getLatestBlock();
 
         let baseDifficulty = latestBlock.difficulty;
+
+        // Hard Fork v2.1 Difficulty Transition (Anti-GPU):
+        // Automatically lower difficulty target to CPU range (4) for smooth post-fork CPU blocks
+        if (latestBlock.index >= CortexRandomX.FORK_BLOCK_HEIGHT && latestBlock.index <= CortexRandomX.FORK_BLOCK_HEIGHT + 15 && baseDifficulty > 4) {
+            return 4;
+        }
+
         if (latestBlock.index !== 0 && latestBlock.index % this.config.difficultyAdjustmentInterval === 0) {
             const prevAdjustmentBlock = this.chain[this.chain.length - this.config.difficultyAdjustmentInterval];
             const actualTime = (latestBlock.timestamp - prevAdjustmentBlock.timestamp) / 1000;

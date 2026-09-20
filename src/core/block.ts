@@ -56,7 +56,7 @@ export class Block implements IBlock {
     public calculateHash(): string {
         const header = `${this.index}:${this.previousHash}:${this.timestamp}:${this.merkleRoot}:${this.memoryRoot}:${this.difficulty}:${this.nonce}:${this.minerAddress}`;
         const seed = CortexRandomX.getSeedForBlock(this.index);
-        return CortexRandomX.hash(header, seed);
+        return CortexRandomX.hash(header, seed, this.index);
     }
 
     /**
