@@ -41,13 +41,25 @@ export class CortexRandomX {
         const f = this.sharedFloats;
 
         // Step 1: Initialize Scratchpad using Seed & Header
-        let key = crypto.createHash('sha512').update(`${header}:${seed}`).digest();
-        for (let i = 0; i < words; i += 8) {
-            for (let j = 0; j < 8; j++) {
-                scratchpad[i + j] = key.readBigInt64LE((j * 8) % 64);
+        // For v1 (32KB): use historical SHA-512 expansion to preserve 100% exact backward compatibility
+        if (!isV2) {
+            let key = crypto.createHash('sha512').update(`${header}:${seed}`).digest();
+            for (let i = 0; i < words; i += 8) {
+                for (let j = 0; j < 8; j++) {
+                    scratchpad[i + j] = key.readBigInt64LE((j * 8) % 64);
+                }
+                if (i % 64 === 0) {
+                    key = crypto.createHash('sha512').update(key).digest();
+                }
             }
-            if (i % 64 === 0) {
-                key = crypto.createHash('sha512').update(key).digest();
+        } else {
+            // For v2.1 (2MB Monero-grade): Fast native AES-256 keystream expansion (sub-millisecond, zero event-loop lag)
+            const seedKey = crypto.createHash('sha256').update(`${header}:${seed}`).digest();
+            const iv = Buffer.alloc(16, 0);
+            const cipher = crypto.createCipheriv('aes-256-ctr', seedKey, iv);
+            const keystream = cipher.update(Buffer.alloc(words * 8));
+            for (let i = 0; i < words; i++) {
+                scratchpad[i] = keystream.readBigInt64LE(i * 8);
             }
         }
 

@@ -47,7 +47,7 @@ export class Block implements IBlock {
         
         this.merkleRoot = this.calculateMerkleRoot();
         this.memoryRoot = this.calculateMemoryRoot();
-        this.hash = hash || this.calculateHash();
+        this.hash = hash || (nonce !== 0 ? this.calculateHash() : '');
     }
 
     /**
