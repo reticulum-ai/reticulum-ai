@@ -1,3 +1,7 @@
+const recentRejectedSubmissions = new Set<string>();
+setInterval(() => {
+    if (recentRejectedSubmissions.size > 2000) recentRejectedSubmissions.clear();
+}, 20000);
 import { VaultGuardian } from "../agent/vault-guardian";
 import express from 'express';
 import cors from 'cors';
@@ -1519,6 +1523,15 @@ export function createApiServer(
                 return res.status(400).json({ error: 'Invalid block submission parameters.' });
             }
 
+            const latestBlock = blockchain.getLatestBlock();
+            if (Number(index) !== latestBlock.index + 1) {
+                return res.status(400).json({ error: `Stale block index ${index}. Tip is #${latestBlock.index}` });
+            }
+
+            if (recentRejectedSubmissions.has(hash)) {
+                return res.status(400).json({ error: 'Duplicate invalid block submission.' });
+            }
+
             const block = new Block(
                 Number(index),
                 previousHash,
@@ -1542,6 +1555,7 @@ export function createApiServer(
                     hash: block.hash
                 });
             } else {
+                recentRejectedSubmissions.add(hash);
                 res.status(400).json({ error: addRes.error });
             }
         } catch (err: any) {
