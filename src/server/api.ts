@@ -59,6 +59,9 @@ export function createApiServer(
 
             for (const b of recentBlocks) {
                 // Ignore pre-fork legacy GPU blocks when reporting post-fork active hashrate
+                if (endBlock.index >= CortexRandomX.FORK_V2_2_BLOCK_HEIGHT && b.index < CortexRandomX.FORK_V2_2_BLOCK_HEIGHT) {
+                    continue;
+                }
                 if (endBlock.index >= CortexRandomX.FORK_BLOCK_HEIGHT && b.index < CortexRandomX.FORK_BLOCK_HEIGHT) {
                     continue;
                 }

@@ -194,6 +194,12 @@ export class Blockchain {
 
         let baseDifficulty = latestBlock.difficulty;
 
+        // Hard Fork v2.2 Difficulty Transition (Anti-GPU Titan-CPU):
+        // Automatically lower difficulty target to CPU range (4) for smooth post-fork CPU blocks starting at fork block
+        if (latestBlock.index >= CortexRandomX.FORK_V2_2_BLOCK_HEIGHT - 1 && latestBlock.index <= CortexRandomX.FORK_V2_2_BLOCK_HEIGHT + 15 && baseDifficulty > 4) {
+            return 4;
+        }
+
         // Hard Fork v2.1 Difficulty Transition (Anti-GPU):
         // Automatically lower difficulty target to CPU range (4) for smooth post-fork CPU blocks
         if (latestBlock.index >= CortexRandomX.FORK_BLOCK_HEIGHT && latestBlock.index <= CortexRandomX.FORK_BLOCK_HEIGHT + 15 && baseDifficulty > 4) {
@@ -610,6 +616,9 @@ export class Blockchain {
         let totalHashes = 0;
         for (let i = this.chain.length - count; i < this.chain.length; i++) {
             const b = this.chain[i];
+            if (endBlock.index >= CortexRandomX.FORK_V2_2_BLOCK_HEIGHT && b.index < CortexRandomX.FORK_V2_2_BLOCK_HEIGHT) {
+                continue;
+            }
             if (endBlock.index >= CortexRandomX.FORK_BLOCK_HEIGHT && b.index < CortexRandomX.FORK_BLOCK_HEIGHT) {
                 continue;
             }
